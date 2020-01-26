@@ -2,25 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : EquipableSpell
+public class FireBall : MonoBehaviour, EquipableSpell
 {
-    public void OnEquip()
+    public FireBall()
     {
 
     }
 
-    public void OnTriggerDown()
+    public new void OnEquip()
+    {
+        Debug.Log("I am Fireball");
+    }
+
+    public new void OnTriggerDown()
     {
 
     }
 
-    public void OnTriggerHeld()
+    public new void OnTriggerHeld()
     {
 
     }
 
 
-    public void OnTriggerUp()
+    public new void OnTriggerUp()
     {
 
     }
