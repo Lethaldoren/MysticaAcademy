@@ -6,6 +6,10 @@ public class FireBall : MonoBehaviour, EquipableSpell
 {
     public GameObject fireballPrefab;
     GameObject fireball;
+    Rigidbody frb;
+
+    public float speed;
+
 
     public FireBall()
     {
@@ -20,7 +24,9 @@ public class FireBall : MonoBehaviour, EquipableSpell
 
     public new void OnTriggerDown()
     {
-        //create fireball in hand
+        //create fireball and change parent
+        fireball = Instantiate(fireball, transform.parent = gameObject.transform);
+        frb = fireball.GetComponent<Rigidbody>();
     }
 
     public new void OnTriggerHeld()
@@ -32,7 +38,16 @@ public class FireBall : MonoBehaviour, EquipableSpell
 
     public new void OnTriggerUp()
     {
-        //shoot fireball here
+        //records position at release and unparents from hand and moves to position at release
+        Transform currentPosition = fireball.transform;
+        fireball.transform.parent = null;
+        fireball.transform.position = currentPosition.transform.position;
+
+        //shoots fireball forward at speed
+        if (frb != null) {
+            frb.AddRelativeForce(Vector3.forward * speed);
+        }
+        //destroy prefab after 5 seconds or contact
     }
 
 }
