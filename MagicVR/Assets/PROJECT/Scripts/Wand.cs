@@ -73,10 +73,11 @@ namespace Valve.VR.InteractionSystem
         // Update is called once per frame
         void Update()
         {
-           /*
+           
             if (m_FireAction.GetStateDown(m_Pose.inputSource))
             {
                 EquipedSpell.OnTriggerDown();
+                Debug.Log("Fire");
                 CastingSpell = true; 
             }
 
@@ -90,7 +91,7 @@ namespace Valve.VR.InteractionSystem
                 EquipedSpell.OnTriggerUp();
                 CastingSpell = false; 
             }
-*/
+
         }
 
 

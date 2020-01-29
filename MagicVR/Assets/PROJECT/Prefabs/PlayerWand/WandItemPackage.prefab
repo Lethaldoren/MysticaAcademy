@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Wand
   packageType: 1
-  itemPrefab: {fileID: 9216691881048079101, guid: 4eea10adf1d8f5f44b538acb7dbbd3c5,
+  itemPrefab: {fileID: 2203276228566018111, guid: 4eea10adf1d8f5f44b538acb7dbbd3c5,
     type: 3}
   otherHandItemPrefab: {fileID: 0}
   previewPrefab: {fileID: 0}

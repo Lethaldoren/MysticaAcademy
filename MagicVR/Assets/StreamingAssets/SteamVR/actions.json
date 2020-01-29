@@ -81,6 +81,10 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/wand/in/cast",
+      "type": "boolean"
     }
   ],
   "action_sets": [
@@ -98,6 +102,10 @@
     },
     {
       "name": "/actions/mixedreality",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/wand",
       "usage": "single"
     }
   ],
