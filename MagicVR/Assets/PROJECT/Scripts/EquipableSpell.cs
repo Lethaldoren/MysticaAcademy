@@ -1,16 +1,19 @@
 ﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public interface EquipableSpell
+public class EquipableSpell : MonoBehaviour
 {
+    public string magicWords;
+    public GameObject spellPrefab;
+
     // what occurs when the spell is originally equiped
-    void OnEquip();
-
-    void OnTriggerDown();
-
-    void OnTriggerHeld();
-
-    void OnTriggerUp();
+    public void OnEquip() { }
+    public void OnTriggerDown() { }
+    public void OnTriggerHeld() { }
+    public void OnTriggerUp() { }
+    public void OnUnequip() { }
 }

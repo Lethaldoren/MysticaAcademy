@@ -21,79 +21,87 @@ namespace Valve.VR.InteractionSystem
         private SteamVR_Behaviour_Pose m_Pose = null;
         private bool CastingSpell;
 
-        private EquipableSpell EquipedSpell; // the currently equiped spell; 
-        public List<EquipableSpell> AllSpells = new List<EquipableSpell>();
+        // the currently equiped spell;
+        [SerializeField]
+        private EquipableSpell EquipedSpell;
+        private EquipableSpell[] AllSpells;
 
-        public List<String> spellNames = new List<string>();
+        List<string> spellWords = new List<string>();
 
-        private String EquipedSpellName; 
+        private string EquipedSpellName;
 
-        private KeywordRecognizer keywordRecognizer; // this is what reconizes voice commands and activates the functions
+        // this is what reconizes voice commands and activates the functions
+        private KeywordRecognizer keywordRecognizer; 
 
-        // Start is called before the first frame update
+        // -------------------------------------------------------
+
         void Start()
         {
             //search for every monobehaviour using the equipable spell interface. 
-            foreach (MonoBehaviour MB in gameObject.GetComponentsInChildren<MonoBehaviour>()){
+            //foreach (MonoBehaviour MB in gameObject.GetComponentsInChildren<MonoBehaviour>()){
 
-                if (MB is EquipableSpell)
-                {
-                    EquipableSpell equipableSpell = (EquipableSpell)MB;
-                    AllSpells.Add(equipableSpell);
-                }
-            }
+            //    if (MB is EquipableSpell)
+            //    {
+            //        //EquipableSpell equipableSpell = (EquipableSpell)MB;
+            //        //AllSpells.Add(equipableSpell);
+            //    }
+            //}
 
             //convert the names of every spell into strings readable by the keyword recognizer
-            foreach (EquipableSpell equipableSpell in AllSpells)
+            AllSpells = SpellManager.Instance.GetComponents<EquipableSpell>();
+            foreach (EquipableSpell spell in AllSpells)
             {
-                String spellName = StringModifiers.AddSpacesToSentence(equipableSpell.GetType().ToString());
-                spellNames.Add(spellName);
+                spellWords.Add(spell.magicWords);
             }
 
-            keywordRecognizer = new KeywordRecognizer(spellNames.ToArray()); // this adds all actions in the dictionary to the voice commands the keywordRecognizer will listen for
+            keywordRecognizer = new KeywordRecognizer(spellWords.ToArray()); // this adds all actions in the dictionary to the voice commands the keywordRecognizer will listen for
             keywordRecognizer.OnPhraseRecognized += PhraseRecognized;
             keywordRecognizer.Start(); // you can turn the keyword recongnizer on or off
 
             m_Pose = GetComponentInParent<SteamVR_Behaviour_Pose>();
         }
 
+        // ------------------------------------------------------------
+
         private void PhraseRecognized(PhraseRecognizedEventArgs speech)
         {
             //change the word recongnized by the phrase recongnizer to the name of the monobehavior
-            EquipedSpellName = StringModifiers.RemoveWhitespace(speech.text);
+            //EquipedSpellName = StringModifiers.RemoveWhitespace(speech.text);
             if (!CastingSpell)
             {
-                EquipedSpell = AllSpells.Find((x) => x.GetType().ToString() == EquipedSpellName);
+                EquipedSpell = AllSpells.First(s => s.magicWords == speech.text);
                 Debug.Log("Spell Equiped! : " + speech.text);
             }
-
+            EquipedSpell = Instantiate(EquipedSpell, transform);
             EquipedSpell.OnEquip();
         }
 
-        // Update is called once per frame
+        // --------------------------------------------------------------
+
         void Update()
         {
-           
-            if (m_FireAction.GetStateDown(m_Pose.inputSource))
-            {
-                EquipedSpell.OnTriggerDown();
-                Debug.Log("Fire");
-                CastingSpell = true; 
-            }
 
-            if (CastingSpell)
-            {
-                EquipedSpell.OnTriggerHeld();
-            }
+            //if (m_FireAction.GetStateDown(m_Pose.inputSource))
+            //{
+            //    EquipedSpell.OnTriggerDown();
+            //    Debug.Log("Fire");
+            //    CastingSpell = true; 
+            //}
 
-            if (m_FireAction.GetStateUp(m_Pose.inputSource))
-            {
-                EquipedSpell.OnTriggerUp();
-                CastingSpell = false; 
-            }
+            //if (CastingSpell)
+            //{
+            //    //EquipedSpell.OnTriggerHeld();
+            //}
+
+            //if (m_FireAction.GetStateUp(m_Pose.inputSource))
+            //{
+            //    //EquipedSpell.OnTriggerUp();
+            //    CastingSpell = false; 
+            //}
 
         }
 
+        // ------------------------------------------------------------------
 
     }
 

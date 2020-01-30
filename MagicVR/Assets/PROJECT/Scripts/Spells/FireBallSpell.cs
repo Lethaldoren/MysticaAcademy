@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : MonoBehaviour, EquipableSpell
+public class FireBallSpell : EquipableSpell
 {
-    public GameObject fireballPrefab;
     public Transform wandTip;
     GameObject fireball;
     Rigidbody frb;
@@ -18,21 +17,21 @@ public class FireBall : MonoBehaviour, EquipableSpell
         //create fireball particle effect and have it on hand
     }
 
-    public void OnTriggerDown()
+    public new void OnTriggerDown()
     {
         //create fireball and change parent
-        fireball = Instantiate(fireballPrefab, wandTip);
+        fireball = Instantiate(spellPrefab, wandTip);
         frb = fireball.GetComponent<Rigidbody>();
     }
 
-    public void OnTriggerHeld()
+    public new void OnTriggerHeld()
     {
         //keep fireball in hand until trigger released
         //give croshair for shot direction
     }
 
 
-    public void OnTriggerUp()
+    public new void OnTriggerUp()
     {
         //records position at release and unparents from hand and moves to position at release
         Transform currentPosition = fireball.transform;
@@ -44,6 +43,11 @@ public class FireBall : MonoBehaviour, EquipableSpell
             frb.AddRelativeForce(Vector3.forward * speed);
         }
         //destroy prefab after 5 seconds or contact
+    }
+
+    public new void OnUnequip()
+    {
+
     }
 
 }
