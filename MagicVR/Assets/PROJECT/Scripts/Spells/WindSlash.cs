@@ -102,7 +102,7 @@ public class WindSlash : MonoBehaviour, EquipableSpell
         /* spawn slash at point between start and end position
          * adjust angle based on those values
          * scale based on points
-         * add velocity to move away from head position
+         * add velocity to move away from head position (change to hand position average through swipe)
          * destroy after X seconds
          */
     }
