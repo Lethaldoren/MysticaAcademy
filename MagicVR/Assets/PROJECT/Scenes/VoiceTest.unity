@@ -138,11 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.806
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.67
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -212,8 +212,6 @@ GameObject:
   m_Component:
   - component: {fileID: 108348106}
   - component: {fileID: 108348105}
-  - component: {fileID: 108348108}
-  - component: {fileID: 108348107}
   m_Layer: 0
   m_Name: Spell Manager
   m_TagString: Untagged
@@ -233,6 +231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21844eaa36fdce4cb5d2d57a638c0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellList:
+  - {fileID: 4224198229072051721, guid: e57a195c6d1def5418a95157deb2af6a, type: 3}
+  - {fileID: 688764778275877820, guid: 971c7181332fa7c49a9e6cd2b3bd747b, type: 3}
 --- !u!4 &108348106
 Transform:
   m_ObjectHideFlags: 0
@@ -247,36 +248,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &108348107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108348104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adaaf6e15f0f63c48b6940306fc8a106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magicWords: Magma Ball
-  spellPrefab: {fileID: 0}
-  wandTip: {fileID: 0}
---- !u!114 &108348108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108348104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db4d5bd66753d34a96b7182b25d1ad6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  magicWords: Fire Ball
-  spellPrefab: {fileID: 0}
-  wandTip: {fileID: 0}
 --- !u!1 &322024948
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 354374126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.428, y: 1.35, z: -5.9}
+  m_LocalPosition: {x: 1.037, y: 0.872, z: 0.723}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1932862163}
@@ -942,7 +913,7 @@ GameObject:
   - component: {fileID: 1055696181}
   - component: {fileID: 1055696180}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: fake wand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

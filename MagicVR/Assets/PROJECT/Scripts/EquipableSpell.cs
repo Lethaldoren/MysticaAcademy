@@ -5,15 +5,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[Serializable]
 public class EquipableSpell : MonoBehaviour
 {
     public string magicWords;
     public GameObject spellPrefab;
 
     // what occurs when the spell is originally equiped
-    public void OnEquip() { }
-    public void OnTriggerDown() { }
-    public void OnTriggerHeld() { }
-    public void OnTriggerUp() { }
-    public void OnUnequip() { }
+    public virtual void OnEquip()
+    {
+        print("fuck you");
+    }
+    public virtual void OnTriggerDown() { }
+    public virtual void OnTriggerHeld() { }
+    public virtual void OnTriggerUp() { }
+    public virtual void OnUnequip()
+    {
+        Destroy(gameObject);
+    }
 }

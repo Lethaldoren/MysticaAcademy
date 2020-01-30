@@ -10,28 +10,27 @@ public class MagmaBallSpell : EquipableSpell
 
     float speed = 4000;
 
-
-    public new void OnEquip()
+    public override void OnEquip()
     {
         Debug.Log("I am Magmaball");
         //create fireball particle effect and have it on hand
     }
 
-    public new void OnTriggerDown()
+    public override void OnTriggerDown()
     {
         //create fireball and change parent
         fireball = Instantiate(spellPrefab, wandTip);
         frb = fireball.GetComponent<Rigidbody>();
     }
 
-    public new void OnTriggerHeld()
+    public override void OnTriggerHeld()
     {
         //keep fireball in hand until trigger released
         //give croshair for shot direction
     }
 
 
-    public new void OnTriggerUp()
+    public override void OnTriggerUp()
     {
         //records position at release and unparents from hand and moves to position at release
         Transform currentPosition = fireball.transform;
@@ -46,7 +45,7 @@ public class MagmaBallSpell : EquipableSpell
         //destroy prefab after 5 seconds or contact
     }
 
-    public new void OnUnequip()
+    public override void OnUnequip()
     {
 
     }

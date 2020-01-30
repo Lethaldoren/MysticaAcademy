@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Events;
 
 
 using UnityEngine.Windows.Speech;
@@ -12,47 +13,33 @@ namespace Valve.VR.InteractionSystem
     [RequireComponent(typeof(Interactable))]
     public class Wand : MonoBehaviour
     {
-
-        public SteamVR_Action_Boolean m_FireAction = null; 
+        public SteamVR_Action_Boolean m_FireAction = null;
         public Transform m_WandTip = null;
-
 
         //private vartiables
         private SteamVR_Behaviour_Pose m_Pose = null;
         private bool CastingSpell;
 
-        // the currently equiped spell;
+        // the currently equiped spell
         [SerializeField]
         private EquipableSpell EquipedSpell;
-        private EquipableSpell[] AllSpells;
-
-        List<string> spellWords = new List<string>();
-
+        [SerializeField]
         private string EquipedSpellName;
 
+        // the list of all spells
+        private EquipableSpell[] allSpells;
+        private List<string> spellWords = new List<string>();
+
         // this is what reconizes voice commands and activates the functions
-        private KeywordRecognizer keywordRecognizer; 
+        private KeywordRecognizer keywordRecognizer;
 
         // -------------------------------------------------------
 
         void Start()
         {
-            //search for every monobehaviour using the equipable spell interface. 
-            //foreach (MonoBehaviour MB in gameObject.GetComponentsInChildren<MonoBehaviour>()){
-
-            //    if (MB is EquipableSpell)
-            //    {
-            //        //EquipableSpell equipableSpell = (EquipableSpell)MB;
-            //        //AllSpells.Add(equipableSpell);
-            //    }
-            //}
-
-            //convert the names of every spell into strings readable by the keyword recognizer
-            AllSpells = SpellManager.Instance.GetComponents<EquipableSpell>();
-            foreach (EquipableSpell spell in AllSpells)
-            {
-                spellWords.Add(spell.magicWords);
-            }
+            //get all spell words from spell manager
+            allSpells = SpellManager.Instance.spellList;
+            spellWords = allSpells.Select(s => s.magicWords).ToList();
 
             keywordRecognizer = new KeywordRecognizer(spellWords.ToArray()); // this adds all actions in the dictionary to the voice commands the keywordRecognizer will listen for
             keywordRecognizer.OnPhraseRecognized += PhraseRecognized;
@@ -65,39 +52,54 @@ namespace Valve.VR.InteractionSystem
 
         private void PhraseRecognized(PhraseRecognizedEventArgs speech)
         {
-            //change the word recongnized by the phrase recongnizer to the name of the monobehavior
-            //EquipedSpellName = StringModifiers.RemoveWhitespace(speech.text);
-            if (!CastingSpell)
-            {
-                EquipedSpell = AllSpells.First(s => s.magicWords == speech.text);
-                Debug.Log("Spell Equiped! : " + speech.text);
-            }
-            EquipedSpell = Instantiate(EquipedSpell, transform);
-            EquipedSpell.OnEquip();
+            EquipSpell(speech.text);
         }
 
-        // --------------------------------------------------------------
+        private void EquipSpell(string spellName)
+        {
+            if (!CastingSpell)
+            {
+                if (EquipedSpell) EquipedSpell.OnUnequip();
+
+                EquipedSpell = allSpells.First(s => s.magicWords == spellName);
+                Debug.Log("Spell Equiped! : " + spellName);
+
+                EquipedSpell = Instantiate(EquipedSpell, transform).GetComponent<EquipableSpell>();
+                print(EquipedSpell.GetType() + " | " + EquipedSpell.name);
+                EquipedSpell.OnEquip();
+            }
+        }
+
+        // -------------------------------------------------------------
 
         void Update()
         {
+            // [DEBUG] Equip fireball
+            // if (Input.GetKeyDown(KeyCode.F))
+            // {
+            //     EquipSpell("Fire Ball");
+            // }
 
-            //if (m_FireAction.GetStateDown(m_Pose.inputSource))
-            //{
-            //    EquipedSpell.OnTriggerDown();
-            //    Debug.Log("Fire");
-            //    CastingSpell = true; 
-            //}
+            if (m_FireAction.GetStateDown(m_Pose.inputSource))
+            // if (Input.GetKeyDown(KeyCode.Space)) // DEBUG INPUT
+            {
+                EquipedSpell.OnTriggerDown();
+                Debug.Log("Fire");
+                CastingSpell = true;
+            }
 
-            //if (CastingSpell)
-            //{
-            //    //EquipedSpell.OnTriggerHeld();
-            //}
+            if (CastingSpell && m_FireAction.GetState(m_Pose.inputSource))
+            // if (Input.GetKey(KeyCode.Space)) // DEBUG INPUT
+            {
+                EquipedSpell.OnTriggerHeld();
+            }
 
-            //if (m_FireAction.GetStateUp(m_Pose.inputSource))
-            //{
-            //    //EquipedSpell.OnTriggerUp();
-            //    CastingSpell = false; 
-            //}
+            if (m_FireAction.GetStateUp(m_Pose.inputSource))
+            // if (Input.GetKeyUp(KeyCode.Space)) // DEBUG INPUT
+            {
+                EquipedSpell.OnTriggerUp();
+                CastingSpell = false;
+            }
 
         }
 
