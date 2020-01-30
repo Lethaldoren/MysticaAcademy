@@ -7,26 +7,28 @@ namespace Valve.VR.InteractionSystem
 {
     public class WindSlash : MonoBehaviour, EquipableSpell
     {
-        SteamVR_TrackedObject trackedObject;
-        SteamVR_Controller.Device device = SteamVR_Controller.Input((int)trackedObj.index);
+        //gets hand input and position of hand
+        public SteamVR_Input_Sources Hand;
+        public SteamVR_Action_Pose position;
 
-        public new void onEquip()
-        {
+        private Vector3 velocity;
+
+        public new void OnEquip() {
             Debug.Log("I am Wind Slash");
         }
 
-        public void onTriggerDown()
-        {
-            //track position of controller
+        public void OnTriggerDown() {
+
         }
 
-        public void OnTriggerHeld()
-        {
-            Vector3 vel = device.velocity;
-            if (velocity > 0)
-            {
-                debug.log("you're moving the controller");
-                debug.log(velocity);
+        public void OnTriggerHeld() {
+            //gets velocity of hand
+            velocity = position.GetVelocity(Hand);
+
+            //checks if hand is moving
+            if (velocity.x > Vector3.zero.x) {
+                Debug.Log("you're moving the controller");
+                Debug.Log(velocity);
             }
             //check for velocity and if controller is moving fast
             //check if it moved 20cm 
@@ -34,8 +36,7 @@ namespace Valve.VR.InteractionSystem
             //fire slash in that direction
         }
 
-        public void OnTriggerUp()
-        {
+        public void OnTriggerUp() {
 
         }
     }

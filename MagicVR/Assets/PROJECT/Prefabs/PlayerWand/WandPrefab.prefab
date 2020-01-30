@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 9094016841479253388}
   - component: {fileID: 1998438623478652559}
-  - component: {fileID: 6680329142591421409}
   - component: {fileID: 5921126528341038104}
   - component: {fileID: 5293087356221079252}
+  - component: {fileID: 6680329142591421409}
   - component: {fileID: 2466890972098555919}
+  - component: {fileID: 8552064460980527799}
   m_Layer: 0
   m_Name: WandPrefab
   m_TagString: Untagged
@@ -89,23 +90,6 @@ MonoBehaviour:
   highlightOnHover: 1
   hideHighlight: []
   hoverPriority: 0
---- !u!114 &6680329142591421409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2203276228566018111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81d04dadf7f52ee498f5442de3712129, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FireAction:
-    actionPath: /actions/wand/in/cast
-    needsReinit: 0
-  m_WandTip: {fileID: 2584550923298244338}
-  spellNames: []
 --- !u!114 &5921126528341038104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +116,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5240357a2468cdc4291b266bee3cb9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6680329142591421409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2203276228566018111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d04dadf7f52ee498f5442de3712129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FireAction:
+    actionPath: /actions/wand/in/cast
+    needsReinit: 0
+  m_WandTip: {fileID: 2584550923298244338}
+  spellNames: []
 --- !u!114 &2466890972098555919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +148,22 @@ MonoBehaviour:
   fireballPrefab: {fileID: 4827939979123987100, guid: 925b0173e6f1f4d43ac1181b59d02121,
     type: 3}
   wandTip: {fileID: 2584550923298244338}
+--- !u!114 &8552064460980527799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2203276228566018111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511ebbc7d2b5ca54491096bf537cb686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hand: 2
+  position:
+    actionPath: /actions/default/in/Pose
+    needsReinit: 0
 --- !u!1 &3747304973677219790
 GameObject:
   m_ObjectHideFlags: 0
