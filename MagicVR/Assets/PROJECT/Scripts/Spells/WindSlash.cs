@@ -10,9 +10,17 @@ public class WindSlash : MonoBehaviour, EquipableSpell
 {
     //gets hand input and position of hand
     public SteamVR_Input_Sources Hand;
-    public SteamVR_Action_Pose position;
+    public SteamVR_Action_Pose handPosition;
+    public SteamVR_Input_Sources Head;
+    public SteamVR_Action_Pose headPosition;
+
+    public GameObject slashPrefab;
+    Rigidbody srb;
+    public float speed;
 
     private Vector3 velocity;
+    private Vector3 startPos;
+    private Vector3 endPos;
 
     float swingTimer;
 
@@ -30,7 +38,8 @@ public class WindSlash : MonoBehaviour, EquipableSpell
     public void OnTriggerHeld()
     {
         //gets velocity of hand
-        velocity = position.GetVelocity(Hand);
+        velocity = handPosition.GetVelocity(Hand);
+        srb = slashPrefab.GetComponent<Rigidbody>();
 
         //checks if hand is moving ====remove after testing====
         if (velocity.x > Vector3.zero.x)
@@ -47,13 +56,14 @@ public class WindSlash : MonoBehaviour, EquipableSpell
             swingTimer += Time.deltaTime;
 
             //gets position of hand when it moves fast enough
-            Vector3 startPos = position.localPosition;
+            startPos = handPosition.localPosition;
 
             if (swingTimer >= 0.4f)
             {
+                //chacks if hand slows down to finish the slash
                 if (swingTimer < 5)
                 {
-                    Vector3 endPos = position.localPosition;
+                    endPos = handPosition.localPosition;
                     swingTimer = 0;
                     spawnSlash();
                 }
@@ -70,11 +80,21 @@ public class WindSlash : MonoBehaviour, EquipableSpell
 
     }
 
+    //spawns slash prefab in location, rotation, and scale that was drawn then makes it move
     private void spawnSlash()
     {
+        Vector3 midPoint = (startPos + endPos) / 2;
+
+        //spawns object in space and adjusts rotation based on points
+        GameObject slash = Instantiate(slashPrefab, midPoint, Quaternion.FromToRotation(Vector3.up, endPos - startPos));
+
+        //add velocity based on headset position 
+        Vector3 positionOfHead = headPosition.localPosition;
+        srb.AddRelativeForce((positionOfHead - slash.transform.position).normalized * speed); //swap transformes if it moves towards
 
         /* spawn slash at point between start and end position
          * adjust angle based on those values
+         * scale based on points
          * add velocity to move away from head position
          * destroy after X seconds
          */
