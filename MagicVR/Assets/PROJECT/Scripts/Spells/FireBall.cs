@@ -5,10 +5,11 @@ using UnityEngine;
 public class FireBall : MonoBehaviour, EquipableSpell
 {
     public GameObject fireballPrefab;
+    public Transform wandTip;
     GameObject fireball;
     Rigidbody frb;
 
-    public float speed;
+    float speed = 4000;
 
 
     public new void OnEquip()
@@ -20,7 +21,7 @@ public class FireBall : MonoBehaviour, EquipableSpell
     public void OnTriggerDown()
     {
         //create fireball and change parent
-        fireball = Instantiate(fireballPrefab, gameObject.transform);
+        fireball = Instantiate(fireballPrefab, wandTip);
         frb = fireball.GetComponent<Rigidbody>();
     }
 

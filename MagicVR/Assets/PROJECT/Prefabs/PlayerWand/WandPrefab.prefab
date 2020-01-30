@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireballPrefab: {fileID: 4827939979123987100, guid: 925b0173e6f1f4d43ac1181b59d02121,
     type: 3}
-  speed: 10
+  wandTip: {fileID: 2584550923298244338}
 --- !u!1 &3747304973677219790
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5317373586419167007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0533, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9094016841479253388}
