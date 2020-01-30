@@ -11,32 +11,27 @@ public class FireBall : MonoBehaviour, EquipableSpell
     public float speed;
 
 
-    public FireBall()
-    {
-
-    }
-
     public new void OnEquip()
     {
         Debug.Log("I am Fireball");
         //create fireball particle effect and have it on hand
     }
 
-    public new void OnTriggerDown()
+    public void OnTriggerDown()
     {
         //create fireball and change parent
-        fireball = Instantiate(fireball, transform.parent = gameObject.transform);
+        fireball = Instantiate(fireballPrefab, gameObject.transform);
         frb = fireball.GetComponent<Rigidbody>();
     }
 
-    public new void OnTriggerHeld()
+    public void OnTriggerHeld()
     {
         //keep fireball in hand until trigger released
         //give croshair for shot direction
     }
 
 
-    public new void OnTriggerUp()
+    public void OnTriggerUp()
     {
         //records position at release and unparents from hand and moves to position at release
         Transform currentPosition = fireball.transform;
