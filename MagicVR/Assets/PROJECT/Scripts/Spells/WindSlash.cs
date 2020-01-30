@@ -88,6 +88,13 @@ public class WindSlash : MonoBehaviour, EquipableSpell
         //spawns object in space and adjusts rotation based on points
         GameObject slash = Instantiate(slashPrefab, midPoint, Quaternion.FromToRotation(Vector3.up, endPos - startPos));
 
+        //change scale of prefab based on 2 points
+        float scaleX = Mathf.Abs(startPos.x - endPos.x);
+        float scaleY = Mathf.Abs(startPos.y - endPos.y);
+        float scaleZ = Mathf.Abs(startPos.z - endPos.z);
+
+        slash.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
+
         //add velocity based on headset position 
         Vector3 positionOfHead = headPosition.localPosition;
         srb.AddRelativeForce((positionOfHead - slash.transform.position).normalized * speed); //swap transformes if it moves towards
