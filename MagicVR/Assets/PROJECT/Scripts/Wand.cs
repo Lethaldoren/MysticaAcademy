@@ -74,7 +74,7 @@ namespace Valve.VR.InteractionSystem
         void Update()
         {
            
-            if (m_FireAction.GetStateDown(m_Pose.inputSource))
+/*            if (m_FireAction.GetStateDown(m_Pose.inputSource))
             {
                 EquipedSpell.OnTriggerDown();
                 Debug.Log("Fire");
@@ -90,7 +90,7 @@ namespace Valve.VR.InteractionSystem
             {
                 EquipedSpell.OnTriggerUp();
                 CastingSpell = false; 
-            }
+            }*/
 
         }
 
