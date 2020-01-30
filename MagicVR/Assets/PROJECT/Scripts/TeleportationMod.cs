@@ -16,6 +16,7 @@ namespace Valve.VR.InteractionSystem
 
         private float teleporting;
 
+        public Hand hand; 
 
         public SteamVR_Action_Vector2 actionTurning; 
 
@@ -44,8 +45,11 @@ namespace Valve.VR.InteractionSystem
 
         void PlaceDirectionMarker ()
         {
+
             directionMarker = Teleport.instance.destinationReticleTransform;
-           // directionMarker.rotation =
+            float targetRotation = Vector2.Angle(Vector2.up, actionTurning.GetAxis(m_Pose.inputSource));
+            directionMarker.rotation = Quaternion.AngleAxis(targetRotation, Vector3.up);
+
         }
 
         void SetDirection()
