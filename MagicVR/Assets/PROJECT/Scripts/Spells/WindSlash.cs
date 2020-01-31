@@ -1,12 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 using Valve.VR;
-using Valve.VR.InteractionSystem;
 
-
-public class WindSlash : MonoBehaviour, EquipableSpell
+public class WindSlash : SpellBase
 {
     //gets hand input and position of hand
     public SteamVR_Input_Sources Hand;
@@ -30,12 +25,12 @@ public class WindSlash : MonoBehaviour, EquipableSpell
         swingTimer = 0;
     }
 
-    public void OnTriggerDown()
+    public override void OnTriggerDown()
     {
 
     }
 
-    public void OnTriggerHeld()
+    public override void OnTriggerHeld()
     {
         //gets velocity of hand
         velocity = handPosition.GetVelocity(Hand);
@@ -75,10 +70,16 @@ public class WindSlash : MonoBehaviour, EquipableSpell
         }
     }
 
-    public void OnTriggerUp()
+    public override void OnTriggerUp()
     {
 
     }
+
+    public override void OnUnequip()
+    {
+        base.OnUnequip();
+    }
+
 
     //spawns slash prefab in location, rotation, and scale that was drawn then makes it move
     private void spawnSlash()
