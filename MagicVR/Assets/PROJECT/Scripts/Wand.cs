@@ -1,11 +1,11 @@
-﻿using System;
+﻿// Comment and uncomment to toggle debug input
+//#define DEBUG_INPUT
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
-
-
 using UnityEngine.Windows.Speech;
 
 namespace Valve.VR.InteractionSystem
@@ -13,6 +13,7 @@ namespace Valve.VR.InteractionSystem
     [RequireComponent(typeof(Interactable))]
     public class Wand : MonoBehaviour
     {
+
         public SteamVR_Action_Boolean m_FireAction = null;
         public Transform m_WandTip = null;
 
@@ -22,12 +23,12 @@ namespace Valve.VR.InteractionSystem
 
         // the currently equiped spell
         [SerializeField]
-        private EquipableSpell EquipedSpell;
+        private SpellBase EquipedSpell;
         [SerializeField]
         private string EquipedSpellName;
 
         // the list of all spells
-        private EquipableSpell[] allSpells;
+        private SpellBase[] allSpells;
         private List<string> spellWords = new List<string>();
 
         // this is what reconizes voice commands and activates the functions
@@ -61,10 +62,11 @@ namespace Valve.VR.InteractionSystem
             {
                 if (EquipedSpell) EquipedSpell.OnUnequip();
 
-                EquipedSpell = allSpells.First(s => s.magicWords == spellName);
+                var newSpell = allSpells.First(s => s.magicWords == spellName);
+                EquipedSpell = gameObject.AddComponent(newSpell.GetType()) as SpellBase;
                 Debug.Log("Spell Equiped! : " + spellName);
 
-                EquipedSpell = Instantiate(EquipedSpell, transform).GetComponent<EquipableSpell>();
+                // EquipedSpell = Instantiate(EquipedSpell, transform).GetComponent<EquipableSpell>();
                 print(EquipedSpell.GetType() + " | " + EquipedSpell.name);
                 EquipedSpell.OnEquip();
             }
@@ -74,28 +76,43 @@ namespace Valve.VR.InteractionSystem
 
         void Update()
         {
+#if DEBUG_INPUT
             // [DEBUG] Equip fireball
-            // if (Input.GetKeyDown(KeyCode.F))
-            // {
-            //     EquipSpell("Fire Ball");
-            // }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                EquipSpell("Fire Ball");
+            }
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                EquipSpell("Magma Ball");
+            }
+#endif
 
+#if DEBUG_INPUT
+            if (Input.GetKeyDown(KeyCode.Space)) // DEBUG INPUT
+#else
             if (m_FireAction.GetStateDown(m_Pose.inputSource))
-            // if (Input.GetKeyDown(KeyCode.Space)) // DEBUG INPUT
+#endif
             {
                 EquipedSpell.OnTriggerDown();
                 Debug.Log("Fire");
                 CastingSpell = true;
             }
 
+#if DEBUG_INPUT
+            if (Input.GetKey(KeyCode.Space)) // DEBUG INPUT
+#else
             if (CastingSpell && m_FireAction.GetState(m_Pose.inputSource))
-            // if (Input.GetKey(KeyCode.Space)) // DEBUG INPUT
-            {
+#endif
+                {
                 EquipedSpell.OnTriggerHeld();
             }
 
+#if DEBUG_INPUT
+            if (Input.GetKeyUp(KeyCode.Space)) // DEBUG INPUT
+#else
             if (m_FireAction.GetStateUp(m_Pose.inputSource))
-            // if (Input.GetKeyUp(KeyCode.Space)) // DEBUG INPUT
+#endif
             {
                 EquipedSpell.OnTriggerUp();
                 CastingSpell = false;

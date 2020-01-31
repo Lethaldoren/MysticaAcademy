@@ -950,6 +950,7 @@ MonoBehaviour:
     needsReinit: 0
   m_WandTip: {fileID: 0}
   EquipedSpell: {fileID: 0}
+  EquipedSpellName: 
 --- !u!114 &1055696181
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagmaBallSpell : EquipableSpell
+public class MagmaBallSpell : SpellBase
 {
     public Transform wandTip;
     GameObject fireball;
     Rigidbody frb;
 
     float speed = 4000;
+
+    public MagmaBallSpell()
+    {
+        base.magicWords = "Magma Ball";
+    }
 
     public override void OnEquip()
     {
@@ -47,7 +52,7 @@ public class MagmaBallSpell : EquipableSpell
 
     public override void OnUnequip()
     {
-
+        Destroy(this);
     }
 
 }

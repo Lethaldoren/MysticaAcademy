@@ -6,5 +6,5 @@ using UnityEngine;
 
 public class SpellManager : SingletonBase<SpellManager>
 {
-    public EquipableSpell[] spellList;
+    public SpellBase[] spellList;
 }

@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBallSpell : EquipableSpell
+public class FireBallSpell : SpellBase
 {
     public Transform wandTip;
     GameObject fireball;
     Rigidbody frb;
 
     float speed = 4000;
+
+    public FireBallSpell()
+    {
+        base.magicWords = "Fire Ball";
+    }
 
     public override void OnEquip()
     {
@@ -47,7 +52,7 @@ public class FireBallSpell : EquipableSpell
 
     public override void OnUnequip()
     {
-        base.OnUnequip();
+        Destroy(this);
     }
 
 }
