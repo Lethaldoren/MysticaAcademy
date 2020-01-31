@@ -51,7 +51,7 @@
     },
     {
       "name": "/actions/default/in/TeleportTurn",
-      "type": "vector2"
+      "type": "boolean"
     },
     {
       "name": "/actions/default/out/Haptic",
