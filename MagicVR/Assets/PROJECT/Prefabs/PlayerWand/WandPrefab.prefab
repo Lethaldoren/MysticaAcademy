@@ -161,9 +161,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hand: 2
-  position:
+  handPosition:
     actionPath: /actions/default/in/Pose
     needsReinit: 0
+  Head: 9
+  headPosition:
+    actionPath: /actions/mixedreality/in/ExternalCamera
+    needsReinit: 0
+  slashPrefab: {fileID: 0}
 --- !u!1 &3747304973677219790
 GameObject:
   m_ObjectHideFlags: 0
