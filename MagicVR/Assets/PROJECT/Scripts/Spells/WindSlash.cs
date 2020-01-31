@@ -82,7 +82,7 @@ public class WindSlash : SpellBase
 
 
     //spawns slash prefab in location, rotation, and scale that was drawn then makes it move
-    private void spawnSlash()
+    private void SpawnSlash()
     {
         Vector3 midPoint = (startPos + endPos) / 2;
 
