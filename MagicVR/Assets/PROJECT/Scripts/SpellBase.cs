@@ -26,8 +26,9 @@ public abstract class SpellBase : MonoBehaviour
         Debug.LogError("This method should have been overridden, u fucked up");
     }
 
+    // Except this one i guess
     public virtual void OnUnequip()
     {
-        Debug.LogError("This method should have been overridden, u fucked up");
+        Destroy(this);
     }
 }

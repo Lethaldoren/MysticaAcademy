@@ -60,7 +60,7 @@ public class WindSlash : SpellBase
                 {
                     endPos = handPosition.localPosition;
                     swingTimer = 0;
-                    spawnSlash();
+                    SpawnSlash();
                 }
             }
         }
