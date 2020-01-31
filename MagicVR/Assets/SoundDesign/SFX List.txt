@@ -1,0 +1,12 @@
+List of Sound Effects we need:
+
+- Fire Ball sfx
+- Wind Slash sfx
+- Lightning sfx
+- Finsher Move sfx
+- Teleporting sfx
+- Goblin grunts
+- Goblin yelling (death) sfx
+- Boss noises
+- Boss death 
+- ambience/background theme (needs to loop) 
