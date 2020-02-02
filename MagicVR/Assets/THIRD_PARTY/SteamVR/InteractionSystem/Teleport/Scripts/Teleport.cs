@@ -14,6 +14,7 @@ namespace Valve.VR.InteractionSystem
 	public class Teleport : MonoBehaviour
     {
         public SteamVR_Action_Boolean teleportAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport");
+        public SteamVR_Action_Boolean holdAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("HoldTeleport");
 
         public LayerMask traceLayerMask;
 		public LayerMask floorFixupTraceLayerMask;
@@ -68,18 +69,21 @@ namespace Valve.VR.InteractionSystem
 		private LineRenderer pointerLineRenderer;
 		private GameObject teleportPointerObject;
 		private Transform pointerStartTransform;
-		private Hand pointerHand = null;
+        [HideInInspector]
+		public Hand pointerHand = null;
 		private Player player = null;
 		private TeleportArc teleportArc = null;
 
-		private bool visible = false;
+        [HideInInspector]
+		public bool visible = false;
 
 		private TeleportMarkerBase[] teleportMarkers;
 		private TeleportMarkerBase pointedAtTeleportMarker;
 		private TeleportMarkerBase teleportingToMarker;
 		private Vector3 pointedAtPosition;
 		private Vector3 prevPointedAtPosition;
-		private bool teleporting = false;
+        [HideInInspector]
+		public bool teleporting = false;
 		private float currentFadeTime = 0.0f;
 
 		private float meshAlphaPercent = 1.0f;
@@ -1094,7 +1098,15 @@ namespace Valve.VR.InteractionSystem
 				}
 				else
                 {
-                    return teleportAction.GetStateUp(hand.handType);
+                    if (!teleportAction.GetState(hand.handType) && !holdAction.GetState(hand.handType))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    //return teleportAction.GetStateUp(hand.handType);
 
                     //return hand.controller.GetPressUp( SteamVR_Controller.ButtonMask.Touchpad );
                 }
@@ -1114,7 +1126,14 @@ namespace Valve.VR.InteractionSystem
 				}
 				else
                 {
-                    return teleportAction.GetState(hand.handType);
+                    if (teleportAction.GetState(hand.handType) || holdAction.GetState(hand.handType))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
 				}
 			}
 
