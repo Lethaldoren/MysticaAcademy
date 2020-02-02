@@ -113,11 +113,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean ReleaseTeleport
+        public virtual SteamVR_Action_Boolean HoldTeleport
         {
             get
             {
-                return SteamVR_Actions.default_ReleaseTeleport;
+                return SteamVR_Actions.default_HoldTeleport;
             }
         }
         

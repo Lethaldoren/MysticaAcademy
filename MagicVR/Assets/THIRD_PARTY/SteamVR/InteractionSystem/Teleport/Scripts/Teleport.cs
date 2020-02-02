@@ -14,13 +14,7 @@ namespace Valve.VR.InteractionSystem
 	public class Teleport : MonoBehaviour
     {
         public SteamVR_Action_Boolean teleportAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport");
-
-        // Modified
-        public SteamVR_Action_Vector2 faceDirection;
-        public SteamVR_Action_Boolean touchJoy;
-        private Vector2 inputDirection;
-
-        //end of mod
+        public SteamVR_Action_Boolean holdAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("HoldTeleport");
 
         public LayerMask traceLayerMask;
 		public LayerMask floorFixupTraceLayerMask;
@@ -75,18 +69,21 @@ namespace Valve.VR.InteractionSystem
 		private LineRenderer pointerLineRenderer;
 		private GameObject teleportPointerObject;
 		private Transform pointerStartTransform;
-		private Hand pointerHand = null;
+        [HideInInspector]
+		public Hand pointerHand = null;
 		private Player player = null;
 		private TeleportArc teleportArc = null;
 
-		private bool visible = false;
+        [HideInInspector]
+		public bool visible = false;
 
 		private TeleportMarkerBase[] teleportMarkers;
 		private TeleportMarkerBase pointedAtTeleportMarker;
 		private TeleportMarkerBase teleportingToMarker;
 		private Vector3 pointedAtPosition;
 		private Vector3 prevPointedAtPosition;
-		private bool teleporting = false;
+        [HideInInspector]
+		public bool teleporting = false;
 		private float currentFadeTime = 0.0f;
 
 		private float meshAlphaPercent = 1.0f;
@@ -251,7 +248,6 @@ namespace Valve.VR.InteractionSystem
 					{
 						if ( pointerHand == hand ) //This is the pointer hand
 						{
-                        
 							TryTeleportPlayer();
 						}
 					}
@@ -485,12 +481,6 @@ namespace Valve.VR.InteractionSystem
 			onActivateObjectTransform.position = pointerEnd;
 			onDeactivateObjectTransform.position = pointerEnd;
 			offsetReticleTransform.position = pointerEnd - playerFeetOffset;
-
-
-            //modified 
-            destinationReticleTransform.rotation = Quaternion.AngleAxis(player.hmdTransform.eulerAngles.y + Vector2.SignedAngle( inputDirection, Vector2.up), Vector3.up);
-
-            //end of mod
 
 			reticleAudioSource.transform.position = pointedAtPosition;
 
@@ -902,25 +892,10 @@ namespace Valve.VR.InteractionSystem
 			}
 
 			if ( teleportingToMarker.ShouldMovePlayer() )
-            {  
-                //////////modified
-                float angle = 0;
-                float offsetRotation = Vector3.SignedAngle (player.transform.forward, player.hmdTransform.forward, Vector3.up);
+			{
+				Vector3 playerFeetOffset = player.trackingOriginTransform.position - player.feetPositionGuess;
+				player.trackingOriginTransform.position = teleportPosition + playerFeetOffset;
 
- 
-    
-                angle = Vector2.SignedAngle(inputDirection, Vector2.up);       
-                
-                
-               
-                Debug.Log(offsetRotation + "   " );
-                player.transform.Rotate(Vector3.up, angle - offsetRotation);
-                /////////////end mod
-
-                Vector3 playerFeetOffset = player.trackingOriginTransform.position - player.feetPositionGuess;
-                player.trackingOriginTransform.position = teleportPosition + playerFeetOffset;
-
- 
                 if (player.leftHand.currentAttachedObjectInfo.HasValue)
                     player.leftHand.ResetAttachedTransform(player.leftHand.currentAttachedObjectInfo.Value);
                 if (player.rightHand.currentAttachedObjectInfo.HasValue)
@@ -1123,15 +1098,15 @@ namespace Valve.VR.InteractionSystem
 				}
 				else
                 {
-
-                    //modified 
-                    if (faceDirection.GetAxis(hand.handType).magnitude < 0.1f && !touchJoy.GetState(hand.handType))
+                    if (!teleportAction.GetState(hand.handType) && !holdAction.GetState(hand.handType))
                     {
                         return true;
                     }
-
-                   // return teleportAction.GetStateUp(hand.handType);
-                    //end of mod
+                    else
+                    {
+                        return false;
+                    }
+                    //return teleportAction.GetStateUp(hand.handType);
 
                     //return hand.controller.GetPressUp( SteamVR_Controller.ButtonMask.Touchpad );
                 }
@@ -1151,20 +1126,16 @@ namespace Valve.VR.InteractionSystem
 				}
 				else
                 {
-
-                    //modified
-                    if(faceDirection.GetAxis(hand.handType).magnitude > 0.1f) {
-                        inputDirection = faceDirection.GetAxis(hand.handType) + new Vector2(hand.transform.forward.x, hand.transform.forward.y);
+                    if (teleportAction.GetState(hand.handType) || holdAction.GetState(hand.handType))
+                    {
                         return true;
                     }
-
-                    // return teleportAction.GetState(hand.handType);
-
-                    // end of mod
-
-
-                }
-            }
+                    else
+                    {
+                        return false;
+                    }
+				}
+			}
 
 			return false;
 		}

@@ -54,7 +54,7 @@
       "type": "vector2"
     },
     {
-      "name": "/actions/default/in/ReleaseTeleport",
+      "name": "/actions/default/in/HoldTeleport",
       "type": "boolean"
     },
     {
