@@ -11,4 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PROJECT/Scenes/VoiceTest.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 6172563377c14a0429794d6e2e7195c0,
+      type: 2}
