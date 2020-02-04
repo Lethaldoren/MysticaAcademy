@@ -7,7 +7,7 @@ public class FireBallSpell : SpellBase
     GameObject fireball;
     Rigidbody frb;
 
-    float speed = 4000;
+    float speed = 400;
 
     public FireBallSpell()
     {
@@ -17,6 +17,7 @@ public class FireBallSpell : SpellBase
     public override void OnEquip()
     {
         Debug.Log("I am Fireball");
+        wandTip = this.transform.GetChild(0);
         //create fireball particle effect and have it on hand
     }
 

@@ -63,7 +63,9 @@ namespace Valve.VR.InteractionSystem
                 if (EquipedSpell) EquipedSpell.OnUnequip();
 
                 var newSpell = allSpells.First(s => s.magicWords == spellName);
-                EquipedSpell = gameObject.AddComponent(newSpell.GetType()) as SpellBase;
+                EquipedSpell = CopyComponent(newSpell, this.gameObject) as SpellBase;
+               // EquipedSpell = gameObject.AddComponent(newSpell.GetType()) as SpellBase;
+               // EquipedSpell.spellPrefab = newSpell.spellPrefab;
                 Debug.Log("Spell Equiped! : " + spellName);
 
                 // EquipedSpell = Instantiate(EquipedSpell, transform).GetComponent<EquipableSpell>();
@@ -122,6 +124,18 @@ namespace Valve.VR.InteractionSystem
 
         // ------------------------------------------------------------------
 
+        Component CopyComponent(Component original, GameObject destination)
+        {
+            System.Type type = original.GetType();
+            Component copy = destination.AddComponent(type);
+            // Copied fields can be restricted with BindingFlags
+            System.Reflection.FieldInfo[] fields = type.GetFields();
+            foreach (System.Reflection.FieldInfo field in fields)
+            {
+                field.SetValue(copy, field.GetValue(original));
+            }
+            return copy;
+        }
     }
 
 
