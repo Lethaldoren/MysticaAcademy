@@ -10,21 +10,28 @@ public class WalkToPlayer : StateBehaviour
     Vector3 playerPosition;
     private NavMeshAgent agent;
 
-    private FloatVar UpdateDelay;
+    private FloatVar updateDelay;
+    private FloatVar attackRange;
     WaitForSeconds wait;
     
     private void OnEnable()
     {
         agent = GetComponent<NavMeshAgent>();
-        StartCoroutine("UpdateTargetPosition");
+        player = blackboard.GetGameObjectVar("Player");
+        updateDelay = blackboard.GetFloatVar("UpdateDelay");
+        attackRange = blackboard.GetFloatVar("AttackRange");
 
-        wait = new WaitForSeconds(UpdateDelay.Value);
+        wait = new WaitForSeconds(updateDelay.Value);
+        StartCoroutine("UpdateTargetPosition");
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        if ((this.transform.position - playerPosition).magnitude < attackRange.Value)
+        {
+            blackboard.SendEvent("PlayerInRange");
+        }
     }
 
     private void OnDisable()
@@ -44,6 +51,6 @@ public class WalkToPlayer : StateBehaviour
 
     void GetPlayerPosition()
     {
-        
+        playerPosition = player.Value.transform.position;
     }
 }

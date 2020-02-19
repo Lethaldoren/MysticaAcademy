@@ -142,7 +142,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -106864
+  m_CachedInstanceID: -153352
   m_Description: Rotates the object over time.
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
