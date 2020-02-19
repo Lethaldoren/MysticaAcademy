@@ -1,0 +1,2171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientEquatorColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientGroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &4
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 11
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 1
+    m_BakeResolution: 50
+    m_AtlasSize: 1024
+    m_AO: 1
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 0
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 1
+    m_BakeBackend: 0
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 512
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 512
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 0
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 0
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 0}
+  m_UseShadowmask: 0
+--- !u!196 &5
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666666
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &559611221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 559611223}
+  - component: {fileID: 559611222}
+  m_Layer: 0
+  m_Name: Point light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &559611222
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559611221}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1.370351
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &559611223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559611221}
+  m_LocalRotation: {x: -0.40821794, y: 0.23456973, z: -0.109381676, w: 0.87542605}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1601120984}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &712489863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712489867}
+  - component: {fileID: 712489866}
+  - component: {fileID: 712489865}
+  - component: {fileID: 712489864}
+  m_Layer: 0
+  m_Name: Plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!23 &712489864
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712489863}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 028849459bc30486aa0ae9015d14b1e1, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!64 &712489865
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712489863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &712489866
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712489863}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &712489867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712489863}
+  m_LocalRotation: {x: 0, y: 0.38268346, z: 0, w: 0.9238795}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1490446641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490446645}
+  - component: {fileID: 1490446644}
+  - component: {fileID: 1490446643}
+  - component: {fileID: 1490446642}
+  - component: {fileID: 1490446647}
+  - component: {fileID: 1490446646}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1490446642
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490446641}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 59e7e9010fd2646129ea08ac6e893601, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &1490446643
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490446641}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1490446644
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490446641}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1490446645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490446641}
+  m_LocalRotation: {x: 0, y: 0.38268346, z: 0, w: 0.9238795}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1490446646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490446641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22f108f25b8d4045879dfff227bb81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1490446647}
+  m_Parent: {fileID: 0}
+  m_StateName: ActionState
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 0, y: 0}
+  m_Transitions: []
+  m_CachedInstanceID: 58516
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.EveryFrame
+    - BehaviourMachine.GetAxis
+    - BehaviourMachine.Translate
+    m_NodeTypeHash: 75807bff069b81ecc01bd317
+    m_NodeFieldStartIndex: 00000000030000000900000012000000
+    m_BranchIndex: ffffffffffffffffffffffff
+    m_UnityObjectValue: []
+    m_IntValue: 010000000100000002000000f58cb63e03000000f58cb63e0000000001000000
+    m_FloatValue:
+    - 1
+    m_StringValue:
+    - EveryFrame
+    - GetAxis
+    - BehaviourMachine.ConcreteStringVar
+    - Translate
+    - BehaviourMachine.ConcreteGameObjectVar
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteFloatVar
+    m_GenericFieldHash: 02ea8b12
+    m_GenericFieldSize: 01000000
+    m_FieldIndex: 000000000000000001000000020000000100000002000000030000000000000000000000040000000300000004000000050000000500000006000000070000000600000007000000
+    m_FieldType: 010000000200000005000000010000000200000011000000120000001000000003000000010000000200000011000000110000001200000011000000110000000400000005000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - instanceID
+    - name
+    - axisName
+    - storeAxis
+    - multiplier
+    - multiplier.value
+    - instanceID
+    - name
+    - gameObject
+    - translation
+    - x
+    - y
+    - z
+    - relativeTo
+    - perSecond
+  m_Description: Changes the position of the object using A/D or left/right arrow
+    keys.
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+--- !u!114 &1490446647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490446641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FloatVars:
+  - m_ID: 1052151029
+    m_Name: Shared Input
+    m_Blackboard: {fileID: 1490446647}
+    m_IsConstant: 0
+    value: 0
+  m_IntVars: []
+  m_BoolVars: []
+  m_StringVars: []
+  m_Vector3Vars: []
+  m_RectVars: []
+  m_ColorVars: []
+  m_QuaternionVars: []
+  m_GameObjectVars: []
+  m_TextureVars: []
+  m_MaterialVars: []
+  m_ObjectVars: []
+  m_DynamicLists: []
+  m_FsmEvents: []
+  m_ConcreteFsmEvents: []
+  m_Namespace: 
+--- !u!1 &1589228170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1589228175}
+  - component: {fileID: 1589228174}
+  - component: {fileID: 1589228172}
+  - component: {fileID: 1589228171}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1589228171
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589228170}
+  m_Enabled: 1
+--- !u!124 &1589228172
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589228170}
+  m_Enabled: 1
+--- !u!20 &1589228174
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589228170}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.15686275, g: 0.15686275, b: 0.13725491, a: 0.019607844}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 100
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1589228175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589228170}
+  m_LocalRotation: {x: 0.25881907, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 4, z: -6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1601120982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601120984}
+  - component: {fileID: 1601120983}
+  m_Layer: 0
+  m_Name: Directional light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1601120983
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601120982}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.7353569
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: 3
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1601120984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601120982}
+  m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
+  m_LocalPosition: {x: 0, y: 3.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 559611223}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1972008374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1972008375}
+  - component: {fileID: 1972008377}
+  - component: {fileID: 1972008378}
+  - component: {fileID: 1972008376}
+  - component: {fileID: 1972008379}
+  - component: {fileID: 1972008380}
+  - component: {fileID: 1972008381}
+  - component: {fileID: 1972008382}
+  - component: {fileID: 1972008383}
+  - component: {fileID: 1972008384}
+  - component: {fileID: 1972008385}
+  - component: {fileID: 1972008387}
+  m_Layer: 0
+  m_Name: Hit Play to Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1972008375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1972008376
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1972008377}
+  m_Parent: {fileID: 1972008378}
+  m_StateName: 1
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 80, y: 50}
+  m_Transitions:
+  - m_Destination: {fileID: 1972008379}
+    m_EventID: -10
+  m_CachedInstanceID: 58540
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnGUI
+    - BehaviourMachine.LayoutScrollView
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutAlign
+    - BehaviourMachine.Button
+    m_NodeTypeHash: 752dbdbe9e5aaaeb61b12b371a5914effef77a6a
+    m_NodeFieldStartIndex: 00000000050000000d00000014000000170000001f000000
+    m_BranchIndex: ffffffff00000000010000000100000003000000
+    m_UnityObjectValue: []
+    m_IntValue: 0300000001000000070000000f000000010000000000000004000000
+    m_FloatValue: []
+    m_StringValue:
+    - OnGUI
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - LayoutScrollView
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - Use the W/D or left/right arrow keys to move the Cube.
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutAlign
+    - Button
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteTextureVar
+    - Next
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 372bb8ca372bb8ca
+    m_GenericFieldSize: 0100000001000000
+    m_FieldIndex: 00000000000000000100000001000000020000000200000003000000040000000500000006000000070000000800000009000000030000000a0000000b000000000000000c0000000d0000000e000000040000000f000000050000000600000010000000110000001200000001000000130000001400000015000000
+    m_FieldType: 01000000020000000500000011000000110000000100000002000000110000001100000011000000110000001100000011000000010000000200000011000000100000000200000011000000110000000100000002000000040000000100000002000000110000001100000010000000020000001100000011000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - defaultWidth
+    - defaultHeight
+    - instanceID
+    - name
+    - storeScrollPosition
+    - alwayShowHorizontal
+    - alwayShowVertical
+    - horizontalStyle
+    - verticalStyle
+    - backgroundStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - position
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+--- !u!114 &1972008377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FloatVars: []
+  m_IntVars: []
+  m_BoolVars: []
+  m_StringVars: []
+  m_Vector3Vars: []
+  m_RectVars: []
+  m_ColorVars: []
+  m_QuaternionVars: []
+  m_GameObjectVars: []
+  m_TextureVars: []
+  m_MaterialVars: []
+  m_ObjectVars: []
+  m_DynamicLists: []
+  m_FsmEvents: []
+  m_ConcreteFsmEvents:
+  - m_ID: 191206407
+    m_Name: Back
+    m_Blackboard: {fileID: 1972008377}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  m_Namespace: 
+--- !u!114 &1972008378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27b962ddfa21461eb78fac1cb2f955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1972008377}
+  m_Parent: {fileID: 0}
+  m_StateName: StateMachine
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 0, y: 0}
+  m_Transitions: []
+  m_CachedInstanceID: 58544
+  m_Description: 
+  m_EnabledState: {fileID: 0}
+  m_LastEnabledState: {fileID: 0}
+  m_StartState: {fileID: 1972008376}
+  m_AnyState: {fileID: 0}
+  m_ConcurrentState: {fileID: 0}
+--- !u!114 &1972008379
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1972008377}
+  m_Parent: {fileID: 1972008378}
+  m_StateName: 2
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 280, y: 50}
+  m_Transitions:
+  - m_Destination: {fileID: 1972008380}
+    m_EventID: -10
+  - m_Destination: {fileID: 1972008376}
+    m_EventID: 191206407
+  m_CachedInstanceID: 58546
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnGUI
+    - BehaviourMachine.LayoutScrollView
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutCentered
+    - BehaviourMachine.Box
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutAlign
+    - BehaviourMachine.Button
+    - BehaviourMachine.Button
+    m_NodeTypeHash: 752dbdbe9e5aaaeb61b12b373b6834b161b12b3761b12b371a5914effef77a6afef77a6a
+    m_NodeFieldStartIndex: 00000000050000000d00000014000000180000001f00000026000000290000003100000039000000
+    m_BranchIndex: ffffffff0000000001000000010000000300000001000000010000000600000006000000
+    m_UnityObjectValue:
+    - {fileID: 2800000, guid: 11f464967b24443c0845faaacfb9a453, type: 3}
+    m_IntValue: 0300000001000000070000000f00000006000000010000000000000005000000020000000100000000000000040000000794650b0b000000
+    m_FloatValue: []
+    m_StringValue:
+    - OnGUI
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - LayoutScrollView
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'Select the Cube to view its components
+
+      on the Inspector.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutCentered
+    - Box
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'The Cube has a <b>Blackboard</b> and an <b>ActionState</b>
+
+      component.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutAlign
+    - Button
+    - BehaviourMachine.ConcreteTextureVar
+    - Back
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Button
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteTextureVar
+    - Next
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteTextureVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 372bb8ca7d835d2e372bb8ca372bb8ca372bb8ca
+    m_GenericFieldSize: 0100000001000000010000000100000001000000
+    m_FieldIndex: 00000000000000000100000001000000020000000200000003000000040000000500000006000000070000000800000009000000030000000a0000000b000000000000000c0000000d0000000e000000040000000f0000000500000006000000070000001000000001000000000000001100000012000000130000000800000014000000150000000200000016000000170000001800000009000000190000000a0000000b0000001a0000000c0000001b000000030000001c0000001d0000001e0000000d0000001f000000200000002100000004000000220000002300000024000000
+    m_FieldType: 0100000002000000050000001100000011000000010000000200000011000000110000001100000011000000110000001100000001000000020000001100000010000000020000001100000011000000010000000200000005000000050000000100000002000000100000000f0000001100000011000000110000000100000002000000110000001000000002000000110000001100000001000000020000000400000001000000020000001e00000011000000100000000200000011000000110000000100000002000000110000001100000010000000020000001100000011000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - defaultWidth
+    - defaultHeight
+    - instanceID
+    - name
+    - storeScrollPosition
+    - alwayShowHorizontal
+    - alwayShowVertical
+    - horizontalStyle
+    - verticalStyle
+    - backgroundStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - horizontal
+    - vertical
+    - instanceID
+    - name
+    - texture
+    - texture.value
+    - text
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - position
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+--- !u!114 &1972008380
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1972008377}
+  m_Parent: {fileID: 1972008378}
+  m_StateName: 3
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 490, y: 50}
+  m_Transitions:
+  - m_Destination: {fileID: 1972008381}
+    m_EventID: -10
+  - m_Destination: {fileID: 1972008379}
+    m_EventID: 191206407
+  m_CachedInstanceID: 58548
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnGUI
+    - BehaviourMachine.LayoutScrollView
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutCentered
+    - BehaviourMachine.Box
+    - BehaviourMachine.Box
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutAlign
+    - BehaviourMachine.Button
+    - BehaviourMachine.Button
+    m_NodeTypeHash: 752dbdbe9e5aaaeb61b12b373b6834b161b12b3761b12b3761b12b371a5914effef77a6afef77a6a
+    m_NodeFieldStartIndex: 00000000050000000d00000014000000180000001f000000260000002d000000300000003800000040000000
+    m_BranchIndex: ffffffff000000000100000001000000030000000100000001000000010000000700000007000000
+    m_UnityObjectValue:
+    - {fileID: 2800000, guid: 20fc525c6edcf4f6badd3bc84a23fb34, type: 3}
+    m_IntValue: 03000000010000000700000002000000060000000100000000000000050000000e000000080000000100000000000000040000000794650b0c000000
+    m_FloatValue: []
+    m_StringValue:
+    - OnGUI
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - LayoutScrollView
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'The <b>Blackboard</b> is a component
+
+      that store <b>Variables</b>.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutCentered
+    - Box
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'Think of a <b>Variable</b> as a box. You can store something
+
+      inside
+      the box to share with others or to use it on the future.
+
+      What you store
+      inside a <b>Variable</b> is called <b>Value</b>.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'On the image above, the <b>Blackboard</b>
+
+      component has a <b>Variable</b>
+      called ''Shared Input''
+
+      that stores a float <b>Value</b> (1).'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutAlign
+    - Button
+    - BehaviourMachine.ConcreteTextureVar
+    - Back
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Button
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteTextureVar
+    - Next
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteTextureVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 372bb8ca7d835d2e372bb8ca372bb8ca372bb8ca372bb8ca
+    m_GenericFieldSize: 010000000100000001000000010000000100000001000000
+    m_FieldIndex: 00000000000000000100000001000000020000000200000003000000040000000500000006000000070000000800000009000000030000000a0000000b000000000000000c0000000d0000000e000000040000000f0000000500000006000000070000001000000001000000000000001100000012000000130000000800000014000000150000000200000016000000170000001800000009000000190000001a000000030000001b0000001c0000001d0000000a0000001e0000000b0000000c0000001f0000000d00000020000000040000002100000022000000230000000e00000024000000250000002600000005000000270000002800000029000000
+    m_FieldType: 0100000002000000050000001100000011000000010000000200000011000000110000001100000011000000110000001100000001000000020000001100000010000000020000001100000011000000010000000200000005000000050000000100000002000000100000000f000000110000001100000011000000010000000200000011000000100000000200000011000000110000000100000002000000110000001000000002000000110000001100000001000000020000000400000001000000020000001e00000011000000100000000200000011000000110000000100000002000000110000001100000010000000020000001100000011000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - defaultWidth
+    - defaultHeight
+    - instanceID
+    - name
+    - storeScrollPosition
+    - alwayShowHorizontal
+    - alwayShowVertical
+    - horizontalStyle
+    - verticalStyle
+    - backgroundStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - horizontal
+    - vertical
+    - instanceID
+    - name
+    - texture
+    - texture.value
+    - text
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - position
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+--- !u!114 &1972008381
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1972008377}
+  m_Parent: {fileID: 1972008378}
+  m_StateName: 4
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 680, y: 50}
+  m_Transitions:
+  - m_Destination: {fileID: 1972008382}
+    m_EventID: -10
+  - m_Destination: {fileID: 1972008380}
+    m_EventID: 191206407
+  m_CachedInstanceID: 58550
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnGUI
+    - BehaviourMachine.LayoutScrollView
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutAlign
+    - BehaviourMachine.Button
+    - BehaviourMachine.Button
+    m_NodeTypeHash: 752dbdbe9e5aaaeb61b12b371a5914effef77a6afef77a6a
+    m_NodeFieldStartIndex: 00000000050000000d00000014000000170000001f00000027000000
+    m_BranchIndex: ffffffff0000000001000000010000000300000003000000
+    m_UnityObjectValue: []
+    m_IntValue: 030000000100000007000000080000000100000000000000040000000794650b0c000000
+    m_FloatValue: []
+    m_StringValue:
+    - OnGUI
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - LayoutScrollView
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'Press the left/right arrow keys (or A/D) and note the
+
+      <b>Value</b>
+      of the ''Shared Input'' <b>Variable</b>
+
+      and the Cube''s Transform on
+      the  Inspector.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutAlign
+    - Button
+    - BehaviourMachine.ConcreteTextureVar
+    - Back
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Button
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteTextureVar
+    - Next
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 372bb8ca372bb8ca372bb8ca
+    m_GenericFieldSize: 010000000100000001000000
+    m_FieldIndex: 00000000000000000100000001000000020000000200000003000000040000000500000006000000070000000800000009000000030000000a0000000b000000000000000c0000000d0000000e000000040000000f000000050000000600000010000000070000001100000001000000120000001300000014000000080000001500000016000000170000000200000018000000190000001a000000
+    m_FieldType: 010000000200000005000000110000001100000001000000020000001100000011000000110000001100000011000000110000000100000002000000110000001000000002000000110000001100000001000000020000000400000001000000020000001e00000011000000100000000200000011000000110000000100000002000000110000001100000010000000020000001100000011000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - defaultWidth
+    - defaultHeight
+    - instanceID
+    - name
+    - storeScrollPosition
+    - alwayShowHorizontal
+    - alwayShowVertical
+    - horizontalStyle
+    - verticalStyle
+    - backgroundStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - position
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+--- !u!114 &1972008382
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1972008377}
+  m_Parent: {fileID: 1972008378}
+  m_StateName: 5
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 860, y: 50}
+  m_Transitions:
+  - m_Destination: {fileID: 1972008383}
+    m_EventID: -10
+  - m_Destination: {fileID: 1972008381}
+    m_EventID: 191206407
+  m_CachedInstanceID: 58552
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnGUI
+    - BehaviourMachine.LayoutScrollView
+    - BehaviourMachine.Box
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutOptions
+    - BehaviourMachine.Sequence
+    - BehaviourMachine.Button
+    - BehaviourMachine.OpenURL
+    - BehaviourMachine.LayoutCentered
+    - BehaviourMachine.Box
+    - BehaviourMachine.Box
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutAlign
+    - BehaviourMachine.Button
+    - BehaviourMachine.Button
+    m_NodeTypeHash: 752dbdbe9e5aaaeb61b12b3761b12b3713f2919963ef2822fef77a6ac6fef3a03b6834b161b12b3761b12b3761b12b371a5914effef77a6afef77a6a
+    m_NodeFieldStartIndex: 00000000050000000d000000140000001b00000026000000280000003000000034000000380000003f000000460000004d000000500000005800000060000000
+    m_BranchIndex: ffffffff0000000001000000010000000100000004000000050000000500000001000000080000000100000001000000010000000c0000000c000000
+    m_UnityObjectValue:
+    - {fileID: 2800000, guid: abc6e04ec8bbb4602a891e232c68adbd, type: 3}
+    m_IntValue: 03000000010000000700000009000000020000000d000000000000000e0000000a0000000f00000006000000010000000000000008000000050000000b0000000100000000000000040000000794650b0c000000
+    m_FloatValue: []
+    m_StringValue:
+    - OnGUI
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - LayoutScrollView
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - The position and the value of the 'Shared Input' changes.
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'The GetAxis node gets the input data of the input axis defined
+
+      on its
+      ''Axis Name'' property.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutOptions
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteBoolVar
+    - Sequence
+    - Button
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteTextureVar
+    - Unity docs about input axis.
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - OpenURL
+    - http://docs.unity3d.com/Manual/ConventionalGameInput.html
+    - LayoutCentered
+    - Box
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - "The property called 'Store Axis' is the current value of the axis.\nThe 'Shared
+      Input' was assigned to this property, this means \nthat the value of the axis
+      will be stored in this variable."
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - "You can use the value of 'Shared Input' (the value of the axis) \non other
+      nodes by selecting this variable in its properties."
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutAlign
+    - Button
+    - BehaviourMachine.ConcreteTextureVar
+    - Back
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Button
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteTextureVar
+    - Next
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteTextureVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 372bb8ca372bb8ca1083d68f372bb8ca372bb8ca7d835d2e372bb8ca372bb8ca372bb8ca372bb8ca
+    m_GenericFieldSize: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
+    m_FieldIndex: 00000000000000000100000001000000020000000200000003000000040000000500000006000000070000000800000009000000030000000a0000000b000000000000000c0000000d0000000e000000040000000f0000001000000001000000110000001200000013000000050000001400000015000000160000001700000018000000190000001a00000002000000060000001b000000070000001c000000080000001d0000001e0000001f00000003000000200000002100000022000000090000002300000004000000240000000a000000250000000b0000000c0000000d0000002600000005000000000000002700000028000000290000000e0000002a0000002b000000060000002c0000002d0000002e0000000f0000002f00000030000000070000003100000032000000330000001000000034000000110000001200000035000000130000003600000008000000370000003800000039000000140000003a0000003b0000003c000000090000003d0000003e0000003f000000
+    m_FieldType: 01000000020000000500000011000000110000000100000002000000110000001100000011000000110000001100000011000000010000000200000011000000100000000200000011000000110000000100000002000000110000001000000002000000110000001100000001000000020000001100000011000000110000001100000011000000110000001000000005000000110000000100000002000000010000000200000011000000110000001000000002000000110000001100000001000000020000001000000002000000010000000200000005000000050000000100000002000000100000000f000000110000001100000011000000010000000200000011000000100000000200000011000000110000000100000002000000110000001000000002000000110000001100000001000000020000000400000001000000020000001e00000011000000100000000200000011000000110000000100000002000000110000001100000010000000020000001100000011000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - defaultWidth
+    - defaultHeight
+    - instanceID
+    - name
+    - storeScrollPosition
+    - alwayShowHorizontal
+    - alwayShowVertical
+    - horizontalStyle
+    - verticalStyle
+    - backgroundStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - width
+    - height
+    - minWidth
+    - maxWidth
+    - minHeight
+    - maxHeight
+    - expandWidth
+    - expandWidth.value
+    - expandHeight
+    - instanceID
+    - name
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - url
+    - url.value
+    - instanceID
+    - name
+    - horizontal
+    - vertical
+    - instanceID
+    - name
+    - texture
+    - texture.value
+    - text
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - position
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+--- !u!114 &1972008383
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1972008377}
+  m_Parent: {fileID: 1972008378}
+  m_StateName: 6
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 1050, y: 50}
+  m_Transitions:
+  - m_Destination: {fileID: 1972008384}
+    m_EventID: -10
+  - m_Destination: {fileID: 1972008382}
+    m_EventID: 191206407
+  m_CachedInstanceID: 58554
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnGUI
+    - BehaviourMachine.LayoutScrollView
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutCentered
+    - BehaviourMachine.Box
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutAlign
+    - BehaviourMachine.Button
+    - BehaviourMachine.Button
+    m_NodeTypeHash: 752dbdbe9e5aaaeb61b12b373b6834b161b12b3761b12b371a5914effef77a6afef77a6a
+    m_NodeFieldStartIndex: 00000000050000000d00000014000000180000001f00000026000000290000003100000039000000
+    m_BranchIndex: ffffffff0000000001000000010000000300000001000000010000000600000006000000
+    m_UnityObjectValue:
+    - {fileID: 2800000, guid: 5820b1b0328db4b6ea9f888f6c1627f2, type: 3}
+    m_IntValue: 0300000001000000070000000900000005000000010000000000000006000000020000000100000000000000040000000794650b0c000000
+    m_FloatValue: []
+    m_StringValue:
+    - OnGUI
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - LayoutScrollView
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'The  ''Shared Input'' variable is used by the node ''Translate''
+
+      to
+      change the Cube''s position.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutCentered
+    - Box
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'The ''X'' property is using the value
+
+      stored in the variable ''Shared
+      Input''.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutAlign
+    - Button
+    - BehaviourMachine.ConcreteTextureVar
+    - Back
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Button
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteTextureVar
+    - Next
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteTextureVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 372bb8ca7d835d2e372bb8ca372bb8ca372bb8ca
+    m_GenericFieldSize: 0100000001000000010000000100000001000000
+    m_FieldIndex: 00000000000000000100000001000000020000000200000003000000040000000500000006000000070000000800000009000000030000000a0000000b000000000000000c0000000d0000000e000000040000000f0000000500000006000000070000001000000001000000000000001100000012000000130000000800000014000000150000000200000016000000170000001800000009000000190000000a0000000b0000001a0000000c0000001b000000030000001c0000001d0000001e0000000d0000001f000000200000002100000004000000220000002300000024000000
+    m_FieldType: 0100000002000000050000001100000011000000010000000200000011000000110000001100000011000000110000001100000001000000020000001100000010000000020000001100000011000000010000000200000005000000050000000100000002000000100000000f0000001100000011000000110000000100000002000000110000001000000002000000110000001100000001000000020000000400000001000000020000001e00000011000000100000000200000011000000110000000100000002000000110000001100000010000000020000001100000011000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - defaultWidth
+    - defaultHeight
+    - instanceID
+    - name
+    - storeScrollPosition
+    - alwayShowHorizontal
+    - alwayShowVertical
+    - horizontalStyle
+    - verticalStyle
+    - backgroundStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - horizontal
+    - vertical
+    - instanceID
+    - name
+    - texture
+    - texture.value
+    - text
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - position
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+--- !u!114 &1972008384
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1972008377}
+  m_Parent: {fileID: 1972008378}
+  m_StateName: 7
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 1240, y: 50}
+  m_Transitions:
+  - m_Destination: {fileID: 1972008385}
+    m_EventID: -10
+  - m_Destination: {fileID: 1972008383}
+    m_EventID: 191206407
+  m_CachedInstanceID: 58556
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnGUI
+    - BehaviourMachine.LayoutScrollView
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutCentered
+    - BehaviourMachine.Box
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutAlign
+    - BehaviourMachine.Button
+    - BehaviourMachine.Button
+    m_NodeTypeHash: 752dbdbe9e5aaaeb61b12b373b6834b161b12b3761b12b371a5914effef77a6afef77a6a
+    m_NodeFieldStartIndex: 00000000050000000d00000014000000180000001f00000026000000290000003100000039000000
+    m_BranchIndex: ffffffff0000000001000000010000000300000001000000010000000600000006000000
+    m_UnityObjectValue:
+    - {fileID: 2800000, guid: 327dc6f16a1de45e09466cb10ab10c6a, type: 3}
+    m_IntValue: 0300000001000000070000000900000005000000010000000000000006000000020000000100000000000000040000000794650b0c000000
+    m_FloatValue: []
+    m_StringValue:
+    - OnGUI
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - LayoutScrollView
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'You can add and remove variables by clicking on the
+
+''      +'' and ''-''
+      buttons on the Inspector.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutCentered
+    - Box
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - There are different type of variables to store different type of values.
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutAlign
+    - Button
+    - BehaviourMachine.ConcreteTextureVar
+    - Back
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Button
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteTextureVar
+    - Next
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteTextureVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 372bb8ca7d835d2e372bb8ca372bb8ca372bb8ca
+    m_GenericFieldSize: 0100000001000000010000000100000001000000
+    m_FieldIndex: 00000000000000000100000001000000020000000200000003000000040000000500000006000000070000000800000009000000030000000a0000000b000000000000000c0000000d0000000e000000040000000f0000000500000006000000070000001000000001000000000000001100000012000000130000000800000014000000150000000200000016000000170000001800000009000000190000000a0000000b0000001a0000000c0000001b000000030000001c0000001d0000001e0000000d0000001f000000200000002100000004000000220000002300000024000000
+    m_FieldType: 0100000002000000050000001100000011000000010000000200000011000000110000001100000011000000110000001100000001000000020000001100000010000000020000001100000011000000010000000200000005000000050000000100000002000000100000000f0000001100000011000000110000000100000002000000110000001000000002000000110000001100000001000000020000000400000001000000020000001e00000011000000100000000200000011000000110000000100000002000000110000001100000010000000020000001100000011000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - defaultWidth
+    - defaultHeight
+    - instanceID
+    - name
+    - storeScrollPosition
+    - alwayShowHorizontal
+    - alwayShowVertical
+    - horizontalStyle
+    - verticalStyle
+    - backgroundStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - horizontal
+    - vertical
+    - instanceID
+    - name
+    - texture
+    - texture.value
+    - text
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - position
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+--- !u!114 &1972008385
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1972008377}
+  m_Parent: {fileID: 1972008378}
+  m_StateName: 8
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 1430, y: 50}
+  m_Transitions:
+  - m_Destination: {fileID: 1972008387}
+    m_EventID: -10
+  - m_Destination: {fileID: 1972008384}
+    m_EventID: 191206407
+  m_CachedInstanceID: 58558
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnGUI
+    - BehaviourMachine.LayoutScrollView
+    - BehaviourMachine.Box
+    - BehaviourMachine.Box
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutAlign
+    - BehaviourMachine.Button
+    - BehaviourMachine.Button
+    m_NodeTypeHash: 752dbdbe9e5aaaeb61b12b3761b12b3761b12b371a5914effef77a6afef77a6a
+    m_NodeFieldStartIndex: 00000000050000000d000000140000001b00000022000000250000002d00000035000000
+    m_BranchIndex: ffffffff00000000010000000100000001000000010000000500000005000000
+    m_UnityObjectValue: []
+    m_IntValue: 0300000001000000010000000200000008000000040000000500000000000000060000000794650b07000000
+    m_FloatValue: []
+    m_StringValue:
+    - OnGUI
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - LayoutScrollView
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'So we can use <b>Variables</b> to share data between nodes
+
+      on the same
+      GameObject.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'To share data between nodes that belongs to different
+
+      objects, you
+      need to use the <b>GlobalBlackboard</b>.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'You can also retrieve a <b>Variable</b> through scripting
+
+      to use in
+      your own custom state or MonoBehaviour.
+
+      See the Scripting tutorial for
+      more details.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutAlign
+    - Button
+    - BehaviourMachine.ConcreteTextureVar
+    - Back
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Button
+    - BehaviourMachine.FsmEvent
+    - BehaviourMachine.ConcreteTextureVar
+    - Next
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 372bb8ca372bb8ca372bb8ca372bb8ca372bb8ca
+    m_GenericFieldSize: 0100000001000000010000000100000001000000
+    m_FieldIndex: 00000000000000000100000001000000020000000200000003000000040000000500000006000000070000000800000009000000030000000a0000000b000000000000000c0000000d0000000e000000040000000f000000100000000100000011000000120000001300000005000000140000001500000002000000160000001700000018000000060000001900000007000000080000001a000000090000001b000000030000001c0000001d0000001e0000000a0000001f000000200000002100000004000000220000002300000024000000
+    m_FieldType: 0100000002000000050000001100000011000000010000000200000011000000110000001100000011000000110000001100000001000000020000001100000010000000020000001100000011000000010000000200000011000000100000000200000011000000110000000100000002000000110000001000000002000000110000001100000001000000020000000400000001000000020000001e00000011000000100000000200000011000000110000000100000002000000110000001100000010000000020000001100000011000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - defaultWidth
+    - defaultHeight
+    - instanceID
+    - name
+    - storeScrollPosition
+    - alwayShowHorizontal
+    - alwayShowVertical
+    - horizontalStyle
+    - verticalStyle
+    - backgroundStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - position
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+--- !u!114 &1972008387
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972008374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b065960b75e9a4e6195b143a036f7e66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 1972008377}
+  m_Parent: {fileID: 1972008378}
+  m_StateName: 9
+  m_Color: 0
+  m_HideScript: 1
+  m_Position: {x: 1620, y: 50}
+  m_Transitions:
+  - m_Destination: {fileID: 1972008385}
+    m_EventID: 191206407
+  m_CachedInstanceID: 58560
+  m_Description: 
+  m_IgnoreTimeScale: 0
+  m_ResetStatusOnDisable: 1
+  m_EnabledStates: []
+  m_NodeSerialization:
+    m_NodeTypes:
+    - BehaviourMachine.OnGUI
+    - BehaviourMachine.LayoutScrollView
+    - BehaviourMachine.Box
+    - BehaviourMachine.LayoutAlign
+    - BehaviourMachine.Button
+    m_NodeTypeHash: 752dbdbe9e5aaaeb61b12b371a5914effef77a6a
+    m_NodeFieldStartIndex: 00000000050000000d00000014000000170000001f000000
+    m_BranchIndex: ffffffff00000000010000000100000003000000
+    m_UnityObjectValue: []
+    m_IntValue: 030000000100000007000000090000000100000000000000040000000794650b
+    m_FloatValue: []
+    m_StringValue:
+    - OnGUI
+    - BehaviourMachine.ConcreteFloatVar
+    - BehaviourMachine.ConcreteFloatVar
+    - LayoutScrollView
+    - BehaviourMachine.ConcreteVector3Var
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteBoolVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - Box
+    - BehaviourMachine.ConcreteTextureVar
+    - 'Congratulations! You have finished the <b>Blackboard</b> tutorial!
+
+      You
+      can exit the playmode and go to the next scene.'
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    - LayoutAlign
+    - Button
+    - BehaviourMachine.ConcreteTextureVar
+    - Back
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_CurveValue: []
+    m_GenericFieldType:
+    - BehaviourMachine.ConcreteStringVar
+    - BehaviourMachine.ConcreteStringVar
+    m_GenericFieldHash: 372bb8ca372bb8ca
+    m_GenericFieldSize: 0100000001000000
+    m_FieldIndex: 00000000000000000100000001000000020000000200000003000000040000000500000006000000070000000800000009000000030000000a0000000b000000000000000c0000000d0000000e000000040000000f000000050000000600000010000000070000001100000001000000120000001300000014000000
+    m_FieldType: 010000000200000005000000110000001100000001000000020000001100000011000000110000001100000011000000110000000100000002000000110000001000000002000000110000001100000001000000020000000400000001000000020000001e0000001100000010000000020000001100000011000000
+    m_FieldPath:
+    - instanceID
+    - name
+    - enabled
+    - defaultWidth
+    - defaultHeight
+    - instanceID
+    - name
+    - storeScrollPosition
+    - alwayShowHorizontal
+    - alwayShowVertical
+    - horizontalStyle
+    - verticalStyle
+    - backgroundStyle
+    - instanceID
+    - name
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
+    - instanceID
+    - name
+    - position
+    - instanceID
+    - name
+    - onSuccess
+    - texture
+    - text
+    - text.value
+    - tooltip
+    - guiStyle
