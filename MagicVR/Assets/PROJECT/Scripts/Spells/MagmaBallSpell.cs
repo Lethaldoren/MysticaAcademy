@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class MagmaBallSpell : SpellBase
 {
@@ -18,6 +19,7 @@ public class MagmaBallSpell : SpellBase
     public override void OnEquip()
     {
         Debug.Log("I am Magmaball");
+        wandTip = GetComponent<Wand>().m_WandTip;
         //create fireball particle effect and have it on hand
     }
 

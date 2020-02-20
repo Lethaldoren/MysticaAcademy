@@ -1,5 +1,5 @@
 ﻿// Comment and uncomment to toggle debug input
-//#define DEBUG_INPUT
+#define DEBUG_INPUT
 
 using System.Collections;
 using System.Collections.Generic;
@@ -86,7 +86,7 @@ namespace Valve.VR.InteractionSystem
             }
             if (Input.GetKeyDown(KeyCode.G))
             {
-                EquipSpell("Magma Ball");
+                EquipSpell("Wind Slash");
             }
 #endif
 

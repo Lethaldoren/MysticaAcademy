@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class WindSlash : SpellBase
 {
@@ -101,10 +102,10 @@ public class WindSlash : SpellBase
         srb.AddRelativeForce((positionOfHead - slash.transform.position).normalized * speed); //swap transformes if it moves towards
 
         /* spawn slash at point between start and end position
-         * adjust angle based on those values
-         * scale based on points
-         * add velocity to move away from head position (change to hand position average through swipe)
-         * destroy after X seconds
-         */
+        * adjust angle based on those values
+        * scale based on points
+        * add velocity to move away from head position (change to hand position average through swipe)
+        * destroy after X seconds
+        */
     }
 }

@@ -4,6 +4,7 @@ public abstract class SpellBase : MonoBehaviour
 {
     public string magicWords;
     public GameObject spellPrefab;
+    public Transform source;
 
     // All these methods should be overridden because fuck interfaces
     public virtual void OnEquip()

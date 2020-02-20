@@ -1,9 +1,9 @@
 ﻿
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class FireBallSpell : SpellBase
 {
-    public Transform wandTip;
     GameObject fireball;
     Rigidbody frb;
 
@@ -17,14 +17,15 @@ public class FireBallSpell : SpellBase
     public override void OnEquip()
     {
         Debug.Log("I am Fireball");
-        wandTip = this.transform.GetChild(0);
+        source = GetComponent<Wand>().m_WandTip;
+        // wandTip = this.transform.GetChild(0);
         //create fireball particle effect and have it on hand
     }
 
     public override void OnTriggerDown()
     {
         //create fireball and change parent
-        fireball = Instantiate(spellPrefab, wandTip);
+        fireball = Instantiate(spellPrefab, source);
         frb = fireball.GetComponent<Rigidbody>();
     }
 

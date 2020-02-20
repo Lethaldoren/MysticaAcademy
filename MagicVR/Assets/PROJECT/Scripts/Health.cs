@@ -8,23 +8,27 @@ public class Health : MonoBehaviour
 
     [Header("Basic Variables")]
     public float maxHealth;
+    [HideInInspector]
+    // The real health value
     public float health;
+    [HideInInspector]
+    // The health value that's displayed on the health bar
     public float displayHealth;
-    public AnimationCurve healthLerpCurve;
-    public bool alive;
+    // Alive state
+    public bool Alive { get => health > 0; }
     
     [Header("Damage Animation")]
-    [SerializeField]
-    private int damageAnimState;
-    [SerializeField]
+    // The duration of the damage animation
     private float damageAnimDuration;
-    [SerializeField]
-    private AnimationCurve healthAnimCurve;
+    // The curve of the damage animation
+    private AnimationCurve damageAnimCurve;
+
+    [Header("Death Animation")]
     
-    public Material deadCharMat;
-    Material defaultMat;
     
+    // Executes upon being damaged
     public UnityEvent onDamage;
+    // Executes upon death
     public UnityEvent onDeath;
 
     void Awake()
@@ -35,56 +39,42 @@ public class Health : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-        alive = true;
-        defaultMat = mesh.material;
-    }
-
-    void Update()
-    {
-        if (health <= 0)
-        {
-            alive = false;
-            Kill();
-        }
-        displayHealth = Mathf.Lerp(displayHealth, health, .2f);
     }
 
     public void Damage(float damage)
     {
         health -= damage;
-        mesh.material = defaultMat;
         onDamage.Invoke();
         StopCoroutine(DamageAnim(0));
         StartCoroutine(DamageAnim(damage));
     }
 
+    public void Kill()
+    {
+        onDeath.Invoke();
+    }
+
     // TODO: do this without a coroutine
     IEnumerator DamageAnim(float damage)
     {
-        Material damageMat = new Material(defaultMat.shader);
-        damageMat.color = Color.red;
-        mesh.material = damageMat;
-
+        Color defaultCol = mesh.material.color;
         float startTime = Time.time;
         while (Time.time - startTime < damageAnimDuration)
         {
             float prog = (Time.time - startTime) / damageAnimDuration;
-            damageMat.color = Color.Lerp(Color.red, defaultMat.color, healthAnimCurve.Evaluate(prog));
+            mesh.material.color = Color.Lerp(Color.red, defaultCol, damageAnimCurve.Evaluate(prog));
             yield return new WaitForEndOfFrame();
         }
-
-        mesh.material = defaultMat;
     }
 
-    public void Kill()
+    void Update()
     {
-        mesh.material = deadCharMat;
-        onDeath.Invoke();
+        if (!Alive) Kill();
+        displayHealth = Mathf.Lerp(displayHealth, health, .2f);
     }
 
-    //This onTriggerEnter function allows the grenades to damage anything that has this script
-    private void OnTriggerEnter(Collider other)
+    void OnMouseDown()
     {
-        
+        Damage(1);
     }
 }
