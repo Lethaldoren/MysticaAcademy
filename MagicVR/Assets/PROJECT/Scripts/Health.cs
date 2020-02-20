@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,6 +24,7 @@ public class Health : MonoBehaviour
     public Material deadCharMat;
     Material defaultMat;
     
+    public UnityEvent onDamage;
     public UnityEvent onDeath;
 
     void Awake()
@@ -53,6 +53,7 @@ public class Health : MonoBehaviour
     {
         health -= damage;
         mesh.material = defaultMat;
+        onDamage.Invoke();
         StopCoroutine(DamageAnim(0));
         StartCoroutine(DamageAnim(damage));
     }
