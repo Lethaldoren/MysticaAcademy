@@ -1,5 +1,5 @@
 ﻿// Comment and uncomment to toggle debug input
-#define DEBUG_INPUT
+// #define DEBUG_INPUT
 
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace Valve.VR.InteractionSystem
         public SteamVR_Action_Boolean m_FireAction = null;
         public Transform m_WandTip = null;
 
-        //private vartiables
+        //private variables
         private SteamVR_Behaviour_Pose m_Pose = null;
         private bool CastingSpell;
 
@@ -102,11 +102,11 @@ namespace Valve.VR.InteractionSystem
             }
 
 #if DEBUG_INPUT
-            if (Input.GetKey(KeyCode.Space)) // DEBUG INPUT
+            if (CastingSpell && Input.GetKey(KeyCode.Space)) // DEBUG INPUT
 #else
             if (CastingSpell && m_FireAction.GetState(m_Pose.inputSource))
 #endif
-                {
+            {
                 EquipedSpell.OnTriggerHeld();
             }
 

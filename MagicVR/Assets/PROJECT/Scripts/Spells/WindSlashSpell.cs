@@ -2,7 +2,7 @@
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
-public class WindSlash : SpellBase
+public class WindSlashSpell : SpellBase
 {
     //gets hand input and position of hand
     public SteamVR_Input_Sources Hand;

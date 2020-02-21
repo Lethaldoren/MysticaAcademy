@@ -19,9 +19,9 @@ public class Health : MonoBehaviour
     
     [Header("Damage Animation")]
     // The duration of the damage animation
-    private float damageAnimDuration;
+    public float damageAnimDuration;
     // The curve of the damage animation
-    private AnimationCurve damageAnimCurve;
+    public AnimationCurve damageAnimCurve;
 
     [Header("Death Animation")]
     
