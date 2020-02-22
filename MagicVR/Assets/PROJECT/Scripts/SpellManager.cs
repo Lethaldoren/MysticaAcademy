@@ -15,4 +15,9 @@ public class SpellManager : SingletonBase<SpellManager>
         // if spell is not null, return it, otherwise null
         return spell ? spell : null;
     }
+
+    public static void SpawnSpellPrefab(GameObject prefab)
+    {
+        Instantiate(prefab);
+    }
 }

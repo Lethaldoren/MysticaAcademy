@@ -68,6 +68,7 @@ namespace Valve.VR.InteractionSystem
 
                     // trigger the equip event
                     equipedSpell.OnEquip.Invoke();
+                    equipedSpell.origin = m_WandTip;
                 }
                 else
                 {

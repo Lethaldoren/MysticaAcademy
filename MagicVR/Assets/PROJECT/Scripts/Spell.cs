@@ -15,4 +15,9 @@ public class Spell : ScriptableObject
     public UnityEvent OnTriggerDown;
     public UnityEvent OnTriggerHeld;
     public UnityEvent OnTriggerUp;
+
+    public void SpawnPrefab(int i)
+    {
+        Instantiate(spellPrefabs[i], origin);
+    }
 }
