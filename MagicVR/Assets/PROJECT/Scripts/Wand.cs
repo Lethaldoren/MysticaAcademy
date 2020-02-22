@@ -13,22 +13,20 @@ namespace Valve.VR.InteractionSystem
     [RequireComponent(typeof(Interactable))]
     public class Wand : MonoBehaviour
     {
-
+        // public variables
         public SteamVR_Action_Boolean m_FireAction = null;
         public Transform m_WandTip = null;
 
-        //private variables
+        // private variables
         private SteamVR_Behaviour_Pose m_Pose = null;
-        private bool CastingSpell;
+        private bool castingSpell;
 
         // the currently equiped spell
         [SerializeField]
-        private SpellBase EquipedSpell;
+        private Spell equipedSpell;
         [SerializeField]
-        private string EquipedSpellName;
-
-        // the list of all spells
-        private SpellBase[] allSpells;
+        private string equipedSpellName;
+        // the list of all spells words
         private List<string> spellWords = new List<string>();
 
         // this is what reconizes voice commands and activates the functions
@@ -39,8 +37,7 @@ namespace Valve.VR.InteractionSystem
         void Start()
         {
             //get all spell words from spell manager
-            allSpells = SpellManager.Instance.spellList;
-            spellWords = allSpells.Select(s => s.magicWords).ToList();
+            spellWords = SpellManager.Instance.spellList.Select(s => s.magicWords).ToList();
 
             keywordRecognizer = new KeywordRecognizer(spellWords.ToArray()); // this adds all actions in the dictionary to the voice commands the keywordRecognizer will listen for
             keywordRecognizer.OnPhraseRecognized += PhraseRecognized;
@@ -58,19 +55,24 @@ namespace Valve.VR.InteractionSystem
 
         private void EquipSpell(string spellName)
         {
-            if (!CastingSpell)
+            if (!castingSpell)
             {
-                if (EquipedSpell) EquipedSpell.OnUnequip();
+                // trigger the unequip event on the existing spell
+                equipedSpell?.OnUnequip.Invoke();
 
-                var newSpell = allSpells.First(s => s.magicWords == spellName);
-                EquipedSpell = CopyComponent(newSpell, this.gameObject) as SpellBase;
-               // EquipedSpell = gameObject.AddComponent(newSpell.GetType()) as SpellBase;
-               // EquipedSpell.spellPrefab = newSpell.spellPrefab;
-                Debug.Log("Spell Equiped! : " + spellName);
+                // try fetching the spell
+                equipedSpell = SpellManager.Instance.GetSpell(spellName);
+                if (equipedSpell)
+                {
+                    Debug.Log(spellName + " equipped!");
 
-                // EquipedSpell = Instantiate(EquipedSpell, transform).GetComponent<EquipableSpell>();
-                print(EquipedSpell.GetType() + " | " + EquipedSpell.name);
-                EquipedSpell.OnEquip();
+                    // trigger the equip event
+                    equipedSpell.OnEquip.Invoke();
+                }
+                else
+                {
+                    Debug.Log("Couldn't find correct spell.");
+                }
             }
         }
 
@@ -96,18 +98,17 @@ namespace Valve.VR.InteractionSystem
             if (m_FireAction.GetStateDown(m_Pose.inputSource))
 #endif
             {
-                EquipedSpell.OnTriggerDown();
-                Debug.Log("Fire");
-                CastingSpell = true;
+                equipedSpell.OnTriggerDown.Invoke();
+                castingSpell = true;
             }
 
 #if DEBUG_INPUT
-            if (CastingSpell && Input.GetKey(KeyCode.Space)) // DEBUG INPUT
+            if (castingSpell && Input.GetKey(KeyCode.Space)) // DEBUG INPUT
 #else
-            if (CastingSpell && m_FireAction.GetState(m_Pose.inputSource))
+            if (castingSpell && m_FireAction.GetState(m_Pose.inputSource))
 #endif
             {
-                EquipedSpell.OnTriggerHeld();
+                equipedSpell.OnTriggerHeld.Invoke();
             }
 
 #if DEBUG_INPUT
@@ -116,8 +117,8 @@ namespace Valve.VR.InteractionSystem
             if (m_FireAction.GetStateUp(m_Pose.inputSource))
 #endif
             {
-                EquipedSpell.OnTriggerUp();
-                CastingSpell = false;
+                equipedSpell.OnTriggerUp.Invoke();
+                castingSpell = false;
             }
 
         }

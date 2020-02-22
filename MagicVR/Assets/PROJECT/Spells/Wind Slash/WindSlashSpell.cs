@@ -2,7 +2,7 @@
 using Valve.VR;
 using Valve.VR.InteractionSystem;
 
-public class WindSlashSpell : SpellBase
+public class WindSlashSpell : MonoBehaviour
 {
     //gets hand input and position of hand
     public SteamVR_Input_Sources Hand;
@@ -20,18 +20,18 @@ public class WindSlashSpell : SpellBase
 
     float swingTimer;
 
-    public new void OnEquip()
+    public void OnEquip()
     {
         Debug.Log("I am Wind Slash");
         swingTimer = 0;
     }
 
-    public override void OnTriggerDown()
+    public void OnTriggerDown()
     {
 
     }
 
-    public override void OnTriggerHeld()
+    public void OnTriggerHeld()
     {
         //gets velocity of hand
         velocity = handPosition.GetVelocity(Hand);
@@ -71,14 +71,14 @@ public class WindSlashSpell : SpellBase
         }
     }
 
-    public override void OnTriggerUp()
+    public void OnTriggerUp()
     {
 
     }
 
-    public override void OnUnequip()
+    public void OnUnequip()
     {
-        base.OnUnequip();
+        // base.OnUnequip();
     }
 
 

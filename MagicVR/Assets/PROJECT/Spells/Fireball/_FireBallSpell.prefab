@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magicWords: Fire Ball
-  spellPrefab: {fileID: 0}
+  spellPrefab: {fileID: 4827939979123987100, guid: 925b0173e6f1f4d43ac1181b59d02121,
+    type: 3}
   source: {fileID: 0}
