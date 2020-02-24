@@ -1040,7 +1040,7 @@ MonoBehaviour:
   pointerInvalidColor: {r: 0.8455882, g: 0.14300387, b: 0.14300387, a: 0.76862746}
   pointerLockedColor: {r: 0.83823526, g: 0.5862563, b: 0.13559686, a: 0.76862746}
   showPlayAreaMarker: 1
-  teleportFadeTime: 0.1
+  teleportFadeTime: 0.2
   meshFadeTime: 0.2
   arcDistance: 10
   onActivateObjectTransform: {fileID: 416618}
