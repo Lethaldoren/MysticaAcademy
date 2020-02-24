@@ -7,17 +7,22 @@ using UnityEngine;
 
 public class SpellManager : SingletonBase<SpellManager>
 {
-    public Spell[] spellList;
+    public GameObject[] inputSpells;
+    public Dictionary<string, GameObject> spellDict = new Dictionary<string, GameObject>();
 
-    public Spell GetSpell(string spellName)
+    public override void Awake()
     {
-        Spell spell = spellList.First(s => s.magicWords == spellName);
-        // if spell is not null, return it, otherwise null
-        return spell ? spell : null;
+        base.Awake();
+        foreach (GameObject newSpell in inputSpells)
+        {
+            spellDict.Add(newSpell.GetComponent<Spell>().magicWords, newSpell);
+        }
     }
 
-    public static void SpawnSpellPrefab(GameObject prefab)
+    public GameObject GetSpell(string spellName)
     {
-        Instantiate(prefab);
+        GameObject spell;
+        // if spell is not null, return it, otherwise null
+        return spellDict.TryGetValue(spellName, out spell) ? spell : null;
     }
 }

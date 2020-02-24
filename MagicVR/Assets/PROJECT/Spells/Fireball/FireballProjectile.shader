@@ -16,11 +16,11 @@ Shader "FireballProjectile"
 		LOD 0
 
 		
-		Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Transparent" "Queue"="Transparent" }
+		Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Opaque" "Queue"="Geometry" }
 		
 		Cull Back
 		HLSLINCLUDE
-		#pragma target 3.0
+		#pragma target 4.0
 		ENDHLSL
 
 		
@@ -29,15 +29,14 @@ Shader "FireballProjectile"
 			Name "Forward"
 			Tags { "LightMode"="UniversalForward" }
 			
-			Blend One OneMinusSrcAlpha , One OneMinusSrcAlpha
-			ZWrite Off
+			Blend One Zero , One Zero
+			ZWrite On
 			ZTest LEqual
 			Offset 0 , 0
 			ColorMask RGBA
 			
 
 			HLSLPROGRAM
-			#define _ALPHAPREMULTIPLY_ON 1
 			#pragma multi_compile_instancing
 			#define ASE_SRP_VERSION 70108
 			#define ASE_TEXTURE_PARAMS(textureName) textureName
@@ -148,15 +147,14 @@ Shader "FireballProjectile"
 				float fresnelNode5 = ( 0.0 + _ScalePower.x * pow( 1.0 - fresnelNdotV5, _ScalePower.y ) );
 				float4 triplanar53 = TriplanarSamplingSF( _MainTexture, ase_worldPos, ase_worldNormal, 1.0, float2( 1,1 ), 1.0, 0 );
 				float temp_output_11_0 = pow( fresnelNode5 , triplanar53.x );
-				float lerpResult44 = lerp( _Color1.a , _Color2.a , temp_output_11_0);
 				float4 lerpResult43 = lerp( _Color1 , _Color2 , temp_output_11_0);
-				float div49=256.0/float((int)lerpResult44);
-				float4 posterize49 = ( floor( lerpResult43 * div49 ) / div49 );
+				
+				float lerpResult44 = lerp( _Color1.a , _Color2.a , temp_output_11_0);
 				
 				float3 BakedAlbedo = 0;
 				float3 BakedEmission = 0;
-				float3 Color = posterize49.rgb;
-				float Alpha = 1;
+				float3 Color = lerpResult43.rgb;
+				float Alpha = lerpResult44;
 				float AlphaClipThreshold = 0.5;
 
 				#ifdef _ALPHATEST_ON
@@ -188,9 +186,10 @@ Shader "FireballProjectile"
 			ZTest LEqual
 
 			HLSLPROGRAM
-			#define _ALPHAPREMULTIPLY_ON 1
 			#pragma multi_compile_instancing
 			#define ASE_SRP_VERSION 70108
+			#define ASE_TEXTURE_PARAMS(textureName) textureName
+			
 
 			#pragma prefer_hlslcc gles
 			#pragma exclude_renderers d3d11_9x
@@ -217,11 +216,13 @@ Shader "FireballProjectile"
 			struct VertexOutput
 			{
 				float4 clipPos : SV_POSITION;
-				
+				float4 ase_texcoord7 : TEXCOORD7;
+				float4 ase_texcoord8 : TEXCOORD8;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
 
+			uniform sampler2D _MainTexture;
 			CBUFFER_START( UnityPerMaterial )
 			float4 _Color1;
 			float4 _Color2;
@@ -229,7 +230,19 @@ Shader "FireballProjectile"
 			CBUFFER_END
 
 
+			inline float4 TriplanarSamplingSF( sampler2D topTexMap, float3 worldPos, float3 worldNormal, float falloff, float2 tiling, float3 normalScale, float3 index )
+			{
+				float3 projNormal = ( pow( abs( worldNormal ), falloff ) );
+				projNormal /= ( projNormal.x + projNormal.y + projNormal.z ) + 0.00001;
+				float3 nsign = sign( worldNormal );
+				half4 xNorm; half4 yNorm; half4 zNorm;
+				xNorm = ( tex2D( ASE_TEXTURE_PARAMS( topTexMap ), tiling * worldPos.zy * float2( nsign.x, 1.0 ) ) );
+				yNorm = ( tex2D( ASE_TEXTURE_PARAMS( topTexMap ), tiling * worldPos.xz * float2( nsign.y, 1.0 ) ) );
+				zNorm = ( tex2D( ASE_TEXTURE_PARAMS( topTexMap ), tiling * worldPos.xy * float2( -nsign.z, 1.0 ) ) );
+				return xNorm * projNormal.x + yNorm * projNormal.y + zNorm * projNormal.z;
+			}
 			
+
 			float3 _LightDirection;
 
 			VertexOutput ShadowPassVertex( VertexInput v )
@@ -239,7 +252,15 @@ Shader "FireballProjectile"
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO( o );
 
+				float3 ase_worldPos = mul(GetObjectToWorldMatrix(), v.vertex).xyz;
+				o.ase_texcoord7.xyz = ase_worldPos;
+				float3 ase_worldNormal = TransformObjectToWorldNormal(v.ase_normal);
+				o.ase_texcoord8.xyz = ase_worldNormal;
 				
+				
+				//setting value to unused interpolator channels and avoid initialization warnings
+				o.ase_texcoord7.w = 0;
+				o.ase_texcoord8.w = 0;
 				#ifdef ASE_ABSOLUTE_VERTEX_POS
 					float3 defaultVertexValue = v.vertex.xyz;
 				#else
@@ -274,8 +295,17 @@ Shader "FireballProjectile"
 				UNITY_SETUP_INSTANCE_ID( IN );
 				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX( IN );
 
+				float3 ase_worldPos = IN.ase_texcoord7.xyz;
+				float3 ase_worldViewDir = ( _WorldSpaceCameraPos.xyz - ase_worldPos );
+				ase_worldViewDir = normalize(ase_worldViewDir);
+				float3 ase_worldNormal = IN.ase_texcoord8.xyz;
+				float fresnelNdotV5 = dot( ase_worldNormal, ase_worldViewDir );
+				float fresnelNode5 = ( 0.0 + _ScalePower.x * pow( 1.0 - fresnelNdotV5, _ScalePower.y ) );
+				float4 triplanar53 = TriplanarSamplingSF( _MainTexture, ase_worldPos, ase_worldNormal, 1.0, float2( 1,1 ), 1.0, 0 );
+				float temp_output_11_0 = pow( fresnelNode5 , triplanar53.x );
+				float lerpResult44 = lerp( _Color1.a , _Color2.a , temp_output_11_0);
 				
-				float Alpha = 1;
+				float Alpha = lerpResult44;
 				float AlphaClipThreshold = 0.5;
 
 				#ifdef _ALPHATEST_ON
@@ -302,9 +332,10 @@ Shader "FireballProjectile"
 			ColorMask 0
 
 			HLSLPROGRAM
-			#define _ALPHAPREMULTIPLY_ON 1
 			#pragma multi_compile_instancing
 			#define ASE_SRP_VERSION 70108
+			#define ASE_TEXTURE_PARAMS(textureName) textureName
+			
 
 			#pragma prefer_hlslcc gles
 			#pragma exclude_renderers d3d11_9x
@@ -331,11 +362,13 @@ Shader "FireballProjectile"
 			struct VertexOutput
 			{
 				float4 clipPos : SV_POSITION;
-				
+				float4 ase_texcoord : TEXCOORD0;
+				float4 ase_texcoord1 : TEXCOORD1;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
 			};
 
+			uniform sampler2D _MainTexture;
 			CBUFFER_START( UnityPerMaterial )
 			float4 _Color1;
 			float4 _Color2;
@@ -343,7 +376,19 @@ Shader "FireballProjectile"
 			CBUFFER_END
 
 
+			inline float4 TriplanarSamplingSF( sampler2D topTexMap, float3 worldPos, float3 worldNormal, float falloff, float2 tiling, float3 normalScale, float3 index )
+			{
+				float3 projNormal = ( pow( abs( worldNormal ), falloff ) );
+				projNormal /= ( projNormal.x + projNormal.y + projNormal.z ) + 0.00001;
+				float3 nsign = sign( worldNormal );
+				half4 xNorm; half4 yNorm; half4 zNorm;
+				xNorm = ( tex2D( ASE_TEXTURE_PARAMS( topTexMap ), tiling * worldPos.zy * float2( nsign.x, 1.0 ) ) );
+				yNorm = ( tex2D( ASE_TEXTURE_PARAMS( topTexMap ), tiling * worldPos.xz * float2( nsign.y, 1.0 ) ) );
+				zNorm = ( tex2D( ASE_TEXTURE_PARAMS( topTexMap ), tiling * worldPos.xy * float2( -nsign.z, 1.0 ) ) );
+				return xNorm * projNormal.x + yNorm * projNormal.y + zNorm * projNormal.z;
+			}
 			
+
 			VertexOutput vert( VertexInput v  )
 			{
 				VertexOutput o = (VertexOutput)0;
@@ -351,7 +396,15 @@ Shader "FireballProjectile"
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
+				float3 ase_worldPos = mul(GetObjectToWorldMatrix(), v.vertex).xyz;
+				o.ase_texcoord.xyz = ase_worldPos;
+				float3 ase_worldNormal = TransformObjectToWorldNormal(v.ase_normal);
+				o.ase_texcoord1.xyz = ase_worldNormal;
 				
+				
+				//setting value to unused interpolator channels and avoid initialization warnings
+				o.ase_texcoord.w = 0;
+				o.ase_texcoord1.w = 0;
 				#ifdef ASE_ABSOLUTE_VERTEX_POS
 					float3 defaultVertexValue = v.vertex.xyz;
 				#else
@@ -375,8 +428,17 @@ Shader "FireballProjectile"
 				UNITY_SETUP_INSTANCE_ID(IN);
 				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX( IN );
 
+				float3 ase_worldPos = IN.ase_texcoord.xyz;
+				float3 ase_worldViewDir = ( _WorldSpaceCameraPos.xyz - ase_worldPos );
+				ase_worldViewDir = normalize(ase_worldViewDir);
+				float3 ase_worldNormal = IN.ase_texcoord1.xyz;
+				float fresnelNdotV5 = dot( ase_worldNormal, ase_worldViewDir );
+				float fresnelNode5 = ( 0.0 + _ScalePower.x * pow( 1.0 - fresnelNdotV5, _ScalePower.y ) );
+				float4 triplanar53 = TriplanarSamplingSF( _MainTexture, ase_worldPos, ase_worldNormal, 1.0, float2( 1,1 ), 1.0, 0 );
+				float temp_output_11_0 = pow( fresnelNode5 , triplanar53.x );
+				float lerpResult44 = lerp( _Color1.a , _Color2.a , temp_output_11_0);
 				
-				float Alpha = 1;
+				float Alpha = lerpResult44;
 				float AlphaClipThreshold = 0.5;
 
 				#ifdef _ALPHATEST_ON
@@ -399,39 +461,30 @@ Shader "FireballProjectile"
 }
 /*ASEBEGIN
 Version=17700
-209;73;1270;655;4208.174;1409.371;3.860759;True;False
-Node;AmplifyShaderEditor.ColorNode;42;-490.3542,-131.6259;Inherit;False;Property;_Color2;Color2;2;1;[HDR];Create;True;0;0;False;0;1,0,0,1;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+226;73;1229;612;2112.575;19.60327;1.246549;False;False
 Node;AmplifyShaderEditor.Vector2Node;45;-1284.723,-39.21083;Inherit;False;Property;_ScalePower;Scale Power;3;0;Create;True;0;0;False;0;5,15;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
-Node;AmplifyShaderEditor.TriplanarNode;53;-1063.244,160.9063;Inherit;True;Spherical;World;False;Main Texture;_MainTexture;white;0;None;Mid Texture 0;_MidTexture0;white;-1;None;Bot Texture 0;_BotTexture0;white;-1;None;Triplanar Sampler;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.TimeNode;51;-1985.66,82.9227;Inherit;False;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.FresnelNode;5;-1030.64,-79.68896;Inherit;False;Standard;WorldNormal;ViewDir;False;False;5;0;FLOAT3;0,0,1;False;4;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;5;False;3;FLOAT;15;False;1;FLOAT;0
+Node;AmplifyShaderEditor.TriplanarNode;53;-1078.244,184.9063;Inherit;True;Spherical;World;False;Main Texture;_MainTexture;white;0;None;Mid Texture 0;_MidTexture0;white;-1;None;Bot Texture 0;_BotTexture0;white;-1;None;Triplanar Sampler;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;42;-490.3542,-131.6259;Inherit;False;Property;_Color2;Color2;2;1;[HDR];Create;True;0;0;False;0;1,0,0,1;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.PowerNode;11;-489.4948,101.1824;Inherit;True;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.ColorNode;6;-481.9836,-331.7661;Inherit;False;Property;_Color1;Color1;1;1;[HDR];Create;True;0;0;False;0;1,0.8435739,0,1;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;23;-1637.818,455.8224;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0
-Node;AmplifyShaderEditor.FresnelNode;5;-1030.64,-79.68896;Inherit;False;Standard;WorldNormal;ViewDir;False;False;5;0;FLOAT3;0,0,1;False;4;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;5;False;3;FLOAT;15;False;1;FLOAT;0
-Node;AmplifyShaderEditor.PosterizeNode;49;251.6079,-105.4214;Inherit;False;1;2;1;COLOR;0,0,0,0;False;0;INT;0;False;1;COLOR;0
-Node;AmplifyShaderEditor.TexturePropertyNode;54;-1722.751,96.07849;Inherit;True;Property;_Texture0;Texture 0;4;0;Create;True;0;0;False;0;None;None;False;white;Auto;Texture2D;-1;0;1;SAMPLER2D;0
-Node;AmplifyShaderEditor.TextureCoordinatesNode;41;-1434.789,440.1431;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.Vector2Node;24;-1883.818,458.8225;Inherit;False;Constant;_Vector0;Vector 0;4;0;Create;True;0;0;False;0;0.25,1;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
-Node;AmplifyShaderEditor.LerpOp;43;-85.84769,-173.9838;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.LerpOp;44;-83.49298,-24.85151;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.LerpOp;43;-84.84769,-172.9838;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;1;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;3;New Amplify Shader;2992e84f91cbeb14eab234972e07ea9d;True;ShadowCaster;0;1;ShadowCaster;0;False;False;False;True;0;False;-1;False;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;2;0;False;False;False;False;False;False;True;1;False;-1;True;3;False;-1;False;True;1;LightMode=ShadowCaster;False;0;Hidden/InternalErrorShader;0;0;Standard;0;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;574.6857,-144.9655;Float;False;True;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;3;FireballProjectile;2992e84f91cbeb14eab234972e07ea9d;True;Forward;0;0;Forward;7;False;False;False;True;0;False;-1;False;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Transparent=RenderType;Queue=Transparent=Queue=0;True;2;0;True;1;1;False;-1;10;False;-1;1;1;False;-1;10;False;-1;False;False;False;True;True;True;True;True;0;False;-1;True;False;255;False;-1;255;False;-1;255;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;True;2;False;-1;True;3;False;-1;True;True;0;False;-1;0;False;-1;True;1;LightMode=UniversalForward;False;0;Hidden/InternalErrorShader;0;0;Standard;10;Surface;1;  Blend;1;Two Sided;1;Cast Shadows;1;Receive Shadows;1;GPU Instancing;1;LOD CrossFade;0;Built-in Fog;0;Meta Pass;0;Vertex Position,InvertActionOnDeselection;1;0;4;True;True;True;False;False;;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;2;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;3;New Amplify Shader;2992e84f91cbeb14eab234972e07ea9d;True;DepthOnly;0;2;DepthOnly;0;False;False;False;True;0;False;-1;False;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;2;0;False;False;False;False;True;False;False;False;False;0;False;-1;False;True;1;False;-1;False;False;True;1;LightMode=DepthOnly;False;0;Hidden/InternalErrorShader;0;0;Standard;0;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;3;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;3;New Amplify Shader;2992e84f91cbeb14eab234972e07ea9d;True;Meta;0;3;Meta;0;False;False;False;True;0;False;-1;False;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;2;0;False;False;False;True;2;False;-1;False;False;False;False;False;True;1;LightMode=Meta;False;0;Hidden/InternalErrorShader;0;0;Standard;0;0
-WireConnection;11;0;5;0
-WireConnection;11;1;53;1
-WireConnection;23;1;24;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;569.6857,-120.9655;Float;False;True;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;3;FireballProjectile;2992e84f91cbeb14eab234972e07ea9d;True;Forward;0;0;Forward;7;False;False;False;True;0;False;-1;False;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;4;0;True;1;1;False;-1;0;False;-1;1;1;False;-1;0;False;-1;False;False;False;True;True;True;True;True;0;False;-1;True;False;255;False;-1;255;False;-1;255;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;True;1;False;-1;True;3;False;-1;True;True;0;False;-1;0;False;-1;True;1;LightMode=UniversalForward;False;0;Hidden/InternalErrorShader;0;0;Standard;10;Surface;0;  Blend;0;Two Sided;1;Cast Shadows;1;Receive Shadows;1;GPU Instancing;1;LOD CrossFade;0;Built-in Fog;0;Meta Pass;0;Vertex Position,InvertActionOnDeselection;1;0;4;True;True;True;False;False;;0
 WireConnection;5;2;45;1
 WireConnection;5;3;45;2
-WireConnection;49;1;43;0
-WireConnection;49;0;44;0
-WireConnection;41;1;23;0
-WireConnection;43;0;6;0
-WireConnection;43;1;42;0
-WireConnection;43;2;11;0
+WireConnection;11;0;5;0
+WireConnection;11;1;53;1
 WireConnection;44;0;6;4
 WireConnection;44;1;42;4
 WireConnection;44;2;11;0
-WireConnection;0;2;49;0
+WireConnection;43;0;6;0
+WireConnection;43;1;42;0
+WireConnection;43;2;11;0
+WireConnection;0;2;43;0
+WireConnection;0;3;44;0
 ASEEND*/
-//CHKSM=ED14C524875C145D56D9F59D382A3336C5190927
+//CHKSM=4C2B7FB586DC9931102859126151D9A413B60689

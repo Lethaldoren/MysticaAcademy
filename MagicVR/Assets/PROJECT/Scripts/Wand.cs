@@ -16,18 +16,22 @@ namespace Valve.VR.InteractionSystem
         // public variables
         public SteamVR_Action_Boolean m_FireAction = null;
         public Transform m_WandTip = null;
+        public Vector3 velocity;
+        public Vector3 angularVelocity;
 
         // private variables
         private SteamVR_Behaviour_Pose m_Pose = null;
-        private bool castingSpell;
+        public bool castingSpell;
 
-        // the currently equiped spell
+        [SerializeField]
+        private GameObject equipedSpellObject;
+        // the currently equiped spell as Spell
         [SerializeField]
         private Spell equipedSpell;
         [SerializeField]
         private string equipedSpellName;
         // the list of all spells words
-        private List<string> spellWords = new List<string>();
+        private string[] spellWords;
 
         // this is what reconizes voice commands and activates the functions
         private KeywordRecognizer keywordRecognizer;
@@ -37,9 +41,17 @@ namespace Valve.VR.InteractionSystem
         void Start()
         {
             //get all spell words from spell manager
-            spellWords = SpellManager.Instance.spellList.Select(s => s.magicWords).ToList();
+            // try
+            // {
+            //     spellWords = SpellManager.Instance.GetSpellWords();
+            // }
+            // catch (System.Exception)
+            // {
+            //     Debug.LogError("Cannot load spells, check SpellManager for any empty entries");
+            //     throw;
+            // }
 
-            keywordRecognizer = new KeywordRecognizer(spellWords.ToArray()); // this adds all actions in the dictionary to the voice commands the keywordRecognizer will listen for
+            keywordRecognizer = new KeywordRecognizer(SpellManager.Instance.spellDict.Keys.ToArray()); // this adds all actions in the dictionary to the voice commands the keywordRecognizer will listen for
             keywordRecognizer.OnPhraseRecognized += PhraseRecognized;
             keywordRecognizer.Start(); // you can turn the keyword recongnizer on or off
 
@@ -59,16 +71,17 @@ namespace Valve.VR.InteractionSystem
             {
                 // trigger the unequip event on the existing spell
                 equipedSpell?.OnUnequip.Invoke();
+                Destroy(equipedSpellObject);
 
                 // try fetching the spell
-                equipedSpell = SpellManager.Instance.GetSpell(spellName);
+                equipedSpellObject = SpellManager.Instance.GetSpell(spellName);
+                equipedSpell = equipedSpellObject.GetComponent<Spell>();
                 if (equipedSpell)
                 {
-                    Debug.Log(spellName + " equipped!");
-
-                    // trigger the equip event
+                    Instantiate(equipedSpellObject, transform);
                     equipedSpell.OnEquip.Invoke();
                     equipedSpell.origin = m_WandTip;
+                    Debug.Log(equipedSpell.magicWords + " equipped!");
                 }
                 else
                 {
@@ -122,6 +135,13 @@ namespace Valve.VR.InteractionSystem
                 castingSpell = false;
             }
 
+        }
+
+        // ------------------------------------------------------------------
+
+        void FixedUpdate()
+        {
+            m_Pose.GetEstimatedPeakVelocities(out velocity, out angularVelocity);
         }
 
         // ------------------------------------------------------------------

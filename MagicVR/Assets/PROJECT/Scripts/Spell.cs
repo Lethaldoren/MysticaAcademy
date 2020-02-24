@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu]
-public class Spell : ScriptableObject
+public class Spell : MonoBehaviour
 {
     public string magicWords;
     public GameObject[] spellPrefabs;
@@ -16,8 +15,23 @@ public class Spell : ScriptableObject
     public UnityEvent OnTriggerHeld;
     public UnityEvent OnTriggerUp;
 
-    public void SpawnPrefab(int i)
+    public GameObject SpawnPrefab(int i)
     {
-        Instantiate(spellPrefabs[i], origin);
+        return Instantiate<GameObject>(spellPrefabs[i], origin);
+    }
+
+    public void Test()
+    {
+        Debug.Log("consume kneecaps");
+    }
+
+    void Start()
+    {
+        
+    }
+
+    void Update()
+    {
+        
     }
 }
