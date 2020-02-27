@@ -1,0 +1,176 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4382615502679071044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721724664435635939}
+  - component: {fileID: 5500040730416002377}
+  - component: {fileID: 7086602324452137383}
+  m_Layer: 0
+  m_Name: pre_Fireball
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &721724664435635939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382615502679071044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2083325926702566505}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5500040730416002377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382615502679071044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f10a3ab7ecb6514496881eddd008571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magicWords: Fire Ball
+  origin: {fileID: 0}
+  wand: {fileID: 0}
+  OnEquip:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnequip:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTriggerDown:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7086602324452137383}
+        m_MethodName: StartCharge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  OnTriggerHeld:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7086602324452137383}
+        m_MethodName: Charge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTriggerUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7086602324452137383}
+        m_MethodName: StopCharge
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7086602324452137383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382615502679071044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6479e5183bebbf2438630996e20235ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charging: 0
+  chargeTime: 1
+  projectilePrefab: {fileID: 4827939979123987100, guid: 925b0173e6f1f4d43ac1181b59d02121,
+    type: 3}
+  chargeFX: {fileID: 2083325926702566507}
+  spell: {fileID: 5500040730416002377}
+  OnStartCharge:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCharging:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCompleteCharge:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1001 &2308871868516678602
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 721724664435635939}
+    m_Modifications:
+    - target: {fileID: 4387552081555486626, guid: f9a75b0d766c083418b4d4ce7f75eb10,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387552081555486627, guid: f9a75b0d766c083418b4d4ce7f75eb10,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387552081555486627, guid: f9a75b0d766c083418b4d4ce7f75eb10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387552081555486627, guid: f9a75b0d766c083418b4d4ce7f75eb10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387552081555486627, guid: f9a75b0d766c083418b4d4ce7f75eb10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387552081555486636, guid: f9a75b0d766c083418b4d4ce7f75eb10,
+        type: 3}
+      propertyPath: m_Name
+      value: FireballCharge
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f9a75b0d766c083418b4d4ce7f75eb10, type: 3}
+--- !u!4 &2083325926702566505 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4387552081555486627, guid: f9a75b0d766c083418b4d4ce7f75eb10,
+    type: 3}
+  m_PrefabInstance: {fileID: 2308871868516678602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &2083325926702566507 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 4387552081555486625, guid: f9a75b0d766c083418b4d4ce7f75eb10,
+    type: 3}
+  m_PrefabInstance: {fileID: 2308871868516678602}
+  m_PrefabAsset: {fileID: 0}

@@ -2,23 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Valve.VR.InteractionSystem;
 
 public class Spell : MonoBehaviour
 {
     public string magicWords;
-    public GameObject[] spellPrefabs;
     public Transform origin;
+    public Wand wand;
 
     public UnityEvent OnEquip;
     public UnityEvent OnUnequip;
     public UnityEvent OnTriggerDown;
     public UnityEvent OnTriggerHeld;
     public UnityEvent OnTriggerUp;
-
-    public GameObject SpawnPrefab(int i)
-    {
-        return Instantiate<GameObject>(spellPrefabs[i], origin);
-    }
 
     public void Test()
     {

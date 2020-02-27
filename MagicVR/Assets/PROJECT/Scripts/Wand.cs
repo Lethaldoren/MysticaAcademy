@@ -81,6 +81,7 @@ namespace Valve.VR.InteractionSystem
                     Instantiate(equipedSpellObject, transform);
                     equipedSpell.OnEquip.Invoke();
                     equipedSpell.origin = m_WandTip;
+                    equipedSpell.wand = this;
                     Debug.Log(equipedSpell.magicWords + " equipped!");
                 }
                 else
@@ -95,17 +96,19 @@ namespace Valve.VR.InteractionSystem
         void Update()
         {
 #if DEBUG_INPUT
-            // [DEBUG] Equip fireball
+            // [DEBUG] Equipping spells
             if (Input.GetKeyDown(KeyCode.F))
             {
                 EquipSpell("Fire Ball");
             }
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                EquipSpell("Wind Slash");
-            }
+            // if (Input.GetKeyDown(KeyCode.G))
+            // {
+            //     EquipSpell("Wind Slash");
+            // }
 #endif
 
+            // Casting inputs
+            // Down
 #if DEBUG_INPUT
             if (Input.GetKeyDown(KeyCode.Space)) // DEBUG INPUT
 #else
@@ -116,6 +119,7 @@ namespace Valve.VR.InteractionSystem
                 castingSpell = true;
             }
 
+            // Held
 #if DEBUG_INPUT
             if (castingSpell && Input.GetKey(KeyCode.Space)) // DEBUG INPUT
 #else
@@ -125,6 +129,7 @@ namespace Valve.VR.InteractionSystem
                 equipedSpell.OnTriggerHeld.Invoke();
             }
 
+            // Up
 #if DEBUG_INPUT
             if (Input.GetKeyUp(KeyCode.Space)) // DEBUG INPUT
 #else
@@ -141,23 +146,25 @@ namespace Valve.VR.InteractionSystem
 
         void FixedUpdate()
         {
+#if !DEBUG_INPUT
             m_Pose.GetEstimatedPeakVelocities(out velocity, out angularVelocity);
+#endif
         }
 
         // ------------------------------------------------------------------
 
-        Component CopyComponent(Component original, GameObject destination)
-        {
-            System.Type type = original.GetType();
-            Component copy = destination.AddComponent(type);
-            // Copied fields can be restricted with BindingFlags
-            System.Reflection.FieldInfo[] fields = type.GetFields();
-            foreach (System.Reflection.FieldInfo field in fields)
-            {
-                field.SetValue(copy, field.GetValue(original));
-            }
-            return copy;
-        }
+        // Component CopyComponent(Component original, GameObject destination)
+        // {
+        //     System.Type type = original.GetType();
+        //     Component copy = destination.AddComponent(type);
+        //     // Copied fields can be restricted with BindingFlags
+        //     System.Reflection.FieldInfo[] fields = type.GetFields();
+        //     foreach (System.Reflection.FieldInfo field in fields)
+        //     {
+        //         field.SetValue(copy, field.GetValue(original));
+        //     }
+        //     return copy;
+        // }
     }
 
 

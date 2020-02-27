@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TimedDestroy : MonoBehaviour
 {
-    public static void DestroyAfterTime()
+    public static void DestroyAfterTime(GameObject obj, float delay)
     {
-        
+        obj.AddComponent<TimedDestroy>().delay = delay;
     }
 
     public float delay;

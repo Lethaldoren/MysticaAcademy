@@ -6,14 +6,6 @@ using Valve.VR.InteractionSystem;
 
 public class FireballProjectile : MonoBehaviour
 {
-    public float Scale
-    {
-        set
-        {
-            transform.localScale = new Vector3(value, value, value);
-            vfx.SetFloat("Spawn Sphere Radius", value);
-        }
-    }
     public float hitDamage = 10;
     public float areaDamage = 5;
     public float explosionRadius = 3;
@@ -22,7 +14,10 @@ public class FireballProjectile : MonoBehaviour
     bool launched;
     VisualEffect vfx;
 
-    void Start()
+    [Header("DEBUG")]
+    public bool debug;
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         vfx = GetComponent<VisualEffect>();
@@ -31,7 +26,7 @@ public class FireballProjectile : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!launched) rb.velocity = transform.GetComponentInParent<Wand>().velocity;
+        if (!debug && !launched) rb.velocity = transform.GetComponentInParent<Wand>().velocity;
 
         // if (Input.GetKeyDown(KeyCode.Space))
         // {
@@ -43,14 +38,13 @@ public class FireballProjectile : MonoBehaviour
         {
             rb.rotation.SetLookRotation(rb.velocity);
         }
-        vfx.SetVector3("Initial Velocity", rb.velocity);
     }
 
-    public void Launch()
+    public void Launch(Vector3 velocity)
     {
-        transform.SetParent(null, true);
         rb.constraints = RigidbodyConstraints.FreezeRotation;
-        rb.velocity = new Vector3(Mathf.Pow(rb.velocity.x, 2), Mathf.Pow(rb.velocity.y, 2), Mathf.Pow(rb.velocity.z, 2));
+        velocity = velocity.normalized * velocity.sqrMagnitude * .5f;
+        rb.velocity = velocity;
         launched = true;
     }
 
@@ -73,7 +67,10 @@ public class FireballProjectile : MonoBehaviour
                 }
             }
         }
-        Instantiate(explosionPrefab);
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        var child = transform.GetChild(0);
+        child.SetParent(null, true);
+        TimedDestroy.DestroyAfterTime(child.gameObject, 2);
         Destroy(gameObject);
     }
 }
