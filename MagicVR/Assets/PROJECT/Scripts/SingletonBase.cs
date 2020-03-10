@@ -4,6 +4,9 @@ using UnityEngine;
 
 public abstract class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
 {
+    [Header("Singleton Preferences")]
+    public bool existAcrossMultipleScenes;
+
     private static object sm_lock = new object();
     private static bool sm_destroying;
     private static T sm_instance;
@@ -38,7 +41,8 @@ public abstract class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
 
     public virtual void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (existAcrossMultipleScenes)
+            DontDestroyOnLoad(this);
     }
 
     public virtual void OnApplicationQuit()
