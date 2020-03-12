@@ -9,6 +9,7 @@ namespace Valve.VR.InteractionSystem
     {
 
         public float objectMoveSpeed;
+        public float objectHeldRange;
         public float targetGrabRange;
 
         public float forceMultplier;
@@ -20,21 +21,28 @@ namespace Valve.VR.InteractionSystem
 
     void SearchForObject ()
         {
-
+           
         }
 
     void OnObjectPickUp(Rigidbody newObject)
         {
             holdingObject = true;
+            
             heldObject = newObject;
+            heldObject.useGravity = false;
+
 
         }
 
 
         void DragObject()
         {
-           
-            Vector3 TargetPosition = hand.transform.right;
+            
+            Vector3 TargetPosition = hand.transform.right * objectHeldRange;
+            Vector3 TargetDirection = heldObject.transform.position - TargetPosition;
+            TargetDirection.Normalize();
+            heldObject.MovePosition(TargetDirection * objectMoveSpeed);
+
         }
         void ThrowObject()
         {
