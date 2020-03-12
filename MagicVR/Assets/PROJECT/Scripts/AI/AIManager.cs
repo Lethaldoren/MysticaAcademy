@@ -5,17 +5,21 @@ using UnityEngine;
 
 public class AIManager : SingletonBase<AIManager>
 {
-
     public List<Wave> waves = new List<Wave>();
 
     int currentWaveNumber;
     GameObject currentWaveObject;
     public int timeBetweenWaves;
-    public bool waveComplete;
+    bool waveComplete;
+
+    public int maxTokens;
+    public int currentTokens;
+    public int TokensWithAI;
+    public int tokensOnCooldown;
 
     WaitForSecondsRealtime waveDelay;
 
-    public int enemiesLeft;
+    int enemiesLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +34,8 @@ public class AIManager : SingletonBase<AIManager>
     void Update()
     {
 
-        //constantly gets enemies left
+        //constantly checks enemies left in wave
         enemiesLeft = currentWaveObject.transform.childCount;
-        //Debug.Log(enemiesLeft);
-        //Debug.Log(currentWaveNumber);
 
         if (!waveComplete && enemiesLeft <= 0)
         {
@@ -41,7 +43,6 @@ public class AIManager : SingletonBase<AIManager>
             waveComplete = true;
             //start next wave
             StartCoroutine(DelayNewWave());
-           // StartWave();
         }
     }
 
@@ -54,15 +55,37 @@ public class AIManager : SingletonBase<AIManager>
     //starts wave by calling wave in list and activating the game object
     public void StartWave()
     {
-        Debug.Log("Wave Started");
+        //Debug.Log("Wave Started");
         currentWaveNumber += 1;
 
         currentWaveObject = waves[currentWaveNumber - 1].gameObject;
 
         currentWaveObject.SetActive(true);
         enemiesLeft = currentWaveObject.transform.childCount;
+        maxTokens = currentWaveObject.GetComponent<Wave>().availableTokens;
+        currentTokens = maxTokens;
 
         waveComplete = false;
+    }
+
+    //AI will check if they can take a token for attacking
+    public bool CanTakeToken() {
+
+        if (currentTokens > 0) {
+            currentTokens -= 1;
+            TokensWithAI += 1;
+            return true;
+        }
+        else {
+            return false;
+        }  
+    }
+
+    //for AI ot return token after attacking
+    public void ReturnToken() {
+
+        TokensWithAI -= 1;
+        tokensOnCooldown += 1;
     }
 }
 
