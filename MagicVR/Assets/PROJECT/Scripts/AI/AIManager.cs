@@ -9,15 +9,17 @@ public class AIManager : SingletonBase<AIManager>
 
     int currentWaveNumber;
     GameObject currentWaveObject;
-    public int timeBetweenWaves;
     bool waveComplete;
+    public float timeBetweenWaves;
 
+    public float tokenCooldownTime;
     public int maxTokens;
     public int currentTokens;
     public int TokensWithAI;
     public int tokensOnCooldown;
 
     WaitForSecondsRealtime waveDelay;
+    WaitForSecondsRealtime tokenCooldown;
 
     int enemiesLeft;
 
@@ -27,6 +29,7 @@ public class AIManager : SingletonBase<AIManager>
         currentWaveNumber = 0;
         waves = Resources.FindObjectsOfTypeAll<Wave>().OrderBy(w => w.waveNumber).ToList();
         waveDelay = new WaitForSecondsRealtime(timeBetweenWaves);
+        tokenCooldown = new WaitForSecondsRealtime(tokenCooldownTime);
         StartWave();
     }
 
@@ -50,6 +53,12 @@ public class AIManager : SingletonBase<AIManager>
     {
         yield return waveDelay;
         StartWave();
+    }
+
+    IEnumerator TokenCooldown() {
+
+        yield return tokenCooldown;
+        currentTokens += 1;
     }
 
     //starts wave by calling wave in list and activating the game object
@@ -86,6 +95,7 @@ public class AIManager : SingletonBase<AIManager>
 
         TokensWithAI -= 1;
         tokensOnCooldown += 1;
+        StartCoroutine(TokenCooldown());
     }
 }
 
