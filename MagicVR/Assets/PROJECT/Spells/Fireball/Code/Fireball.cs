@@ -10,7 +10,9 @@ public class Fireball : MonoBehaviour
     public bool charging;
     public float chargeTime;
     public GameObject projectilePrefab;
-    public VisualEffect chargeFX;
+    // public VisualEffect chargeFX;
+    public ParticleSystem chargeFX;
+    public ParticleSystem readyFX;
     public Spell spell;
 
     // private variables
@@ -21,11 +23,6 @@ public class Fireball : MonoBehaviour
     public UnityEvent OnCharging;
     public UnityEvent OnCompleteCharge;
 
-    void Awake()
-    {
-        chargeFX = GetComponentInChildren<VisualEffect>();
-    }
-    
     public void StartCharge()
     {
         charge = 0;
@@ -51,6 +48,7 @@ public class Fireball : MonoBehaviour
                 charging = false;
                 // projectile.transform.localScale = Vector3.one;
 
+                readyFX.Emit(30);
                 chargeFX.Stop();
             }
 
@@ -74,8 +72,8 @@ public class Fireball : MonoBehaviour
         else
         {
             // Completed charge
-            var proj = Instantiate(projectilePrefab, spell.wand.m_WandTip.position + (Vector3.forward * .25f), Quaternion.identity);
-            proj.GetComponent<FireballProjectile>().Launch(spell.wand.velocity);
+            var proj = Instantiate(projectilePrefab, transform.position + (Vector3.forward * .25f), Quaternion.identity);
+            proj.GetComponent<FireballProjectile>().Launch(transform.parent.GetComponent<Valve.VR.InteractionSystem.Wand>().velocity);
         }
         charge = 0;
     }

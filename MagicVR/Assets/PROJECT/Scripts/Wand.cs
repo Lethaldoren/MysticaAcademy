@@ -1,5 +1,5 @@
 ﻿// Comment and uncomment to toggle debug input
-// #define DEBUG_INPUT
+#define DEBUG_INPUT
 
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +13,7 @@ namespace Valve.VR.InteractionSystem
     [RequireComponent(typeof(Interactable))]
     public class Wand : MonoBehaviour
     {
+        public bool noVRInput;
         // public variables
         public SteamVR_Action_Boolean m_FireAction = null;
         public Transform m_WandTip = null;
@@ -24,14 +25,7 @@ namespace Valve.VR.InteractionSystem
         public bool castingSpell;
 
         [SerializeField]
-        private GameObject equipedSpellObject;
-        // the currently equiped spell as Spell
-        [SerializeField]
-        private Spell equipedSpell;
-        [SerializeField]
-        private string equipedSpellName;
-        // the list of all spells words
-        private string[] spellWords;
+        private GameObject equipedSpell;
 
         // this is what reconizes voice commands and activates the functions
         private KeywordRecognizer keywordRecognizer;
@@ -40,18 +34,7 @@ namespace Valve.VR.InteractionSystem
 
         void Start()
         {
-            //get all spell words from spell manager
-            // try
-            // {
-            //     spellWords = SpellManager.Instance.GetSpellWords();
-            // }
-            // catch (System.Exception)
-            // {
-            //     Debug.LogError("Cannot load spells, check SpellManager for any empty entries");
-            //     throw;
-            // }
-
-            keywordRecognizer = new KeywordRecognizer(SpellManager.Instance.spellDict.Keys.ToArray()); // this adds all actions in the dictionary to the voice commands the keywordRecognizer will listen for
+            keywordRecognizer = new KeywordRecognizer(SpellManager.Instance.AllSpellNames()); // this adds all actions in the dictionary to the voice commands the keywordRecognizer will listen for
             keywordRecognizer.OnPhraseRecognized += PhraseRecognized;
             keywordRecognizer.Start(); // you can turn the keyword recongnizer on or off
 
@@ -69,24 +52,21 @@ namespace Valve.VR.InteractionSystem
         {
             if (!castingSpell)
             {
-                // trigger the unequip event on the existing spell
-                equipedSpell?.OnUnequip.Invoke();
-                Destroy(equipedSpellObject);
+                // unequip spell if there is one
+                if (equipedSpell != null)
+                {
+                    SpellManager.Instance.ReturnSpell(equipedSpell);
+                    equipedSpell.GetComponent<Spell>().OnUnequip.Invoke();
+                }
 
                 // try fetching the spell
-                equipedSpellObject = SpellManager.Instance.GetSpell(spellName);
-                equipedSpell = equipedSpellObject.GetComponent<Spell>();
+                equipedSpell = SpellManager.Instance.GetSpell(spellName);
                 if (equipedSpell)
                 {
-                    Instantiate(equipedSpellObject, transform);
-                    equipedSpell.OnEquip.Invoke();
-                    equipedSpell.origin = m_WandTip;
-                    equipedSpell.wand = this;
-                    Debug.Log(equipedSpell.magicWords + " equipped!");
-                }
-                else
-                {
-                    Debug.Log("Couldn't find correct spell.");
+                    equipedSpell.transform.SetParent(transform, false);
+                    // equipedSpell.transform.localPosition = new Vector3(0, 0, .5f);
+                    Debug.Log(spellName + " equipped!");
+                    equipedSpell.GetComponent<Spell>().OnEquip.Invoke();
                 }
             }
         }
@@ -95,49 +75,63 @@ namespace Valve.VR.InteractionSystem
 
         void Update()
         {
-#if DEBUG_INPUT
-            // [DEBUG] Equipping spells
-            if (Input.GetKeyDown(KeyCode.F))
+            if (equipedSpell != null)
             {
-                EquipSpell("Fire Ball");
-            }
-            // if (Input.GetKeyDown(KeyCode.G))
-            // {
-            //     EquipSpell("Wind Slash");
-            // }
-#endif
+                if (noVRInput)
+                {
+                    // [DEBUG] Equipping spells
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        EquipSpell("Fire Ball");
+                    }
 
-            // Casting inputs
-            // Down
-#if DEBUG_INPUT
-            if (Input.GetKeyDown(KeyCode.Space)) // DEBUG INPUT
-#else
-            if (m_FireAction.GetStateDown(m_Pose.inputSource))
-#endif
-            {
-                equipedSpell.OnTriggerDown.Invoke();
-                castingSpell = true;
-            }
+                    // Down
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        equipedSpell.GetComponent<Spell>().OnTriggerDown.Invoke();
+                        castingSpell = true;
+                    }
 
-            // Held
-#if DEBUG_INPUT
-            if (castingSpell && Input.GetKey(KeyCode.Space)) // DEBUG INPUT
-#else
-            if (castingSpell && m_FireAction.GetState(m_Pose.inputSource))
-#endif
-            {
-                equipedSpell.OnTriggerHeld.Invoke();
-            }
+                    // Held
+                    if (castingSpell && Input.GetKey(KeyCode.Space))
+                    {
+                        equipedSpell.GetComponent<Spell>().OnTriggerHeld.Invoke();
+                    }
 
-            // Up
-#if DEBUG_INPUT
-            if (Input.GetKeyUp(KeyCode.Space)) // DEBUG INPUT
-#else
-            if (m_FireAction.GetStateUp(m_Pose.inputSource))
-#endif
-            {
-                equipedSpell.OnTriggerUp.Invoke();
-                castingSpell = false;
+                    // Up
+                    if (Input.GetKeyUp(KeyCode.Space))
+                    {
+                        equipedSpell.GetComponent<Spell>().OnTriggerUp.Invoke();
+                        castingSpell = false;
+                    }
+                }
+                else
+                {
+                    // Down
+                    if (m_FireAction.GetStateDown(m_Pose.inputSource))
+                    {
+                        Debug.Log("down");
+                        equipedSpell.GetComponent<Spell>().OnTriggerDown.Invoke();
+                        castingSpell = true;
+                    }
+
+                    // Held
+                    if (castingSpell && m_FireAction.GetState(m_Pose.inputSource))
+                    {
+                        Debug.Log("held");
+                        equipedSpell.GetComponent<Spell>().OnTriggerHeld.Invoke();
+                    }
+
+                    // Up
+                    if (m_FireAction.GetStateUp(m_Pose.inputSource))
+                    {
+                        Debug.Log("up");
+                        equipedSpell.GetComponent<Spell>().OnTriggerUp.Invoke();
+                        castingSpell = false;
+                    }
+                    
+                }
+
             }
 
         }
@@ -146,9 +140,10 @@ namespace Valve.VR.InteractionSystem
 
         void FixedUpdate()
         {
-#if !DEBUG_INPUT
+            // velocity = m_Pose.GetVelocity();
+            // angularVelocity = m_Pose.GetAngularVelocity();
+
             m_Pose.GetEstimatedPeakVelocities(out velocity, out angularVelocity);
-#endif
         }
 
         // ------------------------------------------------------------------

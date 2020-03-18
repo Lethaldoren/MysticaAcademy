@@ -7,8 +7,6 @@ using Valve.VR.InteractionSystem;
 public class Spell : MonoBehaviour
 {
     public string magicWords;
-    public Transform origin;
-    public Wand wand;
 
     public UnityEvent OnEquip;
     public UnityEvent OnUnequip;
@@ -19,15 +17,5 @@ public class Spell : MonoBehaviour
     public void Test()
     {
         Debug.Log("consume kneecaps");
-    }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
     }
 }

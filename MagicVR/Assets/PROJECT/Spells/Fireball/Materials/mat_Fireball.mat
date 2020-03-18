@@ -86,6 +86,7 @@ Material:
     - _DistortionStrengthScaled: 0.1
     - _DstBlend: 10
     - _EnvironmentReflections: 1
+    - _FlipTexture: 0
     - _FlipbookBlending: 0
     - _FlipbookMode: 0
     - _Float0: 5

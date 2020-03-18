@@ -8,6 +8,7 @@ Shader "FireballProjectile"
 		[HDR]_Color1("Color1", Color) = (1,0.8435739,0,1)
 		[HDR]_Color2("Color2", Color) = (1,0,0,1)
 		_ScalePower("Scale Power", Vector) = (5,15,0,0)
+		[Toggle]_FlipTexture("FlipTexture", Float) = 0
 
 	}
 
@@ -82,6 +83,7 @@ Shader "FireballProjectile"
 			float4 _Color1;
 			float4 _Color2;
 			float2 _ScalePower;
+			float _FlipTexture;
 			CBUFFER_END
 
 
@@ -146,7 +148,7 @@ Shader "FireballProjectile"
 				float fresnelNdotV5 = dot( ase_worldNormal, ase_worldViewDir );
 				float fresnelNode5 = ( 0.0 + _ScalePower.x * pow( 1.0 - fresnelNdotV5, _ScalePower.y ) );
 				float4 triplanar53 = TriplanarSamplingSF( _MainTexture, ase_worldPos, ase_worldNormal, 1.0, float2( 1,1 ), 1.0, 0 );
-				float temp_output_11_0 = pow( fresnelNode5 , triplanar53.x );
+				float temp_output_11_0 = pow( fresnelNode5 , (( _FlipTexture )?( ( 1.0 - triplanar53.x ) ):( triplanar53.x )) );
 				float4 lerpResult43 = lerp( _Color1 , _Color2 , temp_output_11_0);
 				
 				float lerpResult44 = lerp( _Color1.a , _Color2.a , temp_output_11_0);
@@ -227,6 +229,7 @@ Shader "FireballProjectile"
 			float4 _Color1;
 			float4 _Color2;
 			float2 _ScalePower;
+			float _FlipTexture;
 			CBUFFER_END
 
 
@@ -302,7 +305,7 @@ Shader "FireballProjectile"
 				float fresnelNdotV5 = dot( ase_worldNormal, ase_worldViewDir );
 				float fresnelNode5 = ( 0.0 + _ScalePower.x * pow( 1.0 - fresnelNdotV5, _ScalePower.y ) );
 				float4 triplanar53 = TriplanarSamplingSF( _MainTexture, ase_worldPos, ase_worldNormal, 1.0, float2( 1,1 ), 1.0, 0 );
-				float temp_output_11_0 = pow( fresnelNode5 , triplanar53.x );
+				float temp_output_11_0 = pow( fresnelNode5 , (( _FlipTexture )?( ( 1.0 - triplanar53.x ) ):( triplanar53.x )) );
 				float lerpResult44 = lerp( _Color1.a , _Color2.a , temp_output_11_0);
 				
 				float Alpha = lerpResult44;
@@ -373,6 +376,7 @@ Shader "FireballProjectile"
 			float4 _Color1;
 			float4 _Color2;
 			float2 _ScalePower;
+			float _FlipTexture;
 			CBUFFER_END
 
 
@@ -435,7 +439,7 @@ Shader "FireballProjectile"
 				float fresnelNdotV5 = dot( ase_worldNormal, ase_worldViewDir );
 				float fresnelNode5 = ( 0.0 + _ScalePower.x * pow( 1.0 - fresnelNdotV5, _ScalePower.y ) );
 				float4 triplanar53 = TriplanarSamplingSF( _MainTexture, ase_worldPos, ase_worldNormal, 1.0, float2( 1,1 ), 1.0, 0 );
-				float temp_output_11_0 = pow( fresnelNode5 , triplanar53.x );
+				float temp_output_11_0 = pow( fresnelNode5 , (( _FlipTexture )?( ( 1.0 - triplanar53.x ) ):( triplanar53.x )) );
 				float lerpResult44 = lerp( _Color1.a , _Color2.a , temp_output_11_0);
 				
 				float Alpha = lerpResult44;
@@ -461,23 +465,28 @@ Shader "FireballProjectile"
 }
 /*ASEBEGIN
 Version=17700
-226;73;1229;612;2112.575;19.60327;1.246549;False;False
-Node;AmplifyShaderEditor.Vector2Node;45;-1284.723,-39.21083;Inherit;False;Property;_ScalePower;Scale Power;3;0;Create;True;0;0;False;0;5,15;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
-Node;AmplifyShaderEditor.FresnelNode;5;-1030.64,-79.68896;Inherit;False;Standard;WorldNormal;ViewDir;False;False;5;0;FLOAT3;0,0,1;False;4;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;5;False;3;FLOAT;15;False;1;FLOAT;0
-Node;AmplifyShaderEditor.TriplanarNode;53;-1078.244,184.9063;Inherit;True;Spherical;World;False;Main Texture;_MainTexture;white;0;None;Mid Texture 0;_MidTexture0;white;-1;None;Bot Texture 0;_BotTexture0;white;-1;None;Triplanar Sampler;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;42;-490.3542,-131.6259;Inherit;False;Property;_Color2;Color2;2;1;[HDR];Create;True;0;0;False;0;1,0,0,1;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.PowerNode;11;-489.4948,101.1824;Inherit;True;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0
-Node;AmplifyShaderEditor.ColorNode;6;-481.9836,-331.7661;Inherit;False;Property;_Color1;Color1;1;1;[HDR];Create;True;0;0;False;0;1,0.8435739,0,1;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+151;84;1270;655;1613.702;728.4936;2.171372;True;False
+Node;AmplifyShaderEditor.TriplanarNode;53;-1451.316,228.1001;Inherit;True;Spherical;World;False;Main Texture;_MainTexture;white;0;None;Mid Texture 0;_MidTexture0;white;-1;None;Bot Texture 0;_BotTexture0;white;-1;None;Triplanar Sampler;False;10;0;SAMPLER2D;;False;5;FLOAT;1;False;1;SAMPLER2D;;False;6;FLOAT;0;False;2;SAMPLER2D;;False;7;FLOAT;0;False;9;FLOAT3;0,0,0;False;8;FLOAT;1;False;3;FLOAT2;1,1;False;4;FLOAT;1;False;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.Vector2Node;45;-1337.795,-9.017036;Inherit;False;Property;_ScalePower;Scale Power;3;0;Create;True;0;0;False;0;5,15;5,8;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
+Node;AmplifyShaderEditor.OneMinusNode;55;-992.1785,346.7078;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.FresnelNode;5;-1083.712,-49.49517;Inherit;False;Standard;WorldNormal;ViewDir;False;False;5;0;FLOAT3;0,0,1;False;4;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;5;False;3;FLOAT;15;False;1;FLOAT;0
+Node;AmplifyShaderEditor.ToggleSwitchNode;54;-794.5928,252.0103;Inherit;False;Property;_FlipTexture;FlipTexture;4;0;Create;True;0;0;False;0;0;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
+Node;AmplifyShaderEditor.ColorNode;6;-481.9836,-331.7661;Inherit;False;Property;_Color1;Color1;1;1;[HDR];Create;True;0;0;False;0;1,0.8435739,0,1;4.005235,0.06675392,0,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;42;-490.3542,-131.6259;Inherit;False;Property;_Color2;Color2;2;1;[HDR];Create;True;0;0;False;0;1,0,0,1;2,1.727749,0,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.PowerNode;11;-542.5666,131.3762;Inherit;True;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.LerpOp;44;-83.49298,-24.85151;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.LerpOp;43;-84.84769,-172.9838;Inherit;False;3;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;2;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;1;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;3;New Amplify Shader;2992e84f91cbeb14eab234972e07ea9d;True;ShadowCaster;0;1;ShadowCaster;0;False;False;False;True;0;False;-1;False;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;2;0;False;False;False;False;False;False;True;1;False;-1;True;3;False;-1;False;True;1;LightMode=ShadowCaster;False;0;Hidden/InternalErrorShader;0;0;Standard;0;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;2;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;3;New Amplify Shader;2992e84f91cbeb14eab234972e07ea9d;True;DepthOnly;0;2;DepthOnly;0;False;False;False;True;0;False;-1;False;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;2;0;False;False;False;False;True;False;False;False;False;0;False;-1;False;True;1;False;-1;False;False;True;1;LightMode=DepthOnly;False;0;Hidden/InternalErrorShader;0;0;Standard;0;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;3;0,0;Float;False;False;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;3;New Amplify Shader;2992e84f91cbeb14eab234972e07ea9d;True;Meta;0;3;Meta;0;False;False;False;True;0;False;-1;False;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;2;0;False;False;False;True;2;False;-1;False;False;False;False;False;True;1;LightMode=Meta;False;0;Hidden/InternalErrorShader;0;0;Standard;0;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;569.6857,-120.9655;Float;False;True;-1;2;UnityEditor.ShaderGraph.PBRMasterGUI;0;3;FireballProjectile;2992e84f91cbeb14eab234972e07ea9d;True;Forward;0;0;Forward;7;False;False;False;True;0;False;-1;False;False;False;False;False;True;3;RenderPipeline=UniversalPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;4;0;True;1;1;False;-1;0;False;-1;1;1;False;-1;0;False;-1;False;False;False;True;True;True;True;True;0;False;-1;True;False;255;False;-1;255;False;-1;255;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;7;False;-1;1;False;-1;1;False;-1;1;False;-1;True;1;False;-1;True;3;False;-1;True;True;0;False;-1;0;False;-1;True;1;LightMode=UniversalForward;False;0;Hidden/InternalErrorShader;0;0;Standard;10;Surface;0;  Blend;0;Two Sided;1;Cast Shadows;1;Receive Shadows;1;GPU Instancing;1;LOD CrossFade;0;Built-in Fog;0;Meta Pass;0;Vertex Position,InvertActionOnDeselection;1;0;4;True;True;True;False;False;;0
+WireConnection;55;0;53;1
 WireConnection;5;2;45;1
 WireConnection;5;3;45;2
+WireConnection;54;0;53;1
+WireConnection;54;1;55;0
 WireConnection;11;0;5;0
-WireConnection;11;1;53;1
+WireConnection;11;1;54;0
 WireConnection;44;0;6;4
 WireConnection;44;1;42;4
 WireConnection;44;2;11;0
@@ -487,4 +496,4 @@ WireConnection;43;2;11;0
 WireConnection;0;2;43;0
 WireConnection;0;3;44;0
 ASEEND*/
-//CHKSM=4C2B7FB586DC9931102859126151D9A413B60689
+//CHKSM=CF094CFFE5C01759EE20AEDCCAE003D688197C44

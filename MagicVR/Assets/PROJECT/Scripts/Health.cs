@@ -8,10 +8,10 @@ public class Health : MonoBehaviour
 
     [Header("Basic Variables")]
     public float maxHealth;
-    [HideInInspector]
+    // [HideInInspector]
     // The real health value
     public float health;
-    [HideInInspector]
+    // [HideInInspector]
     // The health value that's displayed on the health bar
     public float displayHealth;
     // Alive state

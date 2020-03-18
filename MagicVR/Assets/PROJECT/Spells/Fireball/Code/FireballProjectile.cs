@@ -26,14 +26,6 @@ public class FireballProjectile : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!debug && !launched) rb.velocity = transform.GetComponentInParent<Wand>().velocity;
-
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     rb.AddForce((Vector3.up + Vector3.forward) * 15, ForceMode.Impulse);
-        //     Launch();
-        // }
-
         if (rb.velocity.magnitude > 0)
         {
             rb.rotation.SetLookRotation(rb.velocity);
@@ -50,8 +42,10 @@ public class FireballProjectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collisionInfo)
     {
+        GameObject hitEnemy = null;
         if (collisionInfo.gameObject.CompareTag("Enemy"))
         {
+            hitEnemy = collisionInfo.gameObject;
             collisionInfo.gameObject.GetComponent<Health>().Damage(hitDamage);
         }
 
@@ -60,7 +54,7 @@ public class FireballProjectile : MonoBehaviour
         {
             foreach (Collider c in aoeObjects)
             {
-                if(c.CompareTag("Enemy"))
+                if(c.gameObject == hitEnemy && c.CompareTag("Enemy"))
                 {
                     c.gameObject.GetComponent<Health>().Damage(areaDamage);
                     c.attachedRigidbody.AddExplosionForce(5, transform.position, explosionRadius, 1, ForceMode.Impulse);

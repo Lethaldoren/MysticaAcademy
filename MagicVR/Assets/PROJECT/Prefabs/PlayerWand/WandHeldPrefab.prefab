@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d04dadf7f52ee498f5442de3712129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noVRInput: 0
   m_FireAction:
     actionPath: /actions/wand/in/cast
     needsReinit: 0
@@ -133,9 +134,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   angularVelocity: {x: 0, y: 0, z: 0}
   castingSpell: 0
-  equipedSpellObject: {fileID: 0}
   equipedSpell: {fileID: 0}
-  equipedSpellName: 
 --- !u!1 &3747304973677219790
 GameObject:
   m_ObjectHideFlags: 0
