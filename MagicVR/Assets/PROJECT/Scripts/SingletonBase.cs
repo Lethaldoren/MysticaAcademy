@@ -36,11 +36,6 @@ public abstract class SingletonBase<T> : MonoBehaviour where T : MonoBehaviour
         }
     }
 
-    public virtual void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
-
     public virtual void OnApplicationQuit()
     {
         SetDestroying();

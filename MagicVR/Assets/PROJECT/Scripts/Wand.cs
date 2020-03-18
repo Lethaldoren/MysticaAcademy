@@ -1,5 +1,5 @@
 ﻿// Comment and uncomment to toggle debug input
-//#define DEBUG_INPUT
+#define DEBUG_INPUT
 
 using System.Collections;
 using System.Collections.Generic;
@@ -13,23 +13,19 @@ namespace Valve.VR.InteractionSystem
     [RequireComponent(typeof(Interactable))]
     public class Wand : MonoBehaviour
     {
-
+        public bool noVRInput;
+        // public variables
         public SteamVR_Action_Boolean m_FireAction = null;
         public Transform m_WandTip = null;
+        public Vector3 velocity;
+        public Vector3 angularVelocity;
 
-        //private vartiables
+        // private variables
         private SteamVR_Behaviour_Pose m_Pose = null;
-        private bool CastingSpell;
+        public bool castingSpell;
 
-        // the currently equiped spell
         [SerializeField]
-        private SpellBase EquipedSpell;
-        [SerializeField]
-        private string EquipedSpellName;
-
-        // the list of all spells
-        private SpellBase[] allSpells;
-        private List<string> spellWords = new List<string>();
+        private GameObject equipedSpell;
 
         // this is what reconizes voice commands and activates the functions
         private KeywordRecognizer keywordRecognizer;
@@ -38,11 +34,7 @@ namespace Valve.VR.InteractionSystem
 
         void Start()
         {
-            //get all spell words from spell manager
-            allSpells = SpellManager.Instance.spellList;
-            spellWords = allSpells.Select(s => s.magicWords).ToList();
-
-            keywordRecognizer = new KeywordRecognizer(spellWords.ToArray()); // this adds all actions in the dictionary to the voice commands the keywordRecognizer will listen for
+            keywordRecognizer = new KeywordRecognizer(SpellManager.Instance.AllSpellNames()); // this adds all actions in the dictionary to the voice commands the keywordRecognizer will listen for
             keywordRecognizer.OnPhraseRecognized += PhraseRecognized;
             keywordRecognizer.Start(); // you can turn the keyword recongnizer on or off
 
@@ -58,19 +50,24 @@ namespace Valve.VR.InteractionSystem
 
         private void EquipSpell(string spellName)
         {
-            if (!CastingSpell)
+            if (!castingSpell)
             {
-                if (EquipedSpell) EquipedSpell.OnUnequip();
+                // unequip spell if there is one
+                if (equipedSpell != null)
+                {
+                    SpellManager.Instance.ReturnSpell(equipedSpell);
+                    equipedSpell.GetComponent<Spell>().OnUnequip.Invoke();
+                }
 
-                var newSpell = allSpells.First(s => s.magicWords == spellName);
-                EquipedSpell = CopyComponent(newSpell, this.gameObject) as SpellBase;
-               // EquipedSpell = gameObject.AddComponent(newSpell.GetType()) as SpellBase;
-               // EquipedSpell.spellPrefab = newSpell.spellPrefab;
-                Debug.Log("Spell Equiped! : " + spellName);
-
-                // EquipedSpell = Instantiate(EquipedSpell, transform).GetComponent<EquipableSpell>();
-                print(EquipedSpell.GetType() + " | " + EquipedSpell.name);
-                EquipedSpell.OnEquip();
+                // try fetching the spell
+                equipedSpell = SpellManager.Instance.GetSpell(spellName);
+                if (equipedSpell)
+                {
+                    equipedSpell.transform.SetParent(transform, false);
+                    // equipedSpell.transform.localPosition = new Vector3(0, 0, .5f);
+                    Debug.Log(spellName + " equipped!");
+                    equipedSpell.GetComponent<Spell>().OnEquip.Invoke();
+                }
             }
         }
 
@@ -78,64 +75,91 @@ namespace Valve.VR.InteractionSystem
 
         void Update()
         {
-#if DEBUG_INPUT
-            // [DEBUG] Equip fireball
-            if (Input.GetKeyDown(KeyCode.F))
+            if (equipedSpell != null)
             {
-                EquipSpell("Fire Ball");
-            }
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                EquipSpell("Magma Ball");
-            }
-#endif
-
-#if DEBUG_INPUT
-            if (Input.GetKeyDown(KeyCode.Space)) // DEBUG INPUT
-#else
-            if (m_FireAction.GetStateDown(m_Pose.inputSource))
-#endif
-            {
-                EquipedSpell.OnTriggerDown();
-                Debug.Log("Fire");
-                CastingSpell = true;
-            }
-
-#if DEBUG_INPUT
-            if (Input.GetKey(KeyCode.Space)) // DEBUG INPUT
-#else
-            if (CastingSpell && m_FireAction.GetState(m_Pose.inputSource))
-#endif
+                if (noVRInput)
                 {
-                EquipedSpell.OnTriggerHeld();
-            }
+                    // [DEBUG] Equipping spells
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        EquipSpell("Fire Ball");
+                    }
 
-#if DEBUG_INPUT
-            if (Input.GetKeyUp(KeyCode.Space)) // DEBUG INPUT
-#else
-            if (m_FireAction.GetStateUp(m_Pose.inputSource))
-#endif
-            {
-                EquipedSpell.OnTriggerUp();
-                CastingSpell = false;
+                    // Down
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        equipedSpell.GetComponent<Spell>().OnTriggerDown.Invoke();
+                        castingSpell = true;
+                    }
+
+                    // Held
+                    if (castingSpell && Input.GetKey(KeyCode.Space))
+                    {
+                        equipedSpell.GetComponent<Spell>().OnTriggerHeld.Invoke();
+                    }
+
+                    // Up
+                    if (Input.GetKeyUp(KeyCode.Space))
+                    {
+                        equipedSpell.GetComponent<Spell>().OnTriggerUp.Invoke();
+                        castingSpell = false;
+                    }
+                }
+                else
+                {
+                    // Down
+                    if (m_FireAction.GetStateDown(m_Pose.inputSource))
+                    {
+                        Debug.Log("down");
+                        equipedSpell.GetComponent<Spell>().OnTriggerDown.Invoke();
+                        castingSpell = true;
+                    }
+
+                    // Held
+                    if (castingSpell && m_FireAction.GetState(m_Pose.inputSource))
+                    {
+                        Debug.Log("held");
+                        equipedSpell.GetComponent<Spell>().OnTriggerHeld.Invoke();
+                    }
+
+                    // Up
+                    if (m_FireAction.GetStateUp(m_Pose.inputSource))
+                    {
+                        Debug.Log("up");
+                        equipedSpell.GetComponent<Spell>().OnTriggerUp.Invoke();
+                        castingSpell = false;
+                    }
+                    
+                }
+
             }
 
         }
 
         // ------------------------------------------------------------------
 
-        Component CopyComponent(Component original, GameObject destination)
+        void FixedUpdate()
         {
-            System.Type type = original.GetType();
-            Component copy = destination.AddComponent(type);
-            // Copied fields can be restricted with BindingFlags
-            System.Reflection.FieldInfo[] fields = type.GetFields();
-            foreach (System.Reflection.FieldInfo field in fields)
-            {
-                field.SetValue(copy, field.GetValue(original));
-            }
-            return copy;
+            // velocity = m_Pose.GetVelocity();
+            // angularVelocity = m_Pose.GetAngularVelocity();
+
+            m_Pose.GetEstimatedPeakVelocities(out velocity, out angularVelocity);
         }
+
+        // ------------------------------------------------------------------
+
+        // Component CopyComponent(Component original, GameObject destination)
+        // {
+        //     System.Type type = original.GetType();
+        //     Component copy = destination.AddComponent(type);
+        //     // Copied fields can be restricted with BindingFlags
+        //     System.Reflection.FieldInfo[] fields = type.GetFields();
+        //     foreach (System.Reflection.FieldInfo field in fields)
+        //     {
+        //         field.SetValue(copy, field.GetValue(original));
+        //     }
+        //     return copy;
+        // }
     }
 
 
