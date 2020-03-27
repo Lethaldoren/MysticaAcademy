@@ -35,7 +35,7 @@ public class FireballProjectile : MonoBehaviour
     public void Launch(Vector3 velocity)
     {
         rb.constraints = RigidbodyConstraints.FreezeRotation;
-        velocity = velocity.normalized * velocity.sqrMagnitude * .5f;
+        velocity = velocity.normalized * Mathf.Clamp(velocity.sqrMagnitude, 0, 10);
         rb.velocity = velocity;
         launched = true;
     }
