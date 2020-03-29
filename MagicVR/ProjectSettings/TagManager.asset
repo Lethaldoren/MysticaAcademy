@@ -8,6 +8,9 @@ TagManager:
   - FxTemporaire
   - Enemy
   - grabable
+  - Pipe
+  - Handle
+  - Start
   layers:
   - Default
   - TransparentFX
