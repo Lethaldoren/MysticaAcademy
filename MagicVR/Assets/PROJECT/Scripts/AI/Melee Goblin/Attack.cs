@@ -5,20 +5,34 @@ using BehaviourMachine;
 
 public class Attack : StateBehaviour
 {
-	// Called when the state is enabled
-	void OnEnable () {
-		Debug.Log("Started *Attack*");
-	}
- 
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *Atack*");
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public float attackTime;
+
+    WaitForSecondsRealtime attackDelay;
+
+    private void Start() {
+        attackDelay = new WaitForSecondsRealtime(attackTime);
+    }
+
+    private void OnEnable() {
+        StartCoroutine(AttackDelay());
+    }
+
+    IEnumerator AttackDelay() {
+
+        yield return attackDelay;
+        AttackPlayer();
+    }
+
+    void AttackPlayer() {
+
+        SendEvent("Attacked");
+    }
+
+    /* wait attack time
+     * send damage player
+     * move to next state
+     */
+
 }
 
 

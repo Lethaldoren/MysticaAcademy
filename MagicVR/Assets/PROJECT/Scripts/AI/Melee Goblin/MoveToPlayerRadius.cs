@@ -11,23 +11,21 @@ public class MoveToPlayerRadius : StateBehaviour
     GameObjectVar aiManager;
     FloatVar speed;
     GameObjectVar playerObject;
-    BoolVar hasToken;
     Vector3Var waitPosition;
-
-    float randomRadius;
+    FloatVar randRadius;
 
     private void Awake() {
         aiManager = blackboard.GetGameObjectVar("AIManager");
         speed = blackboard.GetFloatVar("Speed");
         playerObject = blackboard.GetGameObjectVar("PlayerObject");
-        hasToken = blackboard.GetBoolVar("HasToken");
         waitPosition = blackboard.GetVector3Var("WaitPosition");
+        randRadius = blackboard.GetFloatVar("RandRadius");
     }
 
     // Called when the state is enabled
     void OnEnable () {
         //assigns a random radius to stop enemy at
-        randomRadius = Random.Range(8, 15);
+        randRadius.Value = Random.Range(8, 15);
         agent.speed = speed.Value;
         agent.Resume();
     }
@@ -43,8 +41,6 @@ public class MoveToPlayerRadius : StateBehaviour
             agent.Stop();
             SendEvent("InRadius");
         }
-
-        CheckForToken();
     }
 
     //moves the enemy towards the player and stops them when they are within the random radius 
@@ -52,20 +48,10 @@ public class MoveToPlayerRadius : StateBehaviour
 
         var distanceSquared = (transform.position - playerObject.Value.transform.position).sqrMagnitude;
 
-        if (distanceSquared < randomRadius * randomRadius) {
+        if (distanceSquared < randRadius.Value * randRadius.Value) {
             return true;
         }
         return false;
-    }
-
-    void CheckForToken() {
-
-        bool gotToken = aiManager.Value.GetComponent<AIManager>().CanTakeToken();
-
-        if (gotToken) {
-            hasToken.Value = true;
-            SendEvent("GotToken");
-        }
     }
 }
 

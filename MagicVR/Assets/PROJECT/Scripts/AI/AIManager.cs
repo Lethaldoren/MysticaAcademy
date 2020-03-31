@@ -59,6 +59,7 @@ public class AIManager : SingletonBase<AIManager>
 
         yield return tokenCooldown;
         currentTokens += 1;
+        tokensOnCooldown -= 1;
     }
 
     //starts wave by calling wave in list and activating the game object
