@@ -13,13 +13,13 @@ public class FinishCheck : MonoBehaviour
         started = false;
     }
 
-    private void OnCollisionExit(Collision collision) {
+    private void OnTriggerEnter(Collision collision) {
 
         if (collision.gameObject.tag == "Start") {
             started = true;
         }
 
-        if (collision.gameObject.tag == "Finish") {
+        if (started && collision.gameObject.tag == "Finish") {
             started = false;
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
