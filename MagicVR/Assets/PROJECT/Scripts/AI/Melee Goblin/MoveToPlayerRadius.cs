@@ -33,6 +33,7 @@ public class MoveToPlayerRadius : StateBehaviour
 	// Update is called once per frame
 	void Update () {
 
+        //moves enemy to random radius of player
         if (!WaypointCheck()) {
             agent.SetDestination(playerObject.transform.position);
         }

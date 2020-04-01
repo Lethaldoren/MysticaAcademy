@@ -24,6 +24,7 @@ public class MoveToPlayer : StateBehaviour
 	// Update is called once per frame
 	void Update () {
 
+        //moves to the player position within radius of attack
         if (!WaypointCheck()) {
             agent.SetDestination(playerObject.transform.position);
         }
@@ -33,6 +34,7 @@ public class MoveToPlayer : StateBehaviour
         }
     }
 
+    //checks if enemy is within radius of player that has beem set
     bool WaypointCheck() {
 
         var distanceSquared = (transform.position - playerObject.Value.transform.position).sqrMagnitude;

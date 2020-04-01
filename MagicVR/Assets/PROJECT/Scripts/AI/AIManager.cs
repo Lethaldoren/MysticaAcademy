@@ -13,10 +13,10 @@ public class AIManager : SingletonBase<AIManager>
     public float timeBetweenWaves;
 
     public float tokenCooldownTime;
-    public int maxTokens;
-    public int currentTokens;
-    public int TokensWithAI;
-    public int tokensOnCooldown;
+    public int maxTokens; //remove public
+    public int currentTokens; //remove public
+    public int TokensWithAI; //remove public
+    public int tokensOnCooldown; //remove public
 
     WaitForSecondsRealtime waveDelay;
     WaitForSecondsRealtime tokenCooldown;
@@ -26,6 +26,7 @@ public class AIManager : SingletonBase<AIManager>
     // Start is called before the first frame update
     void Start()
     {
+        //gets number of waves in scene and orders them into a list then starts the first wave
         currentWaveNumber = 0;
         waves = Resources.FindObjectsOfTypeAll<Wave>().OrderBy(w => w.waveNumber).ToList();
         waveDelay = new WaitForSecondsRealtime(timeBetweenWaves);
@@ -40,6 +41,7 @@ public class AIManager : SingletonBase<AIManager>
         //constantly checks enemies left in wave
         enemiesLeft = currentWaveObject.transform.childCount;
 
+        //checks for 0 enemies left in wave and starts next wave
         if (!waveComplete && enemiesLeft <= 0)
         {
             Debug.Log("Wave Complete");
@@ -49,12 +51,14 @@ public class AIManager : SingletonBase<AIManager>
         }
     }
 
+    //delays next wave by X seconds
     IEnumerator DelayNewWave()
     {
         yield return waveDelay;
         StartWave();
     }
 
+    //puts every token that comes back into a cooldown
     IEnumerator TokenCooldown() {
 
         yield return tokenCooldown;

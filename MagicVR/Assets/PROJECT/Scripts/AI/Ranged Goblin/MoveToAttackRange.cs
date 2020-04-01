@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using BehaviourMachine;
 
-public class Attack : StateBehaviour
+public class MoveToAttackRange : StateBehaviour
 {
 	// Called when the state is enabled
 	void OnEnable () {
