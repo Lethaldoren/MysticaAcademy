@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 3854436077219714316}
   - component: {fileID: 3854436077219714315}
   - component: {fileID: 8015092204084471920}
+  - component: {fileID: 377867540}
   - component: {fileID: 6587131939896774041}
   - component: {fileID: 3854436077219714319}
   - component: {fileID: 1589243455}
@@ -227,6 +228,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!195 &377867540
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3854436077219714314}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &6587131939896774041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,15 +328,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FloatVars: []
+  m_FloatVars:
+  - m_ID: 1282574383
+    m_Name: Speed
+    m_Blackboard: {fileID: 3854436077219714319}
+    m_IsConstant: 0
+    value: 4
+  - m_ID: 1509228972
+    m_Name: WaitRadius
+    m_Blackboard: {fileID: 3854436077219714319}
+    m_IsConstant: 0
+    value: 30
   m_IntVars: []
-  m_BoolVars: []
+  m_BoolVars:
+  - m_ID: 255570637
+    m_Name: HasToken
+    m_Blackboard: {fileID: 3854436077219714319}
+    m_IsConstant: 0
+    value: 0
   m_StringVars: []
   m_Vector3Vars: []
   m_RectVars: []
   m_ColorVars: []
   m_QuaternionVars: []
-  m_GameObjectVars: []
+  m_GameObjectVars:
+  - m_ID: 1523515362
+    m_Name: AIManager
+    m_Blackboard: {fileID: 3854436077219714319}
+    m_IsConstant: 0
+    value: {fileID: 0}
+  - m_ID: 719400235
+    m_Name: PlayerObject
+    m_Blackboard: {fileID: 3854436077219714319}
+    m_IsConstant: 0
+    value: {fileID: 0}
   m_TextureVars: []
   m_MaterialVars: []
   m_ObjectVars: []
@@ -370,7 +418,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -10392
+  m_CachedInstanceID: -18300
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -398,8 +446,8 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867544}
     m_EventID: 118580489
-  m_CachedInstanceID: -10394
-  cooldownTime: 0
+  m_CachedInstanceID: -18302
+  cooldownTime: 5
 --- !u!114 &377867545
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -421,7 +469,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867546}
     m_EventID: 1357307152
-  m_CachedInstanceID: -10396
+  m_CachedInstanceID: -18304
 --- !u!114 &377867544
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -445,7 +493,7 @@ MonoBehaviour:
     m_EventID: 302006976
   - m_Destination: {fileID: 377867542}
     m_EventID: 529717036
-  m_CachedInstanceID: -10398
+  m_CachedInstanceID: -18306
   agent: {fileID: 0}
 --- !u!114 &377867543
 MonoBehaviour:
@@ -468,7 +516,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867545}
     m_EventID: 1705001109
-  m_CachedInstanceID: -10400
+  m_CachedInstanceID: -18308
 --- !u!114 &377867542
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -490,4 +538,5 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867544}
     m_EventID: 16477986
-  m_CachedInstanceID: -10402
+  m_CachedInstanceID: -18310
+  agent: {fileID: 377867540}

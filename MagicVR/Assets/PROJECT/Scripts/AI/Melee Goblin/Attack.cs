@@ -7,13 +7,9 @@ public class Attack : StateBehaviour
 {
 	// Called when the state is enabled
 	void OnEnable () {
-		Debug.Log("Started *State*");
+        SendEvent("Attacked");
 	}
- 
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *State*");
-	}
+
 	
 	// Update is called once per frame
 	void Update () {

@@ -7,12 +7,7 @@ public class RangeAttack : StateBehaviour
 {
 	// Called when the state is enabled
 	void OnEnable () {
-		Debug.Log("Started *State*");
-	}
- 
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *State*");
+        SendEvent("Attacked");
 	}
 	
 	// Update is called once per frame
