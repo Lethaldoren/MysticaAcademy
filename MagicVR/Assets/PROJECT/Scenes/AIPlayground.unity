@@ -320,9 +320,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1473734151}
     m_Modifications:
+    - target: {fileID: 377867542, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
+      propertyPath: m_CachedInstanceID
+      value: -2200
+      objectReference: {fileID: 0}
+    - target: {fileID: 377867543, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
+      propertyPath: m_CachedInstanceID
+      value: -2170
+      objectReference: {fileID: 0}
+    - target: {fileID: 377867544, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
+      propertyPath: m_CachedInstanceID
+      value: -2140
+      objectReference: {fileID: 0}
+    - target: {fileID: 377867545, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
+      propertyPath: m_CachedInstanceID
+      value: -2106
+      objectReference: {fileID: 0}
+    - target: {fileID: 377867546, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
+      propertyPath: m_CachedInstanceID
+      value: -2052
+      objectReference: {fileID: 0}
     - target: {fileID: 1589243455, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -7690
+      value: -1178
       objectReference: {fileID: 0}
     - target: {fileID: 3854436077219714314, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
         type: 3}
@@ -384,6 +404,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3854436077219714319, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: m_FloatVars.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854436077219714319, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: m_FloatVars.Array.data[0].m_ID
+      value: 1282574383
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854436077219714319, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: m_FloatVars.Array.data[0].m_Name
+      value: Speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854436077219714319, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: m_FloatVars.Array.data[0].m_Blackboard
+      value: 
+      objectReference: {fileID: 377867541}
+    - target: {fileID: 3854436077219714319, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: m_FloatVars.Array.data[1].m_ID
+      value: 1509228972
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854436077219714319, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: m_FloatVars.Array.data[1].m_Name
+      value: AttackRadius
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854436077219714319, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: m_FloatVars.Array.data[1].m_Blackboard
+      value: 
+      objectReference: {fileID: 377867541}
     - target: {fileID: 5055376884550803037, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -391,6 +446,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
+--- !u!114 &377867541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3854436077219714319, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+    type: 3}
+  m_PrefabInstance: {fileID: 377867538}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634db10235c0241d6ad43433a106016d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &551952269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -646,7 +713,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 551952271}
     m_EventID: 1374246405
-  m_CachedInstanceID: -5388
+  m_CachedInstanceID: 20694
 --- !u!114 &551952276
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -668,7 +735,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 551952272}
     m_EventID: 1935949568
-  m_CachedInstanceID: -4860
+  m_CachedInstanceID: 20696
   cooldownTime: 3
 --- !u!1001 &747578029
 PrefabInstance:
@@ -677,9 +744,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857555751}
     m_Modifications:
+    - target: {fileID: 377867542, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
+      propertyPath: m_CachedInstanceID
+      value: -10530
+      objectReference: {fileID: 0}
+    - target: {fileID: 377867543, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
+      propertyPath: m_CachedInstanceID
+      value: -10528
+      objectReference: {fileID: 0}
+    - target: {fileID: 377867544, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
+      propertyPath: m_CachedInstanceID
+      value: -10526
+      objectReference: {fileID: 0}
+    - target: {fileID: 377867545, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
+      propertyPath: m_CachedInstanceID
+      value: -10524
+      objectReference: {fileID: 0}
+    - target: {fileID: 377867546, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
+      propertyPath: m_CachedInstanceID
+      value: -10522
+      objectReference: {fileID: 0}
     - target: {fileID: 1589243455, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -12876
+      value: -1230
       objectReference: {fileID: 0}
     - target: {fileID: 3854436077219714314, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
         type: 3}

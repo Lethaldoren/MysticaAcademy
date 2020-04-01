@@ -123,6 +123,11 @@ GameObject:
   - component: {fileID: 6587131939896774041}
   - component: {fileID: 3854436077219714319}
   - component: {fileID: 1589243455}
+  - component: {fileID: 377867546}
+  - component: {fileID: 377867545}
+  - component: {fileID: 377867544}
+  - component: {fileID: 377867543}
+  - component: {fileID: 377867542}
   m_Layer: 0
   m_Name: Ranged enemy
   m_TagString: Enemy
@@ -314,7 +319,37 @@ MonoBehaviour:
   m_ObjectVars: []
   m_DynamicLists: []
   m_FsmEvents: []
-  m_ConcreteFsmEvents: []
+  m_ConcreteFsmEvents:
+  - m_ID: 16477986
+    m_Name: InRadius
+    m_Blackboard: {fileID: 3854436077219714319}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 529717036
+    m_Name: OutOfRadius
+    m_Blackboard: {fileID: 3854436077219714319}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 302006976
+    m_Name: GotToken
+    m_Blackboard: {fileID: 3854436077219714319}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 1705001109
+    m_Name: Attacked
+    m_Blackboard: {fileID: 3854436077219714319}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 1357307152
+    m_Name: TokenReturned
+    m_Blackboard: {fileID: 3854436077219714319}
+    m_IsConstant: 0
+    m_IsSystem: 0
+  - m_ID: 118580489
+    m_Name: ReadyToAttack
+    m_Blackboard: {fileID: 3854436077219714319}
+    m_IsConstant: 0
+    m_IsSystem: 0
   m_Namespace: 
 --- !u!114 &1589243455
 MonoBehaviour:
@@ -335,10 +370,124 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -12770
+  m_CachedInstanceID: -10392
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
-  m_StartState: {fileID: 0}
+  m_StartState: {fileID: 377867542}
   m_AnyState: {fileID: 0}
   m_ConcurrentState: {fileID: 0}
+--- !u!114 &377867546
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3854436077219714314}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3322389b74d08f4cb1f0317e019c278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 3854436077219714319}
+  m_Parent: {fileID: 1589243455}
+  m_StateName: AttackCooldown
+  m_Color: 2
+  m_HideScript: 1
+  m_Position: {x: 280, y: 170}
+  m_Transitions:
+  - m_Destination: {fileID: 377867544}
+    m_EventID: 118580489
+  m_CachedInstanceID: -10394
+  cooldownTime: 0
+--- !u!114 &377867545
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3854436077219714314}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b36b1c7ccb909748bfc9da930b5c28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 3854436077219714319}
+  m_Parent: {fileID: 1589243455}
+  m_StateName: ReturnToken
+  m_Color: 1
+  m_HideScript: 1
+  m_Position: {x: 510, y: 170}
+  m_Transitions:
+  - m_Destination: {fileID: 377867546}
+    m_EventID: 1357307152
+  m_CachedInstanceID: -10396
+--- !u!114 &377867544
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3854436077219714314}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9f9b52a3a371141b57c21bdde95be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 3854436077219714319}
+  m_Parent: {fileID: 1589243455}
+  m_StateName: WaitForToken
+  m_Color: 1
+  m_HideScript: 1
+  m_Position: {x: 280, y: 60}
+  m_Transitions:
+  - m_Destination: {fileID: 377867543}
+    m_EventID: 302006976
+  - m_Destination: {fileID: 377867542}
+    m_EventID: 529717036
+  m_CachedInstanceID: -10398
+  agent: {fileID: 0}
+--- !u!114 &377867543
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3854436077219714314}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f76b7d8934f694b8ecbe2aa80bd573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 3854436077219714319}
+  m_Parent: {fileID: 1589243455}
+  m_StateName: RangeAttack
+  m_Color: 4
+  m_HideScript: 1
+  m_Position: {x: 500, y: 60}
+  m_Transitions:
+  - m_Destination: {fileID: 377867545}
+    m_EventID: 1705001109
+  m_CachedInstanceID: -10400
+--- !u!114 &377867542
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3854436077219714314}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4400369e9717f0046a79db3a3034efba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Blackboard: {fileID: 3854436077219714319}
+  m_Parent: {fileID: 1589243455}
+  m_StateName: MoveToAttackRange
+  m_Color: 1
+  m_HideScript: 1
+  m_Position: {x: 80, y: 60}
+  m_Transitions:
+  - m_Destination: {fileID: 377867544}
+    m_EventID: 16477986
+  m_CachedInstanceID: -10402

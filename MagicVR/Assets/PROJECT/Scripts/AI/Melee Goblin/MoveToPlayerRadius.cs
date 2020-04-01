@@ -12,20 +12,20 @@ public class MoveToPlayerRadius : StateBehaviour
     FloatVar speed;
     GameObjectVar playerObject;
     Vector3Var waitPosition;
-    FloatVar randRadius;
+    FloatVar waitRadius;
 
     private void Awake() {
         aiManager = blackboard.GetGameObjectVar("AIManager");
         speed = blackboard.GetFloatVar("Speed");
         playerObject = blackboard.GetGameObjectVar("PlayerObject");
         waitPosition = blackboard.GetVector3Var("WaitPosition");
-        randRadius = blackboard.GetFloatVar("RandRadius");
+        waitRadius = blackboard.GetFloatVar("WaitRadius");
     }
 
     // Called when the state is enabled
     void OnEnable () {
         //assigns a random radius to stop enemy at
-        randRadius.Value = Random.Range(8, 15);
+        waitRadius.Value = Random.Range(8, 15);
         agent.speed = speed.Value;
         agent.Resume();
     }
@@ -49,7 +49,7 @@ public class MoveToPlayerRadius : StateBehaviour
 
         var distanceSquared = (transform.position - playerObject.Value.transform.position).sqrMagnitude;
 
-        if (distanceSquared < randRadius.Value * randRadius.Value) {
+        if (distanceSquared < waitRadius.Value * waitRadius.Value) {
             return true;
         }
         return false;
