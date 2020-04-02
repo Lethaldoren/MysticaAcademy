@@ -14,6 +14,9 @@ public class MoveToPlayerRadius : StateBehaviour
     Vector3Var waitPosition;
     FloatVar waitRadius;
 
+    [Header("Low(x) - High(y) Range")]
+    public Vector2 waitRadiusRange;
+
     private void Awake() {
         aiManager = blackboard.GetGameObjectVar("AIManager");
         speed = blackboard.GetFloatVar("Speed");
@@ -25,7 +28,7 @@ public class MoveToPlayerRadius : StateBehaviour
     // Called when the state is enabled
     void OnEnable () {
         //assigns a random radius to stop enemy at
-        waitRadius.Value = Random.Range(8, 15);
+        waitRadius.Value = Random.Range(waitRadiusRange.x, waitRadiusRange.y);
         agent.speed = speed.Value;
         agent.Resume();
     }
