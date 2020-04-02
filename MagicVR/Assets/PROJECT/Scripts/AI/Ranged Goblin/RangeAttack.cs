@@ -12,7 +12,10 @@ public class RangeAttack : StateBehaviour
 
     Vector3 shotVelocity;
     public GameObject fireballPrefab;
-    public float projectileSpeed;
+
+    [Header("Damages")]
+    public float fireballSpeed;
+    public float fireballDamage;
 
     private void Awake() {
 
@@ -30,17 +33,23 @@ public class RangeAttack : StateBehaviour
         //get the players position
         playerPos = playerObject.Value.transform.position;
 
+        shootFireball();
+
+        SendEvent("Attacked");
+    }
+
+    void shootFireball() {
+
         //spawns a fireball infront of the enemy
         Vector3 spawnPos = transform.position + Vector3.back;
         GameObject fireball = Instantiate(fireballPrefab, spawnPos, Quaternion.identity);
 
         //calculates path fireball must travel
-        shotVelocity = ((playerPos - transform.position).normalized) * projectileSpeed;
+        shotVelocity = ((playerPos - transform.position).normalized) * fireballSpeed;
 
         //launches fireball in direction
         fireball.GetComponent<FireballProjectile>().Launch(shotVelocity);
-
-        SendEvent("Attacked");
+        fireball.GetComponent<FireballProjectile>().hitDamage = fireballDamage;
     }
 
     /*pseudocode:

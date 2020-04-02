@@ -14,6 +14,9 @@ public class FireballProjectile : MonoBehaviour
     bool launched;
     VisualEffect vfx;
 
+    [Header("Check if Enemy Fireball")]
+    public bool enemy;
+
     [Header("DEBUG")]
     public bool debug;
 

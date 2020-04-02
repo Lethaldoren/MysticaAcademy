@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1916783304514299094, guid: 925b0173e6f1f4d43ac1181b59d02121,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4827939979123987100, guid: 925b0173e6f1f4d43ac1181b59d02121,
         type: 3}
       propertyPath: m_Name
@@ -81,6 +86,16 @@ PrefabInstance:
         type: 3}
       propertyPath: areaDamage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222635463008744229, guid: 925b0173e6f1f4d43ac1181b59d02121,
+        type: 3}
+      propertyPath: hitDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222635463008744229, guid: 925b0173e6f1f4d43ac1181b59d02121,
+        type: 3}
+      propertyPath: enemy
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 925b0173e6f1f4d43ac1181b59d02121, type: 3}

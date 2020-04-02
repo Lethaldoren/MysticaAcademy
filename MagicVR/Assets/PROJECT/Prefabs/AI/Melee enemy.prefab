@@ -303,8 +303,8 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SendEvent
+      - m_Target: {fileID: 6414237471943096881}
+        m_MethodName: SendMessage
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -34184
+  m_CachedInstanceID: -2846
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577277}
     m_EventID: 954861694
-  m_CachedInstanceID: -34186
+  m_CachedInstanceID: -2848
   agent: {fileID: 7376877982776577221}
   waitRadiusRange: {x: 8, y: 15}
 --- !u!114 &7376877982776577277
@@ -493,7 +493,7 @@ MonoBehaviour:
     m_EventID: 1562569890
   - m_Destination: {fileID: 7376877982776577222}
     m_EventID: 590146249
-  m_CachedInstanceID: -34188
+  m_CachedInstanceID: -2850
   agent: {fileID: 7376877982776577221}
 --- !u!114 &7376877982776577218
 MonoBehaviour:
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 551952275}
     m_EventID: 1252895643
-  m_CachedInstanceID: -34190
+  m_CachedInstanceID: -2852
   agent: {fileID: 7376877982776577221}
 --- !u!114 &7376877982776577216
 MonoBehaviour:
@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 551952276}
     m_EventID: 350745482
-  m_CachedInstanceID: -34192
+  m_CachedInstanceID: -2854
   agent: {fileID: 7376877982776577221}
 --- !u!114 &7376877982776577217
 MonoBehaviour:
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577216}
     m_EventID: 95303047
-  m_CachedInstanceID: -34194
+  m_CachedInstanceID: -2856
 --- !u!114 &551952275
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577217}
     m_EventID: 1374246405
-  m_CachedInstanceID: -34196
+  m_CachedInstanceID: -2858
 --- !u!114 &551952276
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -606,5 +606,5 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577277}
     m_EventID: 1935949568
-  m_CachedInstanceID: -34198
+  m_CachedInstanceID: -2860
   cooldownTime: 3
