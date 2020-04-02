@@ -14,6 +14,7 @@ public class ReturnToken : StateBehaviour
     }
 
     void OnEnable() {
+        //returns token to the token pool 
         aiManager.Value.GetComponent<AIManager>().ReturnToken();
         hasToken.Value = false;
         SendEvent("TokenReturned");

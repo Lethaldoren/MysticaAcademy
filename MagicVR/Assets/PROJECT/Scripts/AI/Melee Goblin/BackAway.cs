@@ -11,6 +11,7 @@ public class BackAway : StateBehaviour
     Vector3Var waitPosition;
 
     private void Awake() {
+        //gets position of enemy when waiting for attack
         waitPosition = blackboard.GetVector3Var("WaitPosition");
     }
 
@@ -22,8 +23,10 @@ public class BackAway : StateBehaviour
 	// Update is called once per frame
 	void Update () {
 
+        //calculates distance from where they are going to wait
         float distance = Vector3.Distance(waitPosition.Value, transform.position);
 
+        //moves to position they are going to wait to attack
         if (distance > 0.5f) {
             agent.SetDestination(waitPosition.Value);
         }

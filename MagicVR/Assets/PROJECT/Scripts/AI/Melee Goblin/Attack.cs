@@ -5,15 +5,25 @@ using BehaviourMachine;
 
 public class Attack : StateBehaviour
 {
-	// Called when the state is enabled
-	void OnEnable () {
-		Debug.Log("Started *Attack*");
+    GameObjectVar playerObject;
+    PlayerHealth playerHealthScr;
+
+    public float hitDamage;
+
+    private void Awake() {
+        playerObject = blackboard.GetGameObjectVar("PlayerObject");
+
+        playerHealthScr = playerObject.Value.GetComponent<PlayerHealth>();
+    }
+
+    // Called when the state is enabled
+    void OnEnable () {
+
+        playerHealthScr.Damage(hitDamage);
+
+        SendEvent("Attacked");
 	}
- 
-	// Called when the state is disabled
-	void OnDisable () {
-		Debug.Log("Stopped *Atack*");
-	}
+
 	
 	// Update is called once per frame
 	void Update () {
