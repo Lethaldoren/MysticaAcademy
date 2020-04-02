@@ -418,7 +418,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -11852
+  m_CachedInstanceID: -2608
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867544}
     m_EventID: 118580489
-  m_CachedInstanceID: -11854
+  m_CachedInstanceID: -2610
   cooldownTime: 5
 --- !u!114 &377867545
 MonoBehaviour:
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867546}
     m_EventID: 1357307152
-  m_CachedInstanceID: -11856
+  m_CachedInstanceID: -2612
 --- !u!114 &377867544
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -493,7 +493,7 @@ MonoBehaviour:
     m_EventID: 302006976
   - m_Destination: {fileID: 377867542}
     m_EventID: 529717036
-  m_CachedInstanceID: -11858
+  m_CachedInstanceID: -2614
   agent: {fileID: 377867540}
 --- !u!114 &377867543
 MonoBehaviour:
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867545}
     m_EventID: 1705001109
-  m_CachedInstanceID: -11860
+  m_CachedInstanceID: -2616
   fireballPrefab: {fileID: 4846181536429198802, guid: 792bb197ae411ff49b8ba55aa3fb41ad,
     type: 3}
   fireballSpeed: 5
@@ -542,5 +542,5 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867544}
     m_EventID: 16477986
-  m_CachedInstanceID: -11862
+  m_CachedInstanceID: -2618
   agent: {fileID: 377867540}

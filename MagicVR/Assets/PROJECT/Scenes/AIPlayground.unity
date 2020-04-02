@@ -456,6 +456,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ranged enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3854436077219714314, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3854436077219714318, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -642,11 +647,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Melee enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7376877982776577230, guid: c3b913549b4e81b4aa697ef4b441df5d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577277, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -1082,7 +1082,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: OnHurt
+          m_StringArgument: onDamage
           m_BoolArgument: 0
         m_CallState: 2
   onDeath:
