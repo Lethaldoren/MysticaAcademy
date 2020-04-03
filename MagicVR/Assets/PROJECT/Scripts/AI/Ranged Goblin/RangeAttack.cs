@@ -41,7 +41,7 @@ public class RangeAttack : StateBehaviour
     void shootFireball() {
 
         //spawns a fireball infront of the enemy
-        Vector3 spawnPos = transform.position + Vector3.back;
+        Vector3 spawnPos = transform.position + Vector3.forward;
         GameObject fireball = Instantiate(fireballPrefab, spawnPos, Quaternion.identity);
 
         //calculates path fireball must travel

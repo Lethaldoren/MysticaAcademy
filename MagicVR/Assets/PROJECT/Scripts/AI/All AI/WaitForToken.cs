@@ -22,7 +22,7 @@ public class WaitForToken : StateBehaviour
 
     // Called when the state is enabled
     void OnEnable () {
-        agent.Stop();
+        //agent.Stop();
 	}
 	
 	// Update is called once per frame
