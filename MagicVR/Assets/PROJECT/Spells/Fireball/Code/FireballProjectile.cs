@@ -14,6 +14,9 @@ public class FireballProjectile : MonoBehaviour
     bool launched;
     VisualEffect vfx;
 
+    [Header("Check if Enemy Fireball")]
+    public bool enemy;
+
     [Header("DEBUG")]
     public bool debug;
 
@@ -42,29 +45,37 @@ public class FireballProjectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collisionInfo)
     {
-        GameObject hitEnemy = null;
-        if (collisionInfo.gameObject.CompareTag("Enemy"))
-        {
-            hitEnemy = collisionInfo.gameObject;
-            collisionInfo.gameObject.GetComponent<Health>().Damage(hitDamage);
-        }
+        if (!enemy) {
 
-        Collider[] aoeObjects = null;
-        if (Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, aoeObjects) > 0)
-        {
-            foreach (Collider c in aoeObjects)
-            {
-                if(c.gameObject == hitEnemy && c.CompareTag("Enemy"))
-                {
-                    c.gameObject.GetComponent<Health>().Damage(areaDamage);
-                    c.attachedRigidbody.AddExplosionForce(5, transform.position, explosionRadius, 1, ForceMode.Impulse);
+            GameObject hitEnemy = null;
+            if (collisionInfo.gameObject.CompareTag("Enemy")) {
+                hitEnemy = collisionInfo.gameObject;
+                collisionInfo.gameObject.GetComponent<Health>().Damage(hitDamage);
+            }
+
+            Collider[] aoeObjects = null;
+            if (Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, aoeObjects) > 0) {
+                foreach (Collider c in aoeObjects) {
+                    if (c.gameObject == hitEnemy && c.CompareTag("Enemy")) {
+                        c.gameObject.GetComponent<Health>().Damage(areaDamage);
+                        c.attachedRigidbody.AddExplosionForce(5, transform.position, explosionRadius, 1, ForceMode.Impulse);
+                    }
                 }
             }
+
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            var child = transform.GetChild(0);
+            child.SetParent(null, true);
+            TimedDestroy.DestroyAfterTime(child.gameObject, 2);
         }
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        var child = transform.GetChild(0);
-        child.SetParent(null, true);
-        TimedDestroy.DestroyAfterTime(child.gameObject, 2);
+
+        if (enemy) {
+
+            if (collisionInfo.gameObject.CompareTag("Player")) {
+                collisionInfo.gameObject.GetComponent<PlayerHealth>().Damage(hitDamage);
+            }
+        }
+        
         Destroy(gameObject);
     }
 }
