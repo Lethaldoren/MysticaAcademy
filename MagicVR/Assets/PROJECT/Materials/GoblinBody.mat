@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: GoblinBody
   m_Shader: {fileID: 4800000, guid: 06e6024e26601b9418ae0701660426a7, type: 3}
-  m_ShaderKeywords: _USESECULARDABS_ON
+  m_ShaderKeywords: _USENORMALMAP_ON _USESECULARDABS_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -36,7 +36,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlbedoMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 34a55499d915c1f40ac59fac659e79e5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DabTexture:
@@ -52,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 35ff7d50aee17054aa066e7af0e648ee, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_B95622F3_Texture_1:
@@ -79,10 +79,10 @@ Material:
     - _SpecularSize: 0.33
     - _SpecularStrength: 0.7
     - _UseEmissionMap: 0
-    - _UseNormalMap: 0
+    - _UseNormalMap: 1
     - _UseSecularDabs: 1
     m_Colors:
     - Color_2657E542: {r: 1, g: 1, b: 1, a: 1}
     - Color_88650517: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 1, g: 1, b: 1, a: 1}
-    - _Tint: {r: 0.64262414, g: 0.7735849, b: 0.5728907, a: 1}
+    - _Tint: {r: 0.30696452, g: 0.6792453, b: 0.105731584, a: 1}
