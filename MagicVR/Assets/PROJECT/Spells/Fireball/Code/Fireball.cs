@@ -15,6 +15,8 @@ public class Fireball : MonoBehaviour
     public ParticleSystem readyFX;
     public Spell spell;
 
+    public AnalyticsManager analyticsManScr;
+
     // private variables
     float charge;
     GameObject projectile;
@@ -73,6 +75,8 @@ public class Fireball : MonoBehaviour
         {
             // Completed charge
             var proj = Instantiate(projectilePrefab, transform.position + (Vector3.forward * .25f), Quaternion.identity);
+            OnCompleteCharge.Invoke();
+
             proj.GetComponent<FireballProjectile>().Launch(transform.parent.GetComponent<Valve.VR.InteractionSystem.Wand>().velocity);
         }
         charge = 0;

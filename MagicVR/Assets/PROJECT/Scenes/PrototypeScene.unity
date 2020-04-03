@@ -186,6 +186,41 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 126
       objectReference: {fileID: 0}
+    - target: {fileID: 8835751176540424317, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835751176540424317, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835751176540424317, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835751176540424317, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 8835751176540424317, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835751176540424317, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835751176540424317, guid: dc06161b6d97feb419f45f03b62e14b9,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: PlayerHit
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5789130204122945568, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
@@ -195,6 +230,54 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 10906941}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &51062919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 51062920}
+  - component: {fileID: 51062921}
+  m_Layer: 0
+  m_Name: Analytics Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &51062920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51062919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.268586, y: -9.099295, z: -2.0280607}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &51062921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51062919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33fa732b84ee2e54892d48769c5c3448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountOfFireballsUsed: 0
+  timesEnemyWasHit: 0
+  timesPlayerTeleports: 0
+  amountOfEnemiesKilled: 0
+  timesPlayerHit: 0
 --- !u!1 &59711848
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,46 +332,51 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 551952275, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15708
+      value: -1498
       objectReference: {fileID: 0}
     - target: {fileID: 551952276, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15710
+      value: -1500
       objectReference: {fileID: 0}
     - target: {fileID: 2228289097282187916, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 2228289097282187916, guid: c3b913549b4e81b4aa697ef4b441df5d,
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
     - target: {fileID: 7376877982776577216, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15704
+      value: -1504
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577217, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15706
+      value: -1506
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577218, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15702
+      value: -1508
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577220, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15696
+      value: -1510
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577222, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15698
+      value: -1512
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577223, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -363,7 +451,7 @@ PrefabInstance:
     - target: {fileID: 7376877982776577277, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15700
+      value: -1518
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
@@ -576,7 +664,7 @@ PrefabInstance:
     - target: {fileID: 9094016841479253388, guid: 4eea10adf1d8f5f44b538acb7dbbd3c5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 9094016841479253388, guid: 4eea10adf1d8f5f44b538acb7dbbd3c5,
         type: 3}
@@ -642,7 +730,7 @@ Transform:
   - {fileID: 1971588167}
   - {fileID: 1679035859}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &144681878
 PrefabInstance:
@@ -2016,11 +2104,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 551952275, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15800
+      value: -1686
       objectReference: {fileID: 0}
     - target: {fileID: 551952276, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15802
+      value: -1688
       objectReference: {fileID: 0}
     - target: {fileID: 2228289097282187916, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -2032,30 +2120,50 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577216, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15796
+      value: -1692
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577217, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15798
+      value: -1694
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577218, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15794
+      value: -1696
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577220, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15788
+      value: -1698
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577222, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15790
+      value: -1700
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577223, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -2130,7 +2238,7 @@ PrefabInstance:
     - target: {fileID: 7376877982776577277, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15792
+      value: -1706
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
@@ -2149,27 +2257,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 377867542, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -24360
+      value: -1726
       objectReference: {fileID: 0}
     - target: {fileID: 377867543, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -24362
+      value: -1728
       objectReference: {fileID: 0}
     - target: {fileID: 377867544, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -24364
+      value: -1730
       objectReference: {fileID: 0}
     - target: {fileID: 377867545, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -24366
+      value: -1732
       objectReference: {fileID: 0}
     - target: {fileID: 377867546, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -24368
+      value: -1734
       objectReference: {fileID: 0}
     - target: {fileID: 1589243455, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -24370
+      value: -1736
       objectReference: {fileID: 0}
     - target: {fileID: 3854436077219714314, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
         type: 3}
@@ -2250,6 +2358,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
@@ -2743,11 +2871,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 551952275, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15882
+      value: -1810
       objectReference: {fileID: 0}
     - target: {fileID: 551952276, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15884
+      value: -1812
       objectReference: {fileID: 0}
     - target: {fileID: 2228289097282187916, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -2759,30 +2887,50 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577216, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15878
+      value: -1816
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577217, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15880
+      value: -1818
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577218, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15876
+      value: -1820
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577220, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15870
+      value: -1822
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577222, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15872
+      value: -1824
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577223, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -2857,7 +3005,7 @@ PrefabInstance:
     - target: {fileID: 7376877982776577277, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15874
+      value: -1830
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
@@ -2959,11 +3107,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 551952275, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15922
+      value: -1858
       objectReference: {fileID: 0}
     - target: {fileID: 551952276, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15924
+      value: -1860
       objectReference: {fileID: 0}
     - target: {fileID: 2228289097282187916, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -2975,30 +3123,50 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577216, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15918
+      value: -1864
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577217, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15920
+      value: -1866
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577218, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15916
+      value: -1868
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577220, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15910
+      value: -1870
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577222, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15912
+      value: -1872
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577223, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -3073,7 +3241,7 @@ PrefabInstance:
     - target: {fileID: 7376877982776577277, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -15914
+      value: -1878
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
@@ -3811,8 +3979,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: debugFloor
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11445746, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: OnTeleport.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: PlayerTeleported
       objectReference: {fileID: 0}
     - target: {fileID: 2515730289477128383, guid: 7a135b1a2cb9c8f488d4dd00c55ab283,
         type: 3}
@@ -5001,27 +5197,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 377867542, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25328
+      value: -2694
       objectReference: {fileID: 0}
     - target: {fileID: 377867543, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25330
+      value: -2696
       objectReference: {fileID: 0}
     - target: {fileID: 377867544, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25332
+      value: -2698
       objectReference: {fileID: 0}
     - target: {fileID: 377867545, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25334
+      value: -2700
       objectReference: {fileID: 0}
     - target: {fileID: 377867546, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25336
+      value: -2702
       objectReference: {fileID: 0}
     - target: {fileID: 1589243455, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25338
+      value: -2704
       objectReference: {fileID: 0}
     - target: {fileID: 3854436077219714314, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
         type: 3}
@@ -5102,6 +5298,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
@@ -5203,11 +5419,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 551952275, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16620
+      value: -2738
       objectReference: {fileID: 0}
     - target: {fileID: 551952276, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16622
+      value: -2740
       objectReference: {fileID: 0}
     - target: {fileID: 2228289097282187916, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -5219,30 +5435,50 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577216, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16616
+      value: -2744
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577217, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16618
+      value: -2746
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577218, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16614
+      value: -2748
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577220, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16608
+      value: -2750
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577222, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16610
+      value: -2752
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577223, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -5317,7 +5553,7 @@ PrefabInstance:
     - target: {fileID: 7376877982776577277, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16612
+      value: -2758
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
@@ -6726,7 +6962,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1352730946
 PrefabInstance:
@@ -6737,11 +6973,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 551952275, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16660
+      value: -2910
       objectReference: {fileID: 0}
     - target: {fileID: 551952276, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16662
+      value: -2912
       objectReference: {fileID: 0}
     - target: {fileID: 2228289097282187916, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -6753,30 +6989,50 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577216, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16656
+      value: -2916
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577217, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16658
+      value: -2918
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577218, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16654
+      value: -2920
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577220, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16648
+      value: -2922
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577222, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16650
+      value: -2924
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577223, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -6851,7 +7107,7 @@ PrefabInstance:
     - target: {fileID: 7376877982776577277, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16652
+      value: -2930
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
@@ -7530,27 +7786,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 377867542, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25654
+      value: -3020
       objectReference: {fileID: 0}
     - target: {fileID: 377867543, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25656
+      value: -3022
       objectReference: {fileID: 0}
     - target: {fileID: 377867544, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25658
+      value: -3024
       objectReference: {fileID: 0}
     - target: {fileID: 377867545, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25660
+      value: -3026
       objectReference: {fileID: 0}
     - target: {fileID: 377867546, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25662
+      value: -3028
       objectReference: {fileID: 0}
     - target: {fileID: 1589243455, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25664
+      value: -3030
       objectReference: {fileID: 0}
     - target: {fileID: 3854436077219714314, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
         type: 3}
@@ -7626,6 +7882,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055376884550803037, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
@@ -8364,7 +8645,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1671011094
 GameObject:
@@ -8484,27 +8765,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 377867542, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25790
+      value: -3156
       objectReference: {fileID: 0}
     - target: {fileID: 377867543, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25792
+      value: -3158
       objectReference: {fileID: 0}
     - target: {fileID: 377867544, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25794
+      value: -3160
       objectReference: {fileID: 0}
     - target: {fileID: 377867545, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25796
+      value: -3162
       objectReference: {fileID: 0}
     - target: {fileID: 377867546, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25798
+      value: -3164
       objectReference: {fileID: 0}
     - target: {fileID: 1589243455, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25800
+      value: -3166
       objectReference: {fileID: 0}
     - target: {fileID: 3854436077219714314, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
         type: 3}
@@ -8585,6 +8866,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
@@ -8678,27 +8979,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 377867542, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25832
+      value: -3198
       objectReference: {fileID: 0}
     - target: {fileID: 377867543, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25834
+      value: -3200
       objectReference: {fileID: 0}
     - target: {fileID: 377867544, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25836
+      value: -3202
       objectReference: {fileID: 0}
     - target: {fileID: 377867545, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25838
+      value: -3204
       objectReference: {fileID: 0}
     - target: {fileID: 377867546, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25840
+      value: -3206
       objectReference: {fileID: 0}
     - target: {fileID: 1589243455, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25842
+      value: -3208
       objectReference: {fileID: 0}
     - target: {fileID: 3854436077219714314, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
         type: 3}
@@ -8775,6 +9076,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
 --- !u!4 &1703179656 stripped
@@ -8792,27 +9103,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 377867542, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25868
+      value: -3234
       objectReference: {fileID: 0}
     - target: {fileID: 377867543, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25870
+      value: -3236
       objectReference: {fileID: 0}
     - target: {fileID: 377867544, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25872
+      value: -3238
       objectReference: {fileID: 0}
     - target: {fileID: 377867545, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25874
+      value: -3240
       objectReference: {fileID: 0}
     - target: {fileID: 377867546, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25876
+      value: -3242
       objectReference: {fileID: 0}
     - target: {fileID: 1589243455, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -25878
+      value: -3244
       objectReference: {fileID: 0}
     - target: {fileID: 3854436077219714314, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
         type: 3}
@@ -8894,6 +9205,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
 --- !u!4 &1761970990 stripped
@@ -8911,11 +9242,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 551952275, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16844
+      value: -3270
       objectReference: {fileID: 0}
     - target: {fileID: 551952276, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16846
+      value: -3272
       objectReference: {fileID: 0}
     - target: {fileID: 2228289097282187916, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -8927,30 +9258,50 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 4969113199312521669, guid: c3b913549b4e81b4aa697ef4b441df5d,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577216, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16840
+      value: -3276
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577217, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16842
+      value: -3278
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577218, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16838
+      value: -3280
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577220, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16832
+      value: -3282
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577222, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16834
+      value: -3284
       objectReference: {fileID: 0}
     - target: {fileID: 7376877982776577223, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
@@ -9025,7 +9376,7 @@ PrefabInstance:
     - target: {fileID: 7376877982776577277, guid: c3b913549b4e81b4aa697ef4b441df5d,
         type: 3}
       propertyPath: m_CachedInstanceID
-      value: -16836
+      value: -3290
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b913549b4e81b4aa697ef4b441df5d, type: 3}
@@ -9119,7 +9470,7 @@ Transform:
   - {fileID: 414080959}
   - {fileID: 1761970990}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1794569586
 PrefabInstance:
@@ -9795,27 +10146,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 377867542, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -26016
+      value: -3382
       objectReference: {fileID: 0}
     - target: {fileID: 377867543, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -26018
+      value: -3384
       objectReference: {fileID: 0}
     - target: {fileID: 377867544, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -26020
+      value: -3386
       objectReference: {fileID: 0}
     - target: {fileID: 377867545, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -26022
+      value: -3388
       objectReference: {fileID: 0}
     - target: {fileID: 377867546, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -26024
+      value: -3390
       objectReference: {fileID: 0}
     - target: {fileID: 1589243455, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
       propertyPath: m_CachedInstanceID
-      value: -26026
+      value: -3392
       objectReference: {fileID: 0}
     - target: {fileID: 3854436077219714314, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
         type: 3}
@@ -9896,6 +10247,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDamage.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 6587131939896774041, guid: ce710ccfa9dd4b14087dfa677d6c7adc,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce710ccfa9dd4b14087dfa677d6c7adc, type: 3}
@@ -10091,7 +10462,7 @@ Transform:
   - {fileID: 1777830147}
   - {fileID: 1515487546}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2053408079
 PrefabInstance:
@@ -10351,7 +10722,7 @@ Transform:
   - {fileID: 62840072}
   - {fileID: 1703179656}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2113591583
 PrefabInstance:
@@ -10542,6 +10913,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2082093567}
     m_Modifications:
+    - target: {fileID: 905718655776870735, guid: 3420c043078502e44a843e6ec29c09ff,
+        type: 3}
+      propertyPath: OnCompleteCharge.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 905718655776870735, guid: 3420c043078502e44a843e6ec29c09ff,
+        type: 3}
+      propertyPath: OnCompleteCharge.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 905718655776870735, guid: 3420c043078502e44a843e6ec29c09ff,
+        type: 3}
+      propertyPath: OnCompleteCharge.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 905718655776870735, guid: 3420c043078502e44a843e6ec29c09ff,
+        type: 3}
+      propertyPath: OnCompleteCharge.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 51062921}
+    - target: {fileID: 905718655776870735, guid: 3420c043078502e44a843e6ec29c09ff,
+        type: 3}
+      propertyPath: OnCompleteCharge.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SendMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 905718655776870735, guid: 3420c043078502e44a843e6ec29c09ff,
+        type: 3}
+      propertyPath: OnCompleteCharge.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 905718655776870735, guid: 3420c043078502e44a843e6ec29c09ff,
+        type: 3}
+      propertyPath: OnCompleteCharge.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: FireballShot
+      objectReference: {fileID: 0}
     - target: {fileID: 2494282751554567585, guid: 3420c043078502e44a843e6ec29c09ff,
         type: 3}
       propertyPath: OnTriggerDown.m_PersistentCalls.m_Calls.Array.size

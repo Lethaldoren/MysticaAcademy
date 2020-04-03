@@ -717,10 +717,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 03f40772-d1af-478c-9706-5a3fa74d223a
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: MagicVR
+  organizationId: normofthenorth
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

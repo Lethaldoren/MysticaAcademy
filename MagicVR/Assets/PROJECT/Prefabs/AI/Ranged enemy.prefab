@@ -313,9 +313,31 @@ MonoBehaviour:
           m_StringArgument: OnHurt
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EnemyHit
+          m_BoolArgument: 0
+        m_CallState: 2
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EnemyKilled
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3854436077219714319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +440,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -32366
+  m_CachedInstanceID: -20438
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -446,7 +468,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867544}
     m_EventID: 118580489
-  m_CachedInstanceID: -32368
+  m_CachedInstanceID: -20440
   cooldownTime: 5
 --- !u!114 &377867545
 MonoBehaviour:
@@ -469,7 +491,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867546}
     m_EventID: 1357307152
-  m_CachedInstanceID: -32370
+  m_CachedInstanceID: -20442
 --- !u!114 &377867544
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -493,7 +515,7 @@ MonoBehaviour:
     m_EventID: 302006976
   - m_Destination: {fileID: 377867542}
     m_EventID: 529717036
-  m_CachedInstanceID: -32372
+  m_CachedInstanceID: -20444
   agent: {fileID: 377867540}
 --- !u!114 &377867543
 MonoBehaviour:
@@ -516,7 +538,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867545}
     m_EventID: 1705001109
-  m_CachedInstanceID: -32374
+  m_CachedInstanceID: -20446
   fireballPrefab: {fileID: 4846181536429198802, guid: 792bb197ae411ff49b8ba55aa3fb41ad,
     type: 3}
   fireballSpeed: 5
@@ -542,5 +564,5 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 377867544}
     m_EventID: 16477986
-  m_CachedInstanceID: -32376
+  m_CachedInstanceID: -20448
   agent: {fileID: 377867540}

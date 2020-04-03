@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Analytics;
 
 public class Health : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class Health : MonoBehaviour
 
     public void Damage(float damage)
     {
+        Analytics.CustomEvent("EnemyHit");
         health -= damage;
         onDamage.Invoke();
         StopCoroutine(DamageAnim(0));

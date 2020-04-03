@@ -13,6 +13,9 @@ namespace Valve.VR.InteractionSystem
 	//-------------------------------------------------------------------------
 	public class Teleport : MonoBehaviour
     {
+        public UnityEvent OnTeleport;
+
+
         public SteamVR_Action_Boolean teleportAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport");
         public SteamVR_Action_Boolean holdAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("HoldTeleport");
 
@@ -856,6 +859,8 @@ namespace Valve.VR.InteractionSystem
 		//-------------------------------------------------
 		private void TeleportPlayer()
 		{
+            OnTeleport.Invoke();
+
 			teleporting = false;
 
 			Teleport.PlayerPre.Send( pointedAtTeleportMarker );
