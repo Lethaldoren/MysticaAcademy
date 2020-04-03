@@ -74,7 +74,7 @@ Material:
     - Vector1_BA9C1E19: 0.7
     - _DabsRotation: 30
     - _DabsSize: 1.5
-    - _EmissionMultiplier: 1.5
+    - _EmissionMultiplier: 8.12
     - _NormalSize: 1
     - _SpecularSize: 0.33
     - _SpecularStrength: 0.7
@@ -85,4 +85,4 @@ Material:
     - Color_2657E542: {r: 1, g: 1, b: 1, a: 1}
     - Color_88650517: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 1, g: 1, b: 1, a: 1}
-    - _Tint: {r: 0.30696452, g: 0.6792453, b: 0.105731584, a: 1}
+    - _Tint: {r: 0.6408956, g: 1, b: 0.4481132, a: 1}
