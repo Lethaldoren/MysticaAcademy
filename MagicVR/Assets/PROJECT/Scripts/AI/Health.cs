@@ -54,6 +54,7 @@ public class Health : MonoBehaviour
     public void Kill()
     {
         onDeath.Invoke();
+        Destroy(gameObject);
     }
 
     // TODO: do this without a coroutine

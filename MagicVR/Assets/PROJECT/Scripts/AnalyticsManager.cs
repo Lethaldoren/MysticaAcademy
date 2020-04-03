@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
+using System.IO;
 
 public class AnalyticsManager : MonoBehaviour
 {
-    public AnalyticsValues valuesSO;
+    string fileName = "GameAnalytics.json";
+    public string filePath;
+
+
 
     public int amountOfFireballsUsed;
     public int timesEnemyWasHit;
@@ -31,6 +35,12 @@ public class AnalyticsManager : MonoBehaviour
 
     void PlayerHit() {
         timesPlayerHit += 1;
+    }
+
+    private void Update() {
+        string json = JsonUtility.ToJson(timesPlayerHit);
+
+        Debug.Log(json);
     }
 
 
