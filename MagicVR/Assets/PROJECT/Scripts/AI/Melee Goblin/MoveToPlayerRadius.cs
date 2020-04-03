@@ -13,7 +13,7 @@ public class MoveToPlayerRadius : StateBehaviour
     GameObjectVar playerObject;
     Vector3Var waitPosition;
     FloatVar waitRadius;
-
+    Animator anim; 
     [Header("Low(x) - High(y) Range")]
     public Vector2 waitRadiusRange;
 
@@ -23,6 +23,7 @@ public class MoveToPlayerRadius : StateBehaviour
         playerObject = blackboard.GetGameObjectVar("PlayerObject");
         waitPosition = blackboard.GetVector3Var("WaitPosition");
         waitRadius = blackboard.GetFloatVar("WaitRadius");
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Called when the state is enabled
@@ -31,6 +32,8 @@ public class MoveToPlayerRadius : StateBehaviour
         waitRadius.Value = Random.Range(waitRadiusRange.x, waitRadiusRange.y);
         agent.speed = speed.Value;
         agent.Resume();
+        anim.GetComponentInChildren<Animator>();
+        anim.SetBool("Walk", true);
     }
 	
 	// Update is called once per frame
@@ -43,6 +46,7 @@ public class MoveToPlayerRadius : StateBehaviour
         else {
             waitPosition.Value = transform.position;
             agent.Stop();
+            anim.SetBool("Walk", false);
             SendEvent("InRadius");
         }
     }
