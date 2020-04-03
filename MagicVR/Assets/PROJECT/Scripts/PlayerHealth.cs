@@ -42,8 +42,8 @@ public class PlayerHealth : MonoBehaviour
     public void Damage(float damage) {
         health -= damage;
         onDamage.Invoke();
-        StopCoroutine(DamageAnim(0));
-        StartCoroutine(DamageAnim(damage));
+        // StopCoroutine(DamageAnim(0));
+        // StartCoroutine(DamageAnim(damage));
     }
 
     public void Kill() {
