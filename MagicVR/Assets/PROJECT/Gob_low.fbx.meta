@@ -1,34 +1,14 @@
 fileFormatVersion: 2
-guid: 24d663f0a7f84a448ae83adc2d861cdf
+guid: b813691880b4b0e4589d8a7b6498e511
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: TerrainMesh
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: 8eb138da9cfb36a4d9cb018bb20eae0a, type: 2}
+  internalIDToNameTable: []
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -51,7 +31,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 100
@@ -59,10 +39,10 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -73,7 +53,7 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     meshOptimizationFlags: -1
-    indexFormat: 1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -83,8 +63,8 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-    normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
@@ -104,10 +84,10 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 0
+    skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   additionalBone: 0
