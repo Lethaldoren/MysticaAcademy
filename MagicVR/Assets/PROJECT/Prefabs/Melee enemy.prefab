@@ -189,7 +189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146302917615951709}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8777895, y: 0.27588323, z: 2.616704}
+  m_LocalPosition: {x: 0, y: 0.98, z: 0}
   m_LocalScale: {x: 1, y: 0.52358764, z: 1}
   m_Children: []
   m_Father: {fileID: 2752891300140276926}
@@ -773,7 +773,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -14380
+  m_CachedInstanceID: -9168
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -801,7 +801,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 2752891300140276873}
     m_EventID: 954861694
-  m_CachedInstanceID: -14382
+  m_CachedInstanceID: -9170
   agent: {fileID: 2752891300140276913}
   waitRadiusRange: {x: 8, y: 15}
 --- !u!114 &2752891300140276873
@@ -827,7 +827,7 @@ MonoBehaviour:
     m_EventID: 1562569890
   - m_Destination: {fileID: 2752891300140276914}
     m_EventID: 590146249
-  m_CachedInstanceID: -14384
+  m_CachedInstanceID: -9172
   agent: {fileID: 2752891300140276913}
 --- !u!114 &2752891300140276918
 MonoBehaviour:
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 4642036377179230183}
     m_EventID: 1252895643
-  m_CachedInstanceID: -14386
+  m_CachedInstanceID: -9174
   agent: {fileID: 2752891300140276913}
 --- !u!114 &2752891300140276916
 MonoBehaviour:
@@ -873,7 +873,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 4642036377179230176}
     m_EventID: 350745482
-  m_CachedInstanceID: -14388
+  m_CachedInstanceID: -9176
   agent: {fileID: 2752891300140276913}
 --- !u!114 &2752891300140276917
 MonoBehaviour:
@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 2752891300140276916}
     m_EventID: 95303047
-  m_CachedInstanceID: -14390
+  m_CachedInstanceID: -9178
 --- !u!114 &4642036377179230183
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 2752891300140276917}
     m_EventID: 1374246405
-  m_CachedInstanceID: -14392
+  m_CachedInstanceID: -9180
   hitDamage: 5
 --- !u!114 &4642036377179230176
 MonoBehaviour:
@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 2752891300140276873}
     m_EventID: 1935949568
-  m_CachedInstanceID: -14394
+  m_CachedInstanceID: -9182
   cooldownTime: 3
 --- !u!1 &2835920825234076061
 GameObject:
