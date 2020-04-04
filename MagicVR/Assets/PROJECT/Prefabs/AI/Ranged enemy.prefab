@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5936867872524951789}
   - component: {fileID: 4907712499147161101}
   - component: {fileID: 5055376884550803037}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HurtFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 377867544}
   - component: {fileID: 377867543}
   - component: {fileID: 377867542}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ranged enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

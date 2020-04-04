@@ -14,8 +14,8 @@ public class Spell : MonoBehaviour
     public UnityEvent OnTriggerHeld;
     public UnityEvent OnTriggerUp;
 
-    public void Test()
+    public void Test(string message)
     {
-        Debug.Log("consume kneecaps");
+        Debug.Log(message);
     }
 }

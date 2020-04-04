@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 461481999780691902}
   - component: {fileID: 6414237471943096881}
   - component: {fileID: 2228289097282187916}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HurtFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5729615649528713001}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 7376877982776577217}
   - component: {fileID: 551952275}
   - component: {fileID: 551952276}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Melee enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -39496
+  m_CachedInstanceID: -329074
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577277}
     m_EventID: 954861694
-  m_CachedInstanceID: -39498
+  m_CachedInstanceID: -329076
   agent: {fileID: 7376877982776577221}
   waitRadiusRange: {x: 8, y: 15}
 --- !u!114 &7376877982776577277
@@ -493,7 +493,7 @@ MonoBehaviour:
     m_EventID: 1562569890
   - m_Destination: {fileID: 7376877982776577222}
     m_EventID: 590146249
-  m_CachedInstanceID: -39500
+  m_CachedInstanceID: -329078
   agent: {fileID: 7376877982776577221}
 --- !u!114 &7376877982776577218
 MonoBehaviour:
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 551952275}
     m_EventID: 1252895643
-  m_CachedInstanceID: -39502
+  m_CachedInstanceID: -329080
   agent: {fileID: 7376877982776577221}
 --- !u!114 &7376877982776577216
 MonoBehaviour:
@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 551952276}
     m_EventID: 350745482
-  m_CachedInstanceID: -39504
+  m_CachedInstanceID: -329082
   agent: {fileID: 7376877982776577221}
 --- !u!114 &7376877982776577217
 MonoBehaviour:
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577216}
     m_EventID: 95303047
-  m_CachedInstanceID: -39506
+  m_CachedInstanceID: -329084
 --- !u!114 &551952275
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577217}
     m_EventID: 1374246405
-  m_CachedInstanceID: -39508
+  m_CachedInstanceID: -329086
   hitDamage: 5
 --- !u!114 &551952276
 MonoBehaviour:
@@ -607,5 +607,5 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577277}
     m_EventID: 1935949568
-  m_CachedInstanceID: -39510
+  m_CachedInstanceID: -329088
   cooldownTime: 3

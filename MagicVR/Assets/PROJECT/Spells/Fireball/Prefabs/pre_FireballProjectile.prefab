@@ -54,6 +54,7 @@ MonoBehaviour:
   explosionRadius: 3
   explosionPrefab: {fileID: 4329295865887126798, guid: fedc00058c90581419feffa2ead3a1be,
     type: 3}
+  enemy: 0
   debug: 0
 --- !u!33 &273185705747087691
 MeshFilter:

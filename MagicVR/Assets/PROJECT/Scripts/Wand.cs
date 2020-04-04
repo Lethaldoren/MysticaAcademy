@@ -84,6 +84,10 @@ namespace Valve.VR.InteractionSystem
                     {
                         EquipSpell("Fire Ball");
                     }
+                    if (Input.GetKeyDown(KeyCode.J))
+                    {
+                        EquipSpell("Jolt");
+                    }
 
                     // Down
                     if (Input.GetKeyDown(KeyCode.Space))
@@ -110,7 +114,7 @@ namespace Valve.VR.InteractionSystem
                     // Down
                     if (m_FireAction.GetStateDown(m_Pose.inputSource))
                     {
-                        Debug.Log("down");
+                        // Debug.Log("down");
                         equipedSpell.GetComponent<Spell>().OnTriggerDown.Invoke();
                         castingSpell = true;
                     }
@@ -118,14 +122,14 @@ namespace Valve.VR.InteractionSystem
                     // Held
                     if (castingSpell && m_FireAction.GetState(m_Pose.inputSource))
                     {
-                        Debug.Log("held");
+                        // Debug.Log("held");
                         equipedSpell.GetComponent<Spell>().OnTriggerHeld.Invoke();
                     }
 
                     // Up
                     if (m_FireAction.GetStateUp(m_Pose.inputSource))
                     {
-                        Debug.Log("up");
+                        // Debug.Log("up");
                         equipedSpell.GetComponent<Spell>().OnTriggerUp.Invoke();
                         castingSpell = false;
                     }
@@ -144,6 +148,7 @@ namespace Valve.VR.InteractionSystem
             // angularVelocity = m_Pose.GetAngularVelocity();
 
             m_Pose.GetEstimatedPeakVelocities(out velocity, out angularVelocity);
+            velocity = transform.root.localToWorldMatrix * velocity;
         }
 
         // ------------------------------------------------------------------
