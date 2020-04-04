@@ -54,7 +54,7 @@ public class FireballProjectile : MonoBehaviour
             }
 
             Collider[] aoeObjects = null;
-            if (Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, aoeObjects) > 0) {
+            if (Physics.OverlapSphereNonAlloc(transform.position, explosionRadius, aoeObjects, LayerMask.GetMask("Enemy")) > 0) {
                 foreach (Collider c in aoeObjects) {
                     if (c.CompareTag("Enemy")) {
                         c.gameObject.GetComponent<Health>().Damage(areaDamage);
