@@ -74,7 +74,9 @@ public class Fireball : MonoBehaviour
         {
             // Completed charge
             var proj = Instantiate(projectilePrefab, transform.position + (Vector3.forward * .25f), Quaternion.identity);
-            proj.GetComponent<FireballProjectile>().Launch(transform.parent.GetComponent<Valve.VR.InteractionSystem.Wand>().velocity);
+            Vector3 vel = transform.parent.GetComponent<Valve.VR.InteractionSystem.Wand>().velocity;
+            vel = vel.normalized * Mathf.Clamp(Mathf.Pow(vel.magnitude, 2), 0, 10);
+            proj.GetComponent<FireballProjectile>().Launch(vel);
             OnCompleteCharge.Invoke();
         }
         charge = 0;

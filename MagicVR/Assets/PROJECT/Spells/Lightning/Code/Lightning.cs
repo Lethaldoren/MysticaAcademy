@@ -122,7 +122,7 @@ public class Lightning : MonoBehaviour
             }
             else
             {
-                transform.GetChild(0).position = transform.forward * maxRange;
+                transform.GetChild(0).position = transform.position + transform.forward * maxRange;
             }
 
             fireTimer = 1 / rateOfDamage;

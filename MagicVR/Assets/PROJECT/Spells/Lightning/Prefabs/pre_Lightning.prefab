@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a1337bc6e2464488106c6e6ed77955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeTime: 1.5
+  chargeTime: 0.5
   chargePercent: 0
   chargeEffect: {fileID: 8916625654850624994}
   damage: 1
