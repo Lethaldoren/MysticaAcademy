@@ -74,7 +74,7 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DabsRotation: 15
-    - _DabsSize: 0.2
+    - _DabsSize: 0.05
     - _DstBlend: 0
     - _EmissionMultiplier: 0.1
     - _EnvironmentReflections: 1
@@ -88,7 +88,7 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpecularSize: 0.5
+    - _SpecularSize: 0.3
     - _SpecularStrength: 1
     - _SrcBlend: 1
     - _Surface: 0
