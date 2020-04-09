@@ -22,7 +22,7 @@ public class WindSlashSpell : MonoBehaviour
 
     public void OnEquip()
     {
-        Debug.Log("I am Wind Slash");
+        //Debug.Log("I am Wind Slash");
         swingTimer = 0;
     }
 
@@ -40,7 +40,7 @@ public class WindSlashSpell : MonoBehaviour
         //checks if hand is moving ====remove after testing====
         if (velocity.x > Vector3.zero.x)
         {
-            Debug.Log("you're moving the controller");
+            //Debug.Log("you're moving the controller");
             Debug.Log(velocity);
         }
 
@@ -48,7 +48,7 @@ public class WindSlashSpell : MonoBehaviour
 
         if (swingSpeed > 5)
         {
-            Debug.Log("swinging");
+            //Debug.Log("swinging");
             swingTimer += Time.deltaTime;
 
             //gets position of hand when it moves fast enough

@@ -73,9 +73,4 @@ public class Health : MonoBehaviour
         if (!Alive) Kill();
         displayHealth = Mathf.Lerp(displayHealth, health, .2f);
     }
-
-    void OnMouseDown()
-    {
-        Damage(1);
-    }
 }

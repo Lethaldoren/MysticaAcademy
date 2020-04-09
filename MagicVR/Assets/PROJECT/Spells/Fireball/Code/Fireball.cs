@@ -37,14 +37,14 @@ public class Fireball : MonoBehaviour
     {
         if (charging)
         {
-            Debug.Log("I am charging");
+            //Debug.Log("I am charging");
             charge += Time.deltaTime;
             var prog = charge / chargeTime;
             // projectile.transform.localScale = new Vector3(prog, prog, prog);
         
             if (charge >= chargeTime)
             {
-                Debug.Log("Complete!");
+                //Debug.Log("Complete!");
                 charge = chargeTime;
                 charging = false;
                 // projectile.transform.localScale = Vector3.one;
@@ -57,7 +57,7 @@ public class Fireball : MonoBehaviour
         }
         else
         {
-            Debug.Log("Done charging");
+            //Debug.Log("Done charging");
         }
     }
 

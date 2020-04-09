@@ -65,7 +65,7 @@ namespace Valve.VR.InteractionSystem
                 {
                     equipedSpell.transform.SetParent(transform, false);
                     // equipedSpell.transform.localPosition = new Vector3(0, 0, .5f);
-                    Debug.Log(spellName + " equipped!");
+                    //Debug.Log(spellName + " equipped!");
                     equipedSpell.GetComponent<Spell>().OnEquip.Invoke();
                 }
             }
