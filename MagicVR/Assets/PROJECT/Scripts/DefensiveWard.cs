@@ -64,7 +64,7 @@ namespace Valve.VR.InteractionSystem
 
             Collider[] hitColliders = Physics.OverlapSphere(transform.position + (transform.forward * distanceFromHand), hitBoxRadius, mask);
 
-            Debug.Log("Searching For Object");
+            //Debug.Log("Searching For Object");
 
             foreach (Collider collider in hitColliders)
             {

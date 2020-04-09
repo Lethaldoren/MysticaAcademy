@@ -115,7 +115,7 @@ public class Lightning : MonoBehaviour
             {
                 if (hit.transform.CompareTag("Enemy"))
                 {
-                    Debug.Log("damage enemy");
+                    //Debug.Log("damage enemy");
                     hit.transform.GetComponent<Health>().Damage(damage);
                 }
                 transform.GetChild(0).position = hit.point;

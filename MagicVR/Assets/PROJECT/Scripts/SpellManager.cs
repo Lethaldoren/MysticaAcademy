@@ -27,7 +27,7 @@ public class SpellManager : SingletonBase<SpellManager>
         }
         else if (spells[i].taken)
         {
-            Debug.Log(spellWords + " is already in use");
+            //Debug.Log(spellWords + " is already in use");
             return null;
         }
         else
