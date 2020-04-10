@@ -13,18 +13,26 @@ public class MoveToAttackRange : StateBehaviour
     GameObjectVar playerObject;
     FloatVar waitRadius;
 
+    Animator anim; 
     private void Awake() {
         aiManager = blackboard.GetGameObjectVar("AIManager");
         speed = blackboard.GetFloatVar("Speed");
         playerObject = blackboard.GetGameObjectVar("PlayerObject");
         waitRadius = blackboard.GetFloatVar("WaitRadius");
+
+
     }
 
     // Called when the state is enabled
     void OnEnable () {
         agent.speed = speed.Value;
         agent.Resume();
-	}
+
+        anim = GetComponentInChildren<Animator>();
+        if (anim)
+            anim.SetBool("Walking", true);
+
+    }
 
     // Update is called once per frame
     void Update () {
@@ -36,6 +44,8 @@ public class MoveToAttackRange : StateBehaviour
         else {
             agent.Stop();
             SendEvent("InRadius");
+            if (anim)
+                anim.SetBool("Walking", false);
         }
     }
 

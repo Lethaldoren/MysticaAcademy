@@ -17,16 +17,22 @@ public class RangeAttack : StateBehaviour
     public float fireballSpeed;
     public float fireballDamage;
 
+    Animator anim; 
     private void Awake() {
 
         playerObject = blackboard.GetGameObjectVar("PlayerObject");
+
+
     }
 
     // Called when the state is enabled
     void OnEnable () {
 
-        
-	}
+        anim = GetComponentInChildren<Animator>();
+
+        if (anim)
+            anim.SetTrigger("Attack");
+    }
 	
 	// Update is called once per frame
 	void Update () {

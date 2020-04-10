@@ -24,6 +24,7 @@ public class MoveToPlayerRadius : StateBehaviour
         waitPosition = blackboard.GetVector3Var("WaitPosition");
         waitRadius = blackboard.GetFloatVar("WaitRadius");
         anim = GetComponentInChildren<Animator>();
+        anim.SetBool("Walk", true);
     }
 
     // Called when the state is enabled
@@ -32,8 +33,8 @@ public class MoveToPlayerRadius : StateBehaviour
         waitRadius.Value = Random.Range(waitRadiusRange.x, waitRadiusRange.y);
         agent.speed = speed.Value;
         agent.Resume();
-        anim.GetComponentInChildren<Animator>();
-        anim.SetBool("Walk", true);
+
+
     }
 	
 	// Update is called once per frame
