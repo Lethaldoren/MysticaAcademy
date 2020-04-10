@@ -266,6 +266,7 @@ MonoBehaviour:
   maxHealth: 12
   health: 12
   displayHealth: 12
+  deathSound: {fileID: 0}
   damageAnimDuration: 1
   damageAnimCurve:
     serializedVersion: 2
@@ -439,7 +440,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -329074
+  m_CachedInstanceID: -380120
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -467,7 +468,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577277}
     m_EventID: 954861694
-  m_CachedInstanceID: -329076
+  m_CachedInstanceID: -380122
   agent: {fileID: 7376877982776577221}
   waitRadiusRange: {x: 8, y: 15}
 --- !u!114 &7376877982776577277
@@ -493,7 +494,7 @@ MonoBehaviour:
     m_EventID: 1562569890
   - m_Destination: {fileID: 7376877982776577222}
     m_EventID: 590146249
-  m_CachedInstanceID: -329078
+  m_CachedInstanceID: -380124
   agent: {fileID: 7376877982776577221}
 --- !u!114 &7376877982776577218
 MonoBehaviour:
@@ -516,7 +517,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 551952275}
     m_EventID: 1252895643
-  m_CachedInstanceID: -329080
+  m_CachedInstanceID: -380126
   agent: {fileID: 7376877982776577221}
 --- !u!114 &7376877982776577216
 MonoBehaviour:
@@ -539,7 +540,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 551952276}
     m_EventID: 350745482
-  m_CachedInstanceID: -329082
+  m_CachedInstanceID: -380128
   agent: {fileID: 7376877982776577221}
 --- !u!114 &7376877982776577217
 MonoBehaviour:
@@ -562,7 +563,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577216}
     m_EventID: 95303047
-  m_CachedInstanceID: -329084
+  m_CachedInstanceID: -380130
 --- !u!114 &551952275
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -584,7 +585,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577217}
     m_EventID: 1374246405
-  m_CachedInstanceID: -329086
+  m_CachedInstanceID: -380132
   hitDamage: 5
 --- !u!114 &551952276
 MonoBehaviour:
@@ -607,5 +608,5 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 7376877982776577277}
     m_EventID: 1935949568
-  m_CachedInstanceID: -329088
+  m_CachedInstanceID: -380134
   cooldownTime: 3

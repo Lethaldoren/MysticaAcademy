@@ -43,9 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511ebbc7d2b5ca54491096bf537cb686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magicWords: Wind Slash
-  spellPrefab: {fileID: 0}
-  source: {fileID: 0}
   Hand: 0
   handPosition:
     actionPath: /actions/default/in/Pose

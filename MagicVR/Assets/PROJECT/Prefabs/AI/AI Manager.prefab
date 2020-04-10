@@ -49,7 +49,3 @@ MonoBehaviour:
   - {fileID: 0}
   timeBetweenWaves: 3
   tokenCooldownTime: 3
-  maxTokens: 0
-  currentTokens: 0
-  TokensWithAI: 0
-  tokensOnCooldown: 0
