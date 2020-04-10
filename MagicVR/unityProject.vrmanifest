@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.magicvr.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "D:\\GitHubRepositories\\MagicVR\\MagicVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\ausht\\Documents\\GitHub\\MagicVR\\MagicVR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "MagicVR [Testing]"

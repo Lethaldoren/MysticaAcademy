@@ -74,7 +74,7 @@ Material:
     - Vector1_BA9C1E19: 0.7
     - _DabsRotation: 30
     - _DabsSize: 1.5
-    - _EmissionMultiplier: 1
+    - _EmissionMultiplier: 8
     - _NormalSize: 1
     - _SpecularSize: 0.33
     - _SpecularStrength: 0.7

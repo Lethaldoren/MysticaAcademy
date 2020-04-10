@@ -76,7 +76,7 @@ Material:
     - _DabsRotation: 15
     - _DabsSize: 5
     - _DstBlend: 0
-    - _EmissionMultiplier: 1
+    - _EmissionMultiplier: 8
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0

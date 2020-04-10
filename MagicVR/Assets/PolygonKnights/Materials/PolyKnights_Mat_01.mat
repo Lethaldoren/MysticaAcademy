@@ -110,7 +110,7 @@ Material:
     - _DabsSize: 0.2
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EmissionMultiplier: 1
+    - _EmissionMultiplier: 8
     - _EmissionScaleUI: 0
     - _EnvironmentReflections: 1
     - _FlipTexture: 0
