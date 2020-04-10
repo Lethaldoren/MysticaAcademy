@@ -157,7 +157,7 @@ Material:
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
     - _TintColor: {r: 0.7867738, g: 0.5544187, b: 0.13885644, a: 0.45490196}
---- !u!114 &3278966514873106218
+--- !u!114 &4567858518628663414
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

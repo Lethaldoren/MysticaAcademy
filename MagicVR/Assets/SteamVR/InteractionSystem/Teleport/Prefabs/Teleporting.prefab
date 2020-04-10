@@ -1018,7 +1018,7 @@ MonoBehaviour:
     needsReinit: 0
   traceLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2048
   floorFixupTraceLayerMask:
     serializedVersion: 2
     m_Bits: 0
