@@ -13,7 +13,7 @@ public class MoveToPlayerRadius : StateBehaviour
     GameObjectVar playerObject;
     Vector3Var waitPosition;
     FloatVar waitRadius;
-    Animator anim; 
+    Animator anim;
     [Header("Low(x) - High(y) Range")]
     public Vector2 waitRadiusRange;
 

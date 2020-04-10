@@ -9,11 +9,14 @@ public class BackAway : StateBehaviour
     public NavMeshAgent agent;
 
     Vector3Var waitPosition;
-    Animator anim; 
+    Animator anim;
+    AudioSource audio;
+
     private void Awake() {
         //gets position of enemy when waiting for attack
         waitPosition = blackboard.GetVector3Var("WaitPosition");
-        anim = GetComponentInChildren<Animator>(); 
+        anim = GetComponentInChildren<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Called when the state is enabled
@@ -21,6 +24,7 @@ public class BackAway : StateBehaviour
         agent.Resume();
         agent.updateRotation = false;
         anim.SetBool("WalkBack", true);
+        audio.Play();
 	}
 	
 	// Update is called once per frame
