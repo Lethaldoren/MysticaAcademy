@@ -46,8 +46,15 @@ public class AIManager : SingletonBase<AIManager>
         if (!waveComplete && enemiesLeft <= 0)
         {
             waveComplete = true;
-            //start next wave
-            StartCoroutine(DelayNewWave());
+            if (currentWaveNumber == 4)
+            {
+                GameManager.Instance.OnComplete.Invoke();
+            }
+            else
+            {
+                //start next wave
+                StartCoroutine(DelayNewWave());
+            }
         }
     }
 

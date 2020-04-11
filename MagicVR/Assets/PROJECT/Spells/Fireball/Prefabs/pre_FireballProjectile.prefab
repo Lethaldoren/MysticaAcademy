@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2322523429315497028}
   - component: {fileID: 1916783304514299094}
   - component: {fileID: -5571394143582368495}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: pre_FireballProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 1676862303806151252}
   - component: {fileID: 7342819371076012315}
   - component: {fileID: 5705166587968890458}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5129,7 +5129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1234594902655540355}
   - component: {fileID: 1470901570991841717}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

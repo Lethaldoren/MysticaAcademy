@@ -82,6 +82,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: pre_FireballProjectile Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4827939979123987100, guid: 925b0173e6f1f4d43ac1181b59d02121,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829392885229902124, guid: 925b0173e6f1f4d43ac1181b59d02121,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6674606341970631920, guid: 925b0173e6f1f4d43ac1181b59d02121,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 9222635463008744229, guid: 925b0173e6f1f4d43ac1181b59d02121,
         type: 3}
       propertyPath: explosionRadius
