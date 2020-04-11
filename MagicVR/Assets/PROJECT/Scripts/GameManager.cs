@@ -14,6 +14,9 @@ public class GameManager : SingletonBase<GameManager>
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
