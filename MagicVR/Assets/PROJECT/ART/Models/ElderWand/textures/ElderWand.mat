@@ -8,24 +8,47 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ElderWand
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _NORMALMAP _SPECULAR_SETUP
+  m_Shader: {fileID: 4800000, guid: 06e6024e26601b9418ae0701660426a7, type: 3}
+  m_ShaderKeywords: _NORMALMAP _SPECULAR_SETUP _USENORMALMAP_ON _USESECULARDABS_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_6F8474D5:
+        m_Texture: {fileID: 2800000, guid: 350e1a4d44cf2284a930ccc84b064d85, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_7DFFD5FF:
+        m_Texture: {fileID: 2800000, guid: aad90da7294019c45a5c8131a6aed9db, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_CD937D9F:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D3C460F3:
+        m_Texture: {fileID: 2800000, guid: b8eabb27ac98dde4a8a6a1096b25c188, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlbedoMap:
+        m_Texture: {fileID: 2800000, guid: aad90da7294019c45a5c8131a6aed9db, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: aad90da7294019c45a5c8131a6aed9db, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 350e1a4d44cf2284a930ccc84b064d85, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DabTexture:
+        m_Texture: {fileID: 2800000, guid: c7e5d971600b65044ab050fd08857719, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -36,31 +59,59 @@ Material:
         m_Texture: {fileID: 2800000, guid: aad90da7294019c45a5c8131a6aed9db, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MetalicnessMap:
+        m_Texture: {fileID: 2800000, guid: b8eabb27ac98dde4a8a6a1096b25c188, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 2800000, guid: b8eabb27ac98dde4a8a6a1096b25c188, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 350e1a4d44cf2284a930ccc84b064d85, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_B95622F3_Texture_1:
+        m_Texture: {fileID: 2800000, guid: c7e5d971600b65044ab050fd08857719, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_44DE7B08: 1
+    - Boolean_4FB8DBDC: 0
+    - Boolean_82224EA8: 1
+    - Vector1_5EE2AA83: 0.5
+    - Vector1_5FEC6305: 15
+    - Vector1_965EAAD9: 0
+    - Vector1_9D9680C: 8.73
+    - Vector1_BA9C1E19: 0.7
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
+    - _DabsRotation: 0
+    - _DabsSize: 1
     - _DstBlend: 0
+    - _EmissionMultiplier: 4
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossinessSource: 0
     - _GlossyReflections: 0
     - _Metallic: 0
+    - _NormalSize: 1
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -70,15 +121,23 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
     - _SpecularHighlights: 1
+    - _SpecularSize: 2
+    - _SpecularStrength: 0
     - _SrcBlend: 1
     - _Surface: 0
+    - _UseEmissionMap: 0
+    - _UseNormalMap: 1
+    - _UseSecularDabs: 1
     - _WorkflowMode: 0
     - _ZWrite: 1
     m_Colors:
+    - Color_2657E542: {r: 1, g: 1, b: 1, a: 1}
+    - Color_88650517: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Tint: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &5301379008815013415
 MonoBehaviour:
   m_ObjectHideFlags: 11

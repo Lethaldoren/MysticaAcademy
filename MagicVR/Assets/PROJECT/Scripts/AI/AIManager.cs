@@ -13,10 +13,11 @@ public class AIManager : SingletonBase<AIManager>
     public float timeBetweenWaves;
 
     public float tokenCooldownTime;
-    public int maxTokens; //remove public
-    public int currentTokens; //remove public
-    public int TokensWithAI; //remove public
-    public int tokensOnCooldown; //remove public
+
+    int maxTokens;
+    int currentTokens;
+    int TokensWithAI;
+    int tokensOnCooldown;
 
     WaitForSecondsRealtime waveDelay;
     WaitForSecondsRealtime tokenCooldown;
@@ -44,10 +45,16 @@ public class AIManager : SingletonBase<AIManager>
         //checks for 0 enemies left in wave and starts next wave
         if (!waveComplete && enemiesLeft <= 0)
         {
-            Debug.Log("Wave Complete");
             waveComplete = true;
-            //start next wave
-            StartCoroutine(DelayNewWave());
+            if (currentWaveNumber == 4)
+            {
+                GameManager.Instance.OnComplete.Invoke();
+            }
+            else
+            {
+                //start next wave
+                StartCoroutine(DelayNewWave());
+            }
         }
     }
 
@@ -69,7 +76,6 @@ public class AIManager : SingletonBase<AIManager>
     //starts wave by calling wave in list and activating the game object
     public void StartWave()
     {
-        //Debug.Log("Wave Started");
         currentWaveNumber += 1;
 
         currentWaveObject = waves[currentWaveNumber - 1].gameObject;

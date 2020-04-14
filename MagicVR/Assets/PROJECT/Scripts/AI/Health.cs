@@ -16,6 +16,8 @@ public class Health : MonoBehaviour
     public float displayHealth;
     // Alive state
     public bool Alive { get => health > 0; }
+
+    public GameObject deathSound;
     
     [Header("Damage Animation")]
     // The duration of the damage animation
@@ -51,7 +53,11 @@ public class Health : MonoBehaviour
 
     public void Kill()
     {
+        GameObject death = Instantiate(deathSound, transform.position, Quaternion.identity);
+        death.GetComponent<AudioSource>().Play();
         onDeath.Invoke();
+        Destroy(gameObject);
+        Destroy(death, 3);
     }
 
     // TODO: do this without a coroutine
@@ -71,10 +77,5 @@ public class Health : MonoBehaviour
     {
         if (!Alive) Kill();
         displayHealth = Mathf.Lerp(displayHealth, health, .2f);
-    }
-
-    void OnMouseDown()
-    {
-        Damage(1);
     }
 }

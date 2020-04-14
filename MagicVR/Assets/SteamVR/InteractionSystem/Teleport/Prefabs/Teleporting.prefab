@@ -979,7 +979,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153878}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1018,7 +1018,7 @@ MonoBehaviour:
     needsReinit: 0
   traceLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2048
   floorFixupTraceLayerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -1051,13 +1051,13 @@ MonoBehaviour:
   loopingAudioSource: {fileID: 8269332}
   headAudioSource: {fileID: 8261204}
   reticleAudioSource: {fileID: 8265126}
-  teleportSound: {fileID: 8300000, guid: e9befd794befe7540ad040be41dba757, type: 3}
+  teleportSound: {fileID: 8300000, guid: de8370222f762984d83630fe6e9e9817, type: 3}
   pointerStartSound: {fileID: 8300000, guid: 7113854dded09be418cf3be1158d444c, type: 3}
   pointerLoopSound: {fileID: 8300000, guid: 47b5e90896f0e004c85bebd26e6057e2, type: 3}
   pointerStopSound: {fileID: 8300000, guid: aa9e211c83b607f479bd7772eb56a98c, type: 3}
   goodHighlightSound: {fileID: 8300000, guid: 4e2e74504a83fbd438147cfda37cf3d0, type: 3}
   badHighlightSound: {fileID: 8300000, guid: aa9e211c83b607f479bd7772eb56a98c, type: 3}
-  debugFloor: 0
+  debugFloor: 1
   showOffsetReticle: 0
   offsetReticleTransform: {fileID: 457198}
   floorDebugSphere: {fileID: 2336214}

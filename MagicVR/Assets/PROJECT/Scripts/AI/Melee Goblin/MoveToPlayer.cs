@@ -11,14 +11,19 @@ public class MoveToPlayer : StateBehaviour
     GameObjectVar playerObject;
     FloatVar attackRadius;
 
+    Animator anim;
+
     private void Awake() {
         playerObject = blackboard.GetGameObjectVar("PlayerObject");
         attackRadius = blackboard.GetFloatVar("AttackRadius");
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Called when the state is enabled
     void OnEnable () {
         agent.Resume();
+        anim.GetComponentInChildren<Animator>();
+        anim.SetBool("Walk", true);
     }
 	
 	// Update is called once per frame
@@ -30,6 +35,7 @@ public class MoveToPlayer : StateBehaviour
         }
         else {
             agent.Stop();
+            anim.SetBool("Walk", false);
             SendEvent("InRange");
         }
     }

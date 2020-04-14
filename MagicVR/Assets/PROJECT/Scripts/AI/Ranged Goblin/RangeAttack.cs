@@ -17,16 +17,22 @@ public class RangeAttack : StateBehaviour
     public float fireballSpeed;
     public float fireballDamage;
 
+    Animator anim; 
     private void Awake() {
 
         playerObject = blackboard.GetGameObjectVar("PlayerObject");
+
+
     }
 
     // Called when the state is enabled
     void OnEnable () {
 
-        
-	}
+        anim = GetComponentInChildren<Animator>();
+
+        if (anim)
+            anim.SetTrigger("Attack");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -41,7 +47,7 @@ public class RangeAttack : StateBehaviour
     void shootFireball() {
 
         //spawns a fireball infront of the enemy
-        Vector3 spawnPos = transform.position + Vector3.back;
+        Vector3 spawnPos = transform.position + Vector3.forward;
         GameObject fireball = Instantiate(fireballPrefab, spawnPos, Quaternion.identity);
 
         //calculates path fireball must travel
