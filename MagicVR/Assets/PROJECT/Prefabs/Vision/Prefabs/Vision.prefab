@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 195182}
   m_LocalRotation: {x: -0.5, y: 0.50000006, z: 0.50000006, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.806775, y: 1.388615, z: 0.53181}
+  m_LocalScale: {x: 7.4106483, y: 2.584136, z: 1.0261805}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -91,5 +91,5 @@ MonoBehaviour:
   - Player
   debugOccludedColor: {r: 1, g: 0, b: 0, a: 1}
   debugSightColor: {r: 0, g: 1, b: 1, a: 1}
-  visionEnterMessage: WolfNear
-  visionExitMessage: OnVisionExit
+  visionEnterMessage: PlayerNear
+  visionExitMessage: PlayerLeft

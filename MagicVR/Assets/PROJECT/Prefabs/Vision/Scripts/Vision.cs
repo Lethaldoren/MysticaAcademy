@@ -72,7 +72,6 @@ public class Vision : MonoBehaviour {
             } else {
                 Debug.DrawLine(ray.origin, hit.point, debugOccludedColor);
                 // can't see object
-                owner.SendMessage(visionEnterMessage, objectInVolume, SendMessageOptions.DontRequireReceiver); //edited in
                 LostSight(objectInVolume);
             }
 
