@@ -50,6 +50,10 @@ public class MoveToPlayer : StateBehaviour
         }
         return false;
     }
+
+    void PlayerLeft() {
+        SendEvent("LostPlayer");
+    }
 }
 
 
