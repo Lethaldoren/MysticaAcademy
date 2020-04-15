@@ -87,6 +87,7 @@ using Valve.VR;
 
         void ActivateTeleportMarker ()
         {
+            TeleportMarker.transform.position = player.feetPositionGuess;
             markerActive = true;
             TeleportMarker.SetActive(true);
         }
