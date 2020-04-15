@@ -11,10 +11,13 @@ public class NoiseyProp : MonoBehaviour
     public LayerMask enemyLayerMask;
     Rigidbody rb;
 
+    GameObjectVar BBProp;
+
     private void Start()
     {
         
     }
+
     private void OnCollisionEnter(Collision collision)
     {
        if (collision.impulse.magnitude > ForceToAlert)
@@ -25,8 +28,11 @@ public class NoiseyProp : MonoBehaviour
             {
                 Blackboard blackboard = collider.gameObject.GetComponent<Blackboard>();
 
-                // insert the name of the event connor had setup. 
-                blackboard.SendEvent("");
+                BBProp = blackboard.GetGameObjectVar("NoisyProp");
+
+                BBProp.Value = gameObject;
+
+                blackboard.SendEvent("HeardSound");
             }
         }
     }

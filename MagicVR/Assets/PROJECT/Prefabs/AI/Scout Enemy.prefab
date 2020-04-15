@@ -3020,7 +3020,7 @@ MonoBehaviour:
     m_IsConstant: 0
     value: {fileID: 0}
   - m_ID: 319204077
-    m_Name: SoundObject
+    m_Name: NoisyProp
     m_Blackboard: {fileID: 1999187348202416782}
     m_IsConstant: 0
     value: {fileID: 0}
@@ -3085,7 +3085,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -217954
+  m_CachedInstanceID: -5302
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -3115,7 +3115,7 @@ MonoBehaviour:
     m_EventID: 1252895643
   - m_Destination: {fileID: 1333416082884228052}
     m_EventID: 590146249
-  m_CachedInstanceID: -217956
+  m_CachedInstanceID: -5304
   agent: {fileID: 6924107117603076332}
 --- !u!114 &3603115206874515929
 MonoBehaviour:
@@ -3138,7 +3138,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 1333416082884228052}
     m_EventID: 1374246405
-  m_CachedInstanceID: -217958
+  m_CachedInstanceID: -5306
   hitDamage: 5
 --- !u!82 &5019105817908272490
 AudioSource:
@@ -3286,7 +3286,7 @@ MonoBehaviour:
     m_EventID: 974200304
   - m_Destination: {fileID: 2905698567165110942}
     m_EventID: 2068725697
-  m_CachedInstanceID: -217962
+  m_CachedInstanceID: -5310
   agent: {fileID: 6924107117603076332}
   roamSpeed: 5
   waypoints:
@@ -3315,7 +3315,7 @@ MonoBehaviour:
     m_EventID: 974200304
   - m_Destination: {fileID: 1333416082884228052}
     m_EventID: 1229749394
-  m_CachedInstanceID: -217964
+  m_CachedInstanceID: -5312
   agent: {fileID: 0}
   investigationTime: 0
 --- !u!1 &9219250189635456211
