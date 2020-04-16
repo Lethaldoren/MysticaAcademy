@@ -75,7 +75,7 @@ public class GameManager : SingletonBase<GameManager>
         Time.timeScale = 0;
         gameOverMenu.SetActive(true);
 
-        gameOverMenu.transform.position = player.transform.position + (player.transform.forward * 3);
+        gameOverMenu.transform.position = player.transform.position + (player.transform.forward * 1.5f) + (Vector3.up * 1.5f);
     }
 
     public void Victory ()
@@ -83,7 +83,7 @@ public class GameManager : SingletonBase<GameManager>
         Time.timeScale = 0;
         victoryMenu.SetActive(true);
 
-        victoryMenu.transform.position = player.transform.position + (player.transform.forward * 3);
+        victoryMenu.transform.position = player.transform.position + (player.transform.forward * 1.5f) + (Vector3.up * 1.5f) ;
     }
 
     public void GameRestart ()

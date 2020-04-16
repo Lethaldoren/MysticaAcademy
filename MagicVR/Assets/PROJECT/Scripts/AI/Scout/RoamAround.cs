@@ -12,12 +12,16 @@ public class RoamAround : StateBehaviour
     int arraySize;
     int i = 0;
 
+    Animator anim;
     private void Start() {
         arraySize = waypoints.Length;
     }
 
     // Called when the state is enabled
     void OnEnable() {
+        anim = GetComponentInChildren<Animator>();
+        if (anim)
+            anim.SetBool("Walk", true);
         agent.speed = roamSpeed;
     }
 

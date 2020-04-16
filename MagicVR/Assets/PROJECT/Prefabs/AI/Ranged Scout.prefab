@@ -1831,6 +1831,11 @@ MonoBehaviour:
     m_Blackboard: {fileID: 4540009508579353467}
     m_IsConstant: 0
     value: {fileID: 0}
+  - m_ID: 1985480707
+    m_Name: NoisyProp
+    m_Blackboard: {fileID: 4540009508579353467}
+    m_IsConstant: 0
+    value: {fileID: 0}
   m_TextureVars: []
   m_MaterialVars: []
   m_ObjectVars: []
@@ -1897,7 +1902,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -28556
+  m_CachedInstanceID: -50500
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -1927,7 +1932,7 @@ MonoBehaviour:
     m_EventID: 118580489
   - m_Destination: {fileID: 1572667435208006228}
     m_EventID: 391031534
-  m_CachedInstanceID: -28558
+  m_CachedInstanceID: -50502
   cooldownTime: 5
 --- !u!114 &755742345770629987
 MonoBehaviour:
@@ -1950,7 +1955,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 755742345770629998}
     m_EventID: 1705001109
-  m_CachedInstanceID: -28560
+  m_CachedInstanceID: -50504
   fireballPrefab: {fileID: 4846181536429198802, guid: 792bb197ae411ff49b8ba55aa3fb41ad,
     type: 3}
   fireballSpeed: 5
@@ -1978,7 +1983,7 @@ MonoBehaviour:
     m_EventID: 16477986
   - m_Destination: {fileID: 1572667435208006228}
     m_EventID: 391031534
-  m_CachedInstanceID: -28562
+  m_CachedInstanceID: -50506
   agent: {fileID: 755742345770629984}
 --- !u!82 &755742346386633869
 AudioSource:
@@ -2124,7 +2129,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 755742345770629987}
     m_EventID: 715551677
-  m_CachedInstanceID: -28566
+  m_CachedInstanceID: -50510
   agent: {fileID: 755742345770629984}
   investigationTime: 5
 --- !u!114 &1572667435208006228
@@ -2150,7 +2155,7 @@ MonoBehaviour:
     m_EventID: 715551677
   - m_Destination: {fileID: 5447399944431026767}
     m_EventID: 1724065310
-  m_CachedInstanceID: -28568
+  m_CachedInstanceID: -50512
   agent: {fileID: 755742345770629984}
   roamSpeed: 5
   waypoints: []

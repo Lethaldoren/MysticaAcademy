@@ -18,7 +18,7 @@ public class Investigate : StateBehaviour
     // Start is called before the first frame update
     void Awake() {
 
-        rockObject = blackboard.GetGameObjectVar("RockObject");
+        rockObject = blackboard.GetGameObjectVar("NoisyProp");
     }
 
     private void Start() {
@@ -33,6 +33,7 @@ public class Investigate : StateBehaviour
             agent.SetDestination(rockObject.Value.transform.position);
         }
         else {
+            StartCoroutine(InvestigateArea());
             SendEvent("InRange");
         }
     }
@@ -41,7 +42,7 @@ public class Investigate : StateBehaviour
 
         var distanceSquared = (transform.position - rockObject.Value.transform.position).sqrMagnitude;
 
-        if (distanceSquared < 0.5f * 0.5f) {
+        if (distanceSquared < 1) {
             return true;
         }
         return false;

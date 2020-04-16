@@ -24,6 +24,7 @@ public class Telekinisis : MonoBehaviour
     Rigidbody controlledRB;
     Vector3 controllerOrigin;
 
+    public GameObject particles;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,7 +78,7 @@ public class Telekinisis : MonoBehaviour
     {
        
         controlledRB.velocity = direction;
-        
+        particles.transform.position = controlledRB.position;
     }
 
     void ThrowObject(Vector3 direction, float speed)
@@ -116,7 +117,7 @@ public class Telekinisis : MonoBehaviour
         Debug.Log("Searching For Object");
         Transform handTransform = castingHand.gameObject.transform;
 
-        RaycastHit[] hits = Physics.CapsuleCastAll(handTransform.position, handTransform.position + (handTransform.forward * maxCastDistance), castRadius, handTransform.forward, Mathf.Infinity, collisionMask);
+        RaycastHit[] hits = Physics.CapsuleCastAll(handTransform.position, handTransform.position + ((Quaternion.AngleAxis(50, handTransform.right) * handTransform.forward )* maxCastDistance), castRadius, handTransform.forward, Mathf.Infinity, collisionMask);
         if (hits.Length > 0)
         {
             Debug.Log(hits[0].collider.gameObject);
@@ -129,7 +130,7 @@ public class Telekinisis : MonoBehaviour
     {
         searchingForObject = false;
         controllingObject = true;
-
+        particles.SetActive(true);
         controlledRB.useGravity = false;
         controllerOrigin = castingHand.transform.position;
     }
@@ -137,6 +138,7 @@ public class Telekinisis : MonoBehaviour
 
     void ReleaseObject ()
     {
+        particles.SetActive(false);
         controllingObject = false;
         controlledRB.useGravity = true; 
     }

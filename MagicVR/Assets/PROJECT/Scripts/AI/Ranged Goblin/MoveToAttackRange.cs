@@ -25,7 +25,7 @@ public class MoveToAttackRange : StateBehaviour
 
         anim = GetComponentInChildren<Animator>();
         if (anim)
-            anim.SetBool("Walking", true);
+            anim.SetBool("Walk", true);
 
     }
 
