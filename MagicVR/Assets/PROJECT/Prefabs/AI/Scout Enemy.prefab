@@ -2854,7 +2854,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9029800067453987826}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.0800524, y: 0, z: 13.026705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2904,7 +2904,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -3001,7 +3001,7 @@ MonoBehaviour:
     m_Name: AttackRadius
     m_Blackboard: {fileID: 1999187348202416782}
     m_IsConstant: 0
-    value: 4
+    value: 2
   m_IntVars: []
   m_BoolVars: []
   m_StringVars: []
@@ -3091,7 +3091,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -27658
+  m_CachedInstanceID: -47610
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -3121,7 +3121,7 @@ MonoBehaviour:
     m_EventID: 1252895643
   - m_Destination: {fileID: 1333416082884228052}
     m_EventID: 590146249
-  m_CachedInstanceID: -27660
+  m_CachedInstanceID: -47612
   agent: {fileID: 6924107117603076332}
 --- !u!114 &3603115206874515929
 MonoBehaviour:
@@ -3144,7 +3144,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 8021820618780434391}
     m_EventID: 1374246405
-  m_CachedInstanceID: -27662
+  m_CachedInstanceID: -47614
   hitDamage: 5
 --- !u!82 &5019105817908272490
 AudioSource:
@@ -3292,9 +3292,9 @@ MonoBehaviour:
     m_EventID: 974200304
   - m_Destination: {fileID: 2905698567165110942}
     m_EventID: 2068725697
-  m_CachedInstanceID: -27666
+  m_CachedInstanceID: -47618
   agent: {fileID: 6924107117603076332}
-  roamSpeed: 5
+  roamSpeed: 1
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -3321,7 +3321,7 @@ MonoBehaviour:
     m_EventID: 974200304
   - m_Destination: {fileID: 1333416082884228052}
     m_EventID: 1229749394
-  m_CachedInstanceID: -27668
+  m_CachedInstanceID: -47620
   agent: {fileID: 0}
   investigationTime: 5
 --- !u!114 &8021820618780434391
@@ -3347,8 +3347,8 @@ MonoBehaviour:
     m_EventID: 1434195623
   - m_Destination: {fileID: 1333416082884228052}
     m_EventID: 590146249
-  m_CachedInstanceID: -27670
-  cooldownTime: 0
+  m_CachedInstanceID: -47622
+  cooldownTime: 3
 --- !u!1 &9219250189635456211
 GameObject:
   m_ObjectHideFlags: 0
