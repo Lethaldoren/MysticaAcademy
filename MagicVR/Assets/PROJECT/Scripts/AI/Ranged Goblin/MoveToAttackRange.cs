@@ -59,6 +59,10 @@ public class MoveToAttackRange : StateBehaviour
         }
         return false;
     }
+
+    void PlayerLeft() {
+        SendEvent("LostPlayer");
+    }
 }
 
 
