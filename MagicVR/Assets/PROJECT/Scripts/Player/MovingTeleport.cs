@@ -7,6 +7,7 @@ using Valve.VR;
 
     public class MovingTeleport : MonoBehaviour
     {
+        LineRenderer line; 
         public Player player;
         public LayerMask CollisionMask;
         public GameObject TeleportMarker;
@@ -28,6 +29,7 @@ using Valve.VR;
         // Start is called before the first frame update
         void Start()
         {
+        line = GetComponent<LineRenderer>();
             //player = InteractionSystem.Player.instance;
         }
 
@@ -94,6 +96,7 @@ using Valve.VR;
 
         void DeactivateTeleportMarker()
         {
+            line.enabled = false;
             markerActive = false;
             TeleportMarker.SetActive(false);
         }
@@ -103,13 +106,28 @@ using Valve.VR;
             Transform handTransform = pointerHand.transform;
             RaycastHit hit;
 
-            Ray ray = new Ray(handTransform.position, handTransform.forward);
+        Vector3[] Positions = new Vector3[2];
+        Positions[0] = pointerHand.transform.position;
+
+
+   
+            Ray ray = new Ray(handTransform.position, Quaternion.AngleAxis(50, handTransform.right) * handTransform.forward );
 
             if (Physics.Raycast (ray, out hit,Mathf.Infinity, CollisionMask))
             {
-                Debug.DrawRay(handTransform.position, handTransform.forward, Color.red);
-                TargetPosition = hit.point; 
+            line.enabled = true;
+            Debug.DrawRay(handTransform.position, handTransform.forward, Color.red);
+                TargetPosition = hit.point;
+                Positions[1] = TargetPosition;
+
+            line.SetPositions(Positions);
             }
+            else
+            {
+
+            line.enabled = false;
+            }
+
         }
 
         void MoveMarker()
