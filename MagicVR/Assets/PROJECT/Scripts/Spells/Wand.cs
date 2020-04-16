@@ -21,6 +21,7 @@ namespace Valve.VR.InteractionSystem
         public Vector3 angularVelocity;
 
         // private variables
+        Interactable inter;
         private SteamVR_Behaviour_Pose m_Pose = null;
         public bool castingSpell;
 
@@ -34,6 +35,7 @@ namespace Valve.VR.InteractionSystem
 
         void Start()
         {
+            inter = GetComponent<Interactable>();
             keywordRecognizer = new KeywordRecognizer(SpellManager.Instance.AllSpellNames()); // this adds all actions in the dictionary to the voice commands the keywordRecognizer will listen for
             keywordRecognizer.OnPhraseRecognized += PhraseRecognized;
             keywordRecognizer.Start(); // you can turn the keyword recongnizer on or off
@@ -75,68 +77,74 @@ namespace Valve.VR.InteractionSystem
 
         void Update()
         {
-            if (equipedSpell != null)
+
+            if (inter.attachedToHand)
             {
-                if (noVRInput)
+                m_Pose = inter.attachedToHand.GetComponent< SteamVR_Behaviour_Pose>();
+                if (equipedSpell != null)
                 {
-                    // [DEBUG] Equipping spells
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (noVRInput)
                     {
-                        EquipSpell("Fire Ball");
+                        // [DEBUG] Equipping spells
+                        if (Input.GetKeyDown(KeyCode.F))
+                        {
+                            EquipSpell("Fire Ball");
+                        }
+                        if (Input.GetKeyDown(KeyCode.J))
+                        {
+                            EquipSpell("Jolt");
+                        }
+
+                        // Down
+                        if (Input.GetKeyDown(KeyCode.Space))
+                        {
+                            equipedSpell.GetComponent<Spell>().OnTriggerDown.Invoke();
+                            castingSpell = true;
+                        }
+
+                        // Held
+                        if (castingSpell && Input.GetKey(KeyCode.Space))
+                        {
+                            equipedSpell.GetComponent<Spell>().OnTriggerHeld.Invoke();
+                        }
+
+                        // Up
+                        if (Input.GetKeyUp(KeyCode.Space))
+                        {
+                            equipedSpell.GetComponent<Spell>().OnTriggerUp.Invoke();
+                            castingSpell = false;
+                        }
                     }
-                    if (Input.GetKeyDown(KeyCode.J))
+                    else
                     {
-                        EquipSpell("Jolt");
+                        // Down
+                        if (m_FireAction.GetStateDown(m_Pose.inputSource))
+                        {
+                            // Debug.Log("down");
+                            equipedSpell.GetComponent<Spell>().OnTriggerDown.Invoke();
+                            castingSpell = true;
+                        }
+
+                        // Held
+                        if (castingSpell && m_FireAction.GetState(m_Pose.inputSource))
+                        {
+                            // Debug.Log("held");
+                            equipedSpell.GetComponent<Spell>().OnTriggerHeld.Invoke();
+                        }
+
+                        // Up
+                        if (m_FireAction.GetStateUp(m_Pose.inputSource))
+                        {
+                            // Debug.Log("up");
+                            equipedSpell.GetComponent<Spell>().OnTriggerUp.Invoke();
+                            castingSpell = false;
+                        }
+
                     }
 
-                    // Down
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        equipedSpell.GetComponent<Spell>().OnTriggerDown.Invoke();
-                        castingSpell = true;
-                    }
-
-                    // Held
-                    if (castingSpell && Input.GetKey(KeyCode.Space))
-                    {
-                        equipedSpell.GetComponent<Spell>().OnTriggerHeld.Invoke();
-                    }
-
-                    // Up
-                    if (Input.GetKeyUp(KeyCode.Space))
-                    {
-                        equipedSpell.GetComponent<Spell>().OnTriggerUp.Invoke();
-                        castingSpell = false;
-                    }
                 }
-                else
-                {
-                    // Down
-                    if (m_FireAction.GetStateDown(m_Pose.inputSource))
-                    {
-                        // Debug.Log("down");
-                        equipedSpell.GetComponent<Spell>().OnTriggerDown.Invoke();
-                        castingSpell = true;
-                    }
-
-                    // Held
-                    if (castingSpell && m_FireAction.GetState(m_Pose.inputSource))
-                    {
-                        // Debug.Log("held");
-                        equipedSpell.GetComponent<Spell>().OnTriggerHeld.Invoke();
-                    }
-
-                    // Up
-                    if (m_FireAction.GetStateUp(m_Pose.inputSource))
-                    {
-                        // Debug.Log("up");
-                        equipedSpell.GetComponent<Spell>().OnTriggerUp.Invoke();
-                        castingSpell = false;
-                    }
-                    
-                }
-
             }
+          
 
         }
 

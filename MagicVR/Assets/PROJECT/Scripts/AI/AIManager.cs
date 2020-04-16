@@ -78,14 +78,23 @@ public class AIManager : SingletonBase<AIManager>
     {
         currentWaveNumber += 1;
 
-        currentWaveObject = waves[currentWaveNumber - 1].gameObject;
+        if (currentWaveNumber <= waves.Count)
+        {
+            currentWaveObject = waves[currentWaveNumber - 1].gameObject;
 
-        currentWaveObject.SetActive(true);
-        enemiesLeft = currentWaveObject.transform.childCount;
-        maxTokens = currentWaveObject.GetComponent<Wave>().availableTokens;
-        currentTokens = maxTokens;
 
-        waveComplete = false;
+            currentWaveObject.SetActive(true);
+            enemiesLeft = currentWaveObject.transform.childCount;
+            maxTokens = currentWaveObject.GetComponent<Wave>().availableTokens;
+            currentTokens = maxTokens;
+
+            waveComplete = false;
+        }
+        else
+        {
+            GameManager.Instance.Victory();
+        }
+
     }
 
     //AI will check if they can take a token for attacking

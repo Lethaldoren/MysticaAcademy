@@ -69,7 +69,7 @@ public class GameManager : SingletonBase<GameManager>
         gameStarted = true; 
     }
 
-    void GameOver ()
+    public void GameOver ()
     {
         
         Time.timeScale = 0;
@@ -78,14 +78,15 @@ public class GameManager : SingletonBase<GameManager>
         gameOverMenu.transform.position = player.transform.position + (player.transform.forward * 3);
     }
 
-    void Victory ()
+    public void Victory ()
     {
         Time.timeScale = 0;
         victoryMenu.SetActive(true);
 
         victoryMenu.transform.position = player.transform.position + (player.transform.forward * 3);
     }
-    void GameRestart ()
+
+    public void GameRestart ()
     {
         Time.timeScale = 1;
         gameOverMenu.SetActive(false);
