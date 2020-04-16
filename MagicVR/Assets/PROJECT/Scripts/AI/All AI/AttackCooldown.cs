@@ -23,6 +23,10 @@ public class AttackCooldown : StateBehaviour
         yield return cooldownDelay;
         SendEvent("ReadyToAttack");
     }
+
+    void PlayerLeft() {
+        SendEvent("LostPlayer");
+    }
 }
 
 
