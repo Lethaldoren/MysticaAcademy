@@ -1415,7 +1415,7 @@ Transform:
   m_GameObject: {fileID: 3608574135520349753}
   m_LocalRotation: {x: -0.5, y: 0.50000006, z: 0.50000006, w: 0.5}
   m_LocalPosition: {x: 0, y: 1.1269094, z: 0}
-  m_LocalScale: {x: 10.916629, y: 4.04081, z: 1.02618}
+  m_LocalScale: {x: 10.916629, y: 4.04081, z: 2.121114}
   m_Children: []
   m_Father: {fileID: 4540009508579353466}
   m_RootOrder: 0
@@ -1826,11 +1826,6 @@ MonoBehaviour:
   m_ColorVars: []
   m_QuaternionVars: []
   m_GameObjectVars:
-  - m_ID: 1523515362
-    m_Name: AIManager
-    m_Blackboard: {fileID: 4540009508579353467}
-    m_IsConstant: 0
-    value: {fileID: 0}
   - m_ID: 719400235
     m_Name: PlayerObject
     m_Blackboard: {fileID: 4540009508579353467}
@@ -1902,7 +1897,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -13350
+  m_CachedInstanceID: -28556
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -1932,7 +1927,7 @@ MonoBehaviour:
     m_EventID: 118580489
   - m_Destination: {fileID: 1572667435208006228}
     m_EventID: 391031534
-  m_CachedInstanceID: -13352
+  m_CachedInstanceID: -28558
   cooldownTime: 5
 --- !u!114 &755742345770629987
 MonoBehaviour:
@@ -1955,7 +1950,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 755742345770629998}
     m_EventID: 1705001109
-  m_CachedInstanceID: -13354
+  m_CachedInstanceID: -28560
   fireballPrefab: {fileID: 4846181536429198802, guid: 792bb197ae411ff49b8ba55aa3fb41ad,
     type: 3}
   fireballSpeed: 5
@@ -1983,7 +1978,7 @@ MonoBehaviour:
     m_EventID: 16477986
   - m_Destination: {fileID: 1572667435208006228}
     m_EventID: 391031534
-  m_CachedInstanceID: -13356
+  m_CachedInstanceID: -28562
   agent: {fileID: 755742345770629984}
 --- !u!82 &755742346386633869
 AudioSource:
@@ -2129,7 +2124,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 755742345770629987}
     m_EventID: 715551677
-  m_CachedInstanceID: -13360
+  m_CachedInstanceID: -28566
   agent: {fileID: 755742345770629984}
   investigationTime: 5
 --- !u!114 &1572667435208006228
@@ -2155,12 +2150,10 @@ MonoBehaviour:
     m_EventID: 715551677
   - m_Destination: {fileID: 5447399944431026767}
     m_EventID: 1724065310
-  m_CachedInstanceID: -13362
+  m_CachedInstanceID: -28568
   agent: {fileID: 755742345770629984}
   roamSpeed: 5
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
 --- !u!1 &4893567332407499535
 GameObject:
   m_ObjectHideFlags: 0

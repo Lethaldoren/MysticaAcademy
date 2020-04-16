@@ -8,15 +8,11 @@ public class MoveToAttackRange : StateBehaviour
 {
     public NavMeshAgent agent;
 
-    GameObjectVar aiManager;
-    FloatVar speed;
     GameObjectVar playerObject;
     FloatVar waitRadius;
 
     Animator anim; 
     private void Awake() {
-        aiManager = blackboard.GetGameObjectVar("AIManager");
-        speed = blackboard.GetFloatVar("Speed");
         playerObject = blackboard.GetGameObjectVar("PlayerObject");
         waitRadius = blackboard.GetFloatVar("WaitRadius");
 
@@ -25,7 +21,6 @@ public class MoveToAttackRange : StateBehaviour
 
     // Called when the state is enabled
     void OnEnable () {
-        agent.speed = speed.Value;
         agent.Resume();
 
         anim = GetComponentInChildren<Animator>();
@@ -39,7 +34,7 @@ public class MoveToAttackRange : StateBehaviour
 
         //moves enemy to attack radius of player
         if (!WaypointCheck()) {
-            agent.SetDestination(playerObject.transform.position);
+            agent.SetDestination(playerObject.Value.transform.position);
         }
         else {
             agent.Stop();

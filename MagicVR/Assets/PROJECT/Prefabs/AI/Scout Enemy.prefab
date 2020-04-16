@@ -1142,7 +1142,7 @@ Transform:
   m_GameObject: {fileID: 3733579315856017126}
   m_LocalRotation: {x: -0.5, y: 0.50000006, z: 0.50000006, w: 0.5}
   m_LocalPosition: {x: 0, y: 0.68, z: 0}
-  m_LocalScale: {x: 10.916626, y: 4.0408134, z: 1.0261805}
+  m_LocalScale: {x: 10.916626, y: 4.0408134, z: 2.1613414}
   m_Children: []
   m_Father: {fileID: 3860620721652534509}
   m_RootOrder: 0
@@ -3091,7 +3091,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: -12184
+  m_CachedInstanceID: -27658
   m_Description: 
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -3121,7 +3121,7 @@ MonoBehaviour:
     m_EventID: 1252895643
   - m_Destination: {fileID: 1333416082884228052}
     m_EventID: 590146249
-  m_CachedInstanceID: -12186
+  m_CachedInstanceID: -27660
   agent: {fileID: 6924107117603076332}
 --- !u!114 &3603115206874515929
 MonoBehaviour:
@@ -3144,7 +3144,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 8021820618780434391}
     m_EventID: 1374246405
-  m_CachedInstanceID: -12188
+  m_CachedInstanceID: -27662
   hitDamage: 5
 --- !u!82 &5019105817908272490
 AudioSource:
@@ -3292,7 +3292,7 @@ MonoBehaviour:
     m_EventID: 974200304
   - m_Destination: {fileID: 2905698567165110942}
     m_EventID: 2068725697
-  m_CachedInstanceID: -12192
+  m_CachedInstanceID: -27666
   agent: {fileID: 6924107117603076332}
   roamSpeed: 5
   waypoints:
@@ -3321,7 +3321,7 @@ MonoBehaviour:
     m_EventID: 974200304
   - m_Destination: {fileID: 1333416082884228052}
     m_EventID: 1229749394
-  m_CachedInstanceID: -12194
+  m_CachedInstanceID: -27668
   agent: {fileID: 0}
   investigationTime: 5
 --- !u!114 &8021820618780434391
@@ -3347,7 +3347,7 @@ MonoBehaviour:
     m_EventID: 1434195623
   - m_Destination: {fileID: 1333416082884228052}
     m_EventID: 590146249
-  m_CachedInstanceID: -12196
+  m_CachedInstanceID: -27670
   cooldownTime: 0
 --- !u!1 &9219250189635456211
 GameObject:
